@@ -43,6 +43,7 @@ import { IDeal } from './schema/Deal'
 
 
 (async () => {
-  const data = await readCsvFile<IDeal>('./repository/test.csv')
-  console.log(data[0])
+  // const data = await readCsvFile<IDeal>('./repository/test.csv')
+  // console.log(data[0])
+  console.log('aa')
 })()
