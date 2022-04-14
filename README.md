@@ -1,7 +1,6 @@
-# Awesome Project Build with TypeORM
+# Actual Price Registration data preprocessing
 
-Steps to run this project:
-
-1. Run `npm i` command
-2. Setup database settings inside `ormconfig.json` file
-3. Run `npm start` command
+## quick start
+```console
+yarn start
+```
