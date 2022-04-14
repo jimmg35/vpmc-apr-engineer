@@ -1,0 +1,24 @@
+{
+   "type": "postgres",
+   "host": "140.122.82.98",
+   "port": 5432,
+   "username": "postgres",
+   "password": "r2tadmiadc",
+   "database": "vpmcapr",
+   "synchronize": false,
+   "logging": false,
+   "entities": [
+      "src/entity/**/*.ts"
+   ],
+   "migrations": [
+      "src/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "src/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
+}
