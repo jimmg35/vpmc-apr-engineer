@@ -40,10 +40,10 @@ import { IDeal } from './schema/Deal'
 //   '交易標的橫坐標': '2755133',
 //   '交易標的縱坐標': '269351'
 // }
+import { chain } from 'lodash'
 
 
 (async () => {
-  // const data = await readCsvFile<IDeal>('./repository/test.csv')
-  // console.log(data[0])
-  console.log('aa')
+  const data = await readCsvFile<IDeal>('./repository/taipei/merged/taipei.csv')
+  console.log(data[0])
 })()

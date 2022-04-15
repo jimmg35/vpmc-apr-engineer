@@ -6,6 +6,7 @@
   "author": "iadc",
   "license": "MIT",
   "dependencies": {
+    "@types/lodash": "^4.14.181",
     "csv-parser": "^3.0.0",
     "lodash": "^4.17.21",
     "pg": "^8.4.0",
