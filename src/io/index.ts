@@ -3,6 +3,7 @@ import fs from 'fs'
 import internal from 'stream'
 import { langMapping } from '../schema/LanguageMapping'
 import { getKeyByValue } from '../utility'
+import { mapKeys } from 'lodash'
 
 export const zn2En = (params: { header: string, index: number }) => {
   return langMapping[params.header]
@@ -16,14 +17,22 @@ export const readCsvFile = async <T> (filePath: string): Promise<T[]> => {
   return new Promise((resolve) => {
     const results: T[] = []
     const stream: fs.ReadStream = fs.createReadStream(filePath)
-    const transform: internal.Transform = stream.pipe(csvParser({
-      mapHeaders: zn2En
-    }))
+    const transform: internal.Transform = stream.pipe(csvParser())
     transform.on('data', (data: T) => {
       results.push(data)
     })
     transform.on('end', () => {
-      resolve(results)
+      const translatedResults: T[] = []
+      results.forEach((result: any) => {
+        let resultTranslated: any = mapKeys(result, (value, key) => {
+          if (langMapping[key] === undefined) {
+            return 'town'
+          }
+          return langMapping[key]
+        })
+        translatedResults.push(resultTranslated)
+      })
+      resolve(translatedResults)
     })
   })
 }
