@@ -1,16 +1,24 @@
 import { readCsvFile } from './io'
-import { IDeal } from './schema/Deal'
-import { chain, mapKeys } from 'lodash'
-import { langMapping } from './schema/LanguageMapping'
+import { IUnprocessedDeal } from './schema/Deal'
+import { chain } from 'lodash'
+
+declare global {
+  interface Array<T> {
+    showAll (): void;
+  }
+}
+
+if (!Array.prototype.showAll) {
+  Array.prototype.showAll = function <T> (this: T[]): void {
+    this.map((elem) => {
+      console.log(elem)
+    })
+    // return this.filter(e => e !== elem);
+  }
+}
 
 (async () => {
-  const data = await readCsvFile<IDeal>('./repository/taipei/merged/taipei.csv')
-  console.log(data[0])
-  // let aa = mapKeys(data[0], (value, key) => {
-  //   // if (langMapping[key] === undefined) {
-  //   //   return 'fuck'
-  //   // }
-  //   return langMapping[key]
-  // })
-  // console.log(aa)
+  const deals = await readCsvFile<IUnprocessedDeal>('./repository/taipei/merged/taipei.csv')
+  deals.showAll()
+
 })()

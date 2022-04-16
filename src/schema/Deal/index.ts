@@ -1,42 +1,38 @@
 
-export interface IDeal {
-  serial: string
+export interface IUnprocessedDeal {
+  town: string
+  transactionTarget: string
+  address: string
+  landTransferArea: string
+  urbanLandUse: string
+  nonUrbanLandUse: string
+  nonUrbanLandUsePlanning: string
+  transactionTime: string
+  transactionAmount: string
+  transferFloor: string
+  floor: string
+  buildingType: string
+  usage: string
+  buildingMaterial: string
+  completionTime: string
+  buildingTransferArea: string
+  roomNumber: string
+  hallNumber: string
+  bathNumber: string
+  hasCompartment: string
+  hasCommittee: string
+  price: string
+  unitPrice: string
+  parkingSpaceType: string
+  parkingSpaceTransferArea: string
+  parkingSpacePrice: string
+  coordinate_y: string
+  coordinate_x: string
+  hasNotes: string
+  notes: string
   id: string
-  nonMetroLandUseDistrict: string
-
-  LandTransactionAmount: string
-  BuildingTransactionAmount: string
-  ParkTransactionAmount: string
-  TotalFloorNumber: string
-  BuildingMaterial: string
-  TransactionSign: string
-  NonMetroLandUse: string
-  TransactionDate: string
-  CompletionDate: string
-  ShiftingLevel: string
-  ParsedShiftingLevel: string
-  BuildingState: string
-  ParkCategory: string
-  MainUse: string
-  Address: string
-  LandUse: string
-  Town: string
-  Note: string
-  BuildingShiftingArea: string
-  LandShiftingArea: string
-  MainBuildingArea: string
-  ParkShiftingArea: string
-  SubBuildingArea: string
-  ParkTotalPrice: string
-  BelconyArea: string
-  TotalPrice: string
-  UnitPrice: string
-  BathNumber: string
-  BedNumber: string
-  HallNumber: string
-  HasManageOrganization: string
-  HasCompartmented: string
-  HasElevator: string
-  CoordinateX: string
-  CoordinateY: string
+  buildingArea: string
+  subBuildingArea: string
+  belconyArea: string
+  hasElevator: string
 }
