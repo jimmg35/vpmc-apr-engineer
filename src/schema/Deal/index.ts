@@ -1,5 +1,5 @@
 
-export interface IUnprocessedDeal {
+export interface IDeal {
   town: string
   transactionTarget: string
   address: string
@@ -35,4 +35,7 @@ export interface IUnprocessedDeal {
   subBuildingArea: string
   belconyArea: string
   hasElevator: string
+  parsedValue: {
+    transactionTime: Date | undefined
+  }
 }
