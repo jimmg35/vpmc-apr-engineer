@@ -6,6 +6,7 @@ import parseFloor from './Deal/parseFloor'
 import parseTransferFloor from './Deal/parseTransferFloor'
 import parseElevator from './Deal/parseElevator'
 import parseCommittee from './Deal/parseCommittee'
+import parseCompartment from './Deal/parseCompartment'
 
 declare global {
   interface Array<T> {
@@ -17,6 +18,7 @@ declare global {
     parseTransferFloor (): Array<T>
     parseElevator (): Array<T>
     parseCommittee (): Array<T>
+    parseCompartment (): Array<T>
   }
 }
 
@@ -85,6 +87,15 @@ Object.defineProperty(Array.prototype, 'parseCommittee', {
   value: function <T> (this: Array<IDeal>): Array<IDeal> {
     this.map((row) => {
       parseCommittee(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseCompartment', {
+  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+    this.map((row) => {
+      parseCompartment(row)
     })
     return this
   }

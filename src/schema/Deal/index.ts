@@ -47,6 +47,7 @@ export interface IDeal {
     transferFloor?: IParsedValue<number | undefined>
     hasElevator?: IParsedValue<number | undefined>
     hasCommittee?: IParsedValue<number | undefined>
+    hasCompartment?: IParsedValue<number | undefined>
   }
 }
 

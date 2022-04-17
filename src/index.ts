@@ -12,7 +12,8 @@ import './_function/index'
     // .parseFloor()
     // .parseTransferFloor()
     // .parseElevator()
-    .parseCommittee()
+    // .parseCommittee()
+    .parseCompartment()
     .showTop()
 
   // const aa: any[] = []
