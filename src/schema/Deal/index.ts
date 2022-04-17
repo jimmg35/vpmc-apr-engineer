@@ -1,5 +1,10 @@
 
-export interface IUnprocessedDeal {
+interface IParsedValue<T> {
+  value?: T
+  success?: boolean
+}
+
+export interface IDeal {
   town: string
   transactionTarget: string
   address: string
@@ -35,4 +40,38 @@ export interface IUnprocessedDeal {
   subBuildingArea: string
   belconyArea: string
   hasElevator: string
+  parsedValue: {
+    transactionTime?: IParsedValue<Date | undefined>
+    completionTime?: IParsedValue<Date | undefined>
+    floor?: IParsedValue<number | undefined>
+    transferFloor?: IParsedValue<number | undefined>
+    hasElevator?: IParsedValue<number | undefined>
+    hasCommittee?: IParsedValue<number | undefined>
+    hasCompartment?: IParsedValue<number | undefined>
+
+    landTransferArea?: IParsedValue<number | undefined>
+    buildingTransferArea?: IParsedValue<number | undefined>
+    roomNumber?: IParsedValue<number | undefined>
+    hallNumber?: IParsedValue<number | undefined>
+    bathNumber?: IParsedValue<number | undefined>
+    price?: IParsedValue<number | undefined>
+    unitPrice?: IParsedValue<number | undefined>
+    parkingSpaceTransferArea?: IParsedValue<number | undefined>
+    parkingSpacePrice?: IParsedValue<number | undefined>
+    buildingArea?: IParsedValue<number | undefined>
+    subBuildingArea?: IParsedValue<number | undefined>
+    belconyArea?: IParsedValue<number | undefined>
+  }
+}
+
+export const hasElevatorSchema = {
+  0: '無電梯',
+  1: '有電梯',
+  2: '不確定'
+}
+
+export const hasCommitteeSchema = {
+  0: '無管委會',
+  1: '有管委會',
+  2: '不確定'
 }
