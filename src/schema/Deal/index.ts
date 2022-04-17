@@ -43,5 +43,6 @@ export interface IDeal {
   parsedValue: {
     transactionTime?: IParsedValue<Date | undefined>
     completionTime?: IParsedValue<Date | undefined>
+    floor?: IParsedValue<number | undefined>
   }
 }
