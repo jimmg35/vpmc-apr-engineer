@@ -7,9 +7,20 @@ import './_function/index'
   const deals = await readCsvFile<IDeal>('./repository/taipei/merged/taipei.csv')
   deals
     .showTop()
-    .parseTransactionTime()
-    .parseCompletionTime()
-    .parseFloor()
-    .parseTransferFloor()
+    // .parseTransactionTime()
+    // .parseCompletionTime()
+    // .parseFloor()
+    // .parseTransferFloor()
+    // .parseElevator()
+    .parseCommittee()
     .showTop()
+
+  // const aa: any[] = []
+  // deals.map((deal) => {
+  //   if (!aa.includes(deal.hasCompartment)) {
+  //     aa.push(deal.hasCompartment)
+  //   }
+  // })
+  // console.log(aa)
+
 })()

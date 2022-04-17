@@ -45,5 +45,19 @@ export interface IDeal {
     completionTime?: IParsedValue<Date | undefined>
     floor?: IParsedValue<number | undefined>
     transferFloor?: IParsedValue<number | undefined>
+    hasElevator?: IParsedValue<number | undefined>
+    hasCommittee?: IParsedValue<number | undefined>
   }
+}
+
+export const hasElevatorSchema = {
+  0: '無電梯',
+  1: '有電梯',
+  2: '不確定'
+}
+
+export const hasCommitteeSchema = {
+  0: '無管委會',
+  1: '有管委會',
+  2: '不確定'
 }
