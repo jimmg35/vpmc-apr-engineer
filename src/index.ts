@@ -7,8 +7,9 @@ import './_function/index'
   const deals = await readCsvFile<IDeal>('./repository/taipei/merged/taipei.csv')
   deals
     .showTop()
-    // .parseTransactionTime()
-    // .parseCompletionTime()
+    .parseTransactionTime()
+    .parseCompletionTime()
     .parseFloor()
+    .parseTransferFloor()
     .showTop()
 })()
