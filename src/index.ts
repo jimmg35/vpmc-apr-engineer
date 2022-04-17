@@ -13,7 +13,8 @@ import './_function/index'
     // .parseTransferFloor()
     // .parseElevator()
     // .parseCommittee()
-    .parseCompartment()
+    // .parseCompartment()
+    .parseNumerical()
     .showTop()
 
   // const aa: any[] = []

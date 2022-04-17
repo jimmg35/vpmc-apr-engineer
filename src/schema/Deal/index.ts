@@ -48,6 +48,19 @@ export interface IDeal {
     hasElevator?: IParsedValue<number | undefined>
     hasCommittee?: IParsedValue<number | undefined>
     hasCompartment?: IParsedValue<number | undefined>
+
+    landTransferArea?: IParsedValue<number | undefined>
+    buildingTransferArea?: IParsedValue<number | undefined>
+    roomNumber?: IParsedValue<number | undefined>
+    hallNumber?: IParsedValue<number | undefined>
+    bathNumber?: IParsedValue<number | undefined>
+    price?: IParsedValue<number | undefined>
+    unitPrice?: IParsedValue<number | undefined>
+    parkingSpaceTransferArea?: IParsedValue<number | undefined>
+    parkingSpacePrice?: IParsedValue<number | undefined>
+    buildingArea?: IParsedValue<number | undefined>
+    subBuildingArea?: IParsedValue<number | undefined>
+    belconyArea?: IParsedValue<number | undefined>
   }
 }
 

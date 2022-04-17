@@ -7,6 +7,7 @@ import parseTransferFloor from './Deal/parseTransferFloor'
 import parseElevator from './Deal/parseElevator'
 import parseCommittee from './Deal/parseCommittee'
 import parseCompartment from './Deal/parseCompartment'
+import parseNumerical from './Deal/parseNumerical'
 
 declare global {
   interface Array<T> {
@@ -19,6 +20,7 @@ declare global {
     parseElevator (): Array<T>
     parseCommittee (): Array<T>
     parseCompartment (): Array<T>
+    parseNumerical (): Array<T>
   }
 }
 
@@ -96,6 +98,15 @@ Object.defineProperty(Array.prototype, 'parseCompartment', {
   value: function <T> (this: Array<IDeal>): Array<IDeal> {
     this.map((row) => {
       parseCompartment(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseNumerical', {
+  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+    this.map((row) => {
+      parseNumerical(row)
     })
     return this
   }
