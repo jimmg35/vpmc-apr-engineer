@@ -6,7 +6,7 @@ import './_function/index'
 (async () => {
   const deals = await readCsvFile<IDeal>('./repository/taipei/merged/taipei.csv')
   deals
-    .showTop()
     .parseTransactionTime()
-    .showTop()
+    .parseCompletionTime()
+    .showDeviants()
 })()

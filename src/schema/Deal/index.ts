@@ -1,4 +1,9 @@
 
+interface IParsedValue<T> {
+  value?: T
+  success?: boolean
+}
+
 export interface IDeal {
   town: string
   transactionTarget: string
@@ -36,6 +41,7 @@ export interface IDeal {
   belconyArea: string
   hasElevator: string
   parsedValue: {
-    transactionTime: Date | undefined
+    transactionTime?: IParsedValue<Date | undefined>
+    completionTime?: IParsedValue<Date | undefined>
   }
 }
