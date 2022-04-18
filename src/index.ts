@@ -14,7 +14,7 @@ import './_function/index'
     // .parseElevator()
     // .parseCommittee()
     // .parseCompartment()
-    .parseNumerical()
+    // .parseNumerical()
     .showTop()
 
   // const aa: any[] = []

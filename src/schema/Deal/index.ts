@@ -1,7 +1,8 @@
+import { Status } from '../Status'
 
 interface IParsedValue<T> {
   value?: T
-  success?: boolean
+  status?: Status
 }
 
 export interface IDeal {
@@ -62,16 +63,4 @@ export interface IDeal {
     subBuildingArea?: IParsedValue<number | undefined>
     belconyArea?: IParsedValue<number | undefined>
   }
-}
-
-export const hasElevatorSchema = {
-  0: '無電梯',
-  1: '有電梯',
-  2: '不確定'
-}
-
-export const hasCommitteeSchema = {
-  0: '無管委會',
-  1: '有管委會',
-  2: '不確定'
 }

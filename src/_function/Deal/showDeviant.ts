@@ -6,9 +6,7 @@ const showDeviants = (row: IDeal) => {
   let problems: string[] = []
   mapKeys(row.parsedValue, (value, key) => {
     if (value) {
-      if (value.success === undefined)
-        return
-      if (!value.success) {
+      if (value.status === 0 || value.status === 1) {
         isDeviant = true
         problems.push(key)
       }

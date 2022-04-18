@@ -4,3 +4,10 @@ export const getKeyByValue = (
   value: string) => {
   return Object.keys(object).find(key => object[key] === value);
 }
+
+export const trimSpace = (value: string) => {
+  let output = value
+  output = output.trimLeft()
+  output = output.trimRight()
+  return output
+}

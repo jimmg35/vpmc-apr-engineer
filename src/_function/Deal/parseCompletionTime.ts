@@ -1,6 +1,14 @@
 import { IDeal } from '../../schema/Deal'
+import { Status } from '../../schema/Status'
 
 const parseCompletionTime = (row: IDeal) => {
+  if (row.completionTime === '') {
+    row.parsedValue.completionTime = {
+      value: undefined,
+      status: Status.semanticError
+    }
+    return
+  }
   let year = String(
     Number(
       row.completionTime.substring(
@@ -18,12 +26,12 @@ const parseCompletionTime = (row: IDeal) => {
     let iso = datetime.toISOString()
     row.parsedValue.completionTime = {
       value: datetime,
-      success: true
+      status: Status.success
     }
   } catch {
     row.parsedValue.completionTime = {
       value: undefined,
-      success: false
+      status: Status.parseError
     }
   }
 }
