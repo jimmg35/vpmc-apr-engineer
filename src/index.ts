@@ -3,27 +3,32 @@ import { IDeal } from './schema/Deal'
 import './_function/index'
 import { toInteger } from 'chinese-numbers-to-arabic'
 
+// [ '房地(土地+建物)', '土地', '車位', '房地(土地+建物)+車位', '建物' ]
+// 土地 建物 車位
 
 (async () => {
-  // console.log(toInteger('一層，二層，地下一層，三層，見其他登記事項'))
   const deals = await readCsvFile<IDeal>('./repository/taipei/merged/taipei.csv')
   deals
     .showTop()
-    .parseTransactionTime()
-    .parseCompletionTime()
-    .parseFloor()
-    .parseTransferFloor()
-    .parseElevator()
-    .parseCommittee()
-    .parseCompartment()
-    .parseNumerical()
+    // .parseTransactionTime()
+    // .parseCompletionTime()
+    // .parseFloor()
+    // .parseTransferFloor()
+    // .parseElevator()
+    // .parseCommittee()
+    // .parseCompartment()
+    // .parseNumerical()
+    .parseTransactionAmount()
     .showTop()
 
   // const aa: any[] = []
   // deals.map((deal) => {
-  //   if (!aa.includes(deal.hasCompartment)) {
-  //     aa.push(deal.hasCompartment)
+  //   if (!aa.includes(deal.transactionTarget)) {
+  //     aa.push(deal.transactionTarget)
   //   }
+  //   // if (deal.parkingSpaceType !== '' && deal.transactionTarget !== '車位') {
+  //   //   console.log(deal.transactionTarget)
+  //   // }
   // })
   // console.log(aa)
 

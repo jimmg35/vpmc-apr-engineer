@@ -9,38 +9,38 @@ export interface IDeal {
   town: string
   transactionTarget: string
   address: string
-  landTransferArea: string
+  landTransferArea: string          // Done
   urbanLandUse: string
   nonUrbanLandUse: string
   nonUrbanLandUsePlanning: string
-  transactionTime: string
+  transactionTime: string           // Done
   transactionAmount: string
-  transferFloor: string
-  floor: string
+  transferFloor: string             // Done
+  floor: string                     // Done
   buildingType: string
   usage: string
   buildingMaterial: string
-  completionTime: string
-  buildingTransferArea: string
-  roomNumber: string
-  hallNumber: string
-  bathNumber: string
-  hasCompartment: string
-  hasCommittee: string
-  price: string
-  unitPrice: string
+  completionTime: string            // Done
+  buildingTransferArea: string      // Done
+  roomNumber: string                // Done
+  hallNumber: string                // Done
+  bathNumber: string                // Done
+  hasCompartment: string            // Done
+  hasCommittee: string              // Done
+  price: string                     // Done
+  unitPrice: string                 // Done
   parkingSpaceType: string
-  parkingSpaceTransferArea: string
-  parkingSpacePrice: string
+  parkingSpaceTransferArea: string  // Done
+  parkingSpacePrice: string         // Done
   coordinate_y: string
   coordinate_x: string
   hasNotes: string
   notes: string
   id: string
-  buildingArea: string
-  subBuildingArea: string
-  belconyArea: string
-  hasElevator: string
+  buildingArea: string             // Done
+  subBuildingArea: string          // Done
+  belconyArea: string              // Done
+  hasElevator: string              // Done
   parsedValue: {
     transactionTime?: IParsedValue<Date | undefined>
     completionTime?: IParsedValue<Date | undefined>
@@ -49,7 +49,6 @@ export interface IDeal {
     hasElevator?: IParsedValue<number | undefined>
     hasCommittee?: IParsedValue<number | undefined>
     hasCompartment?: IParsedValue<number | undefined>
-
     landTransferArea?: IParsedValue<number | undefined>
     buildingTransferArea?: IParsedValue<number | undefined>
     roomNumber?: IParsedValue<number | undefined>
@@ -62,5 +61,8 @@ export interface IDeal {
     buildingArea?: IParsedValue<number | undefined>
     subBuildingArea?: IParsedValue<number | undefined>
     belconyArea?: IParsedValue<number | undefined>
+    landAmount?: IParsedValue<number | undefined>
+    buildingAmount?: IParsedValue<number | undefined>
+    parkAmount?: IParsedValue<number | undefined>
   }
 }
