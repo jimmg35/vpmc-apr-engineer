@@ -1,9 +1,14 @@
 import { IDeal } from '../../schema/Deal'
 import { toInteger } from 'chinese-numbers-to-arabic'
 import { Status } from '../../schema/Status'
+import { trimSpace } from '../../utility'
 
 const parseFloor = (row: IDeal) => {
-  if (row.floor === '' || row.floor.indexOf('層') === -1) {
+  const value = trimSpace(row.floor)
+  if (
+    value === '' ||
+    value.indexOf('層') === -1
+  ) {
     row.parsedValue.floor = {
       value: undefined,
       status: Status.semanticError
@@ -12,7 +17,7 @@ const parseFloor = (row: IDeal) => {
   }
   try {
     row.parsedValue.floor = {
-      value: toInteger(row.floor),
+      value: toInteger(value),
       status: Status.success
     }
   } catch {

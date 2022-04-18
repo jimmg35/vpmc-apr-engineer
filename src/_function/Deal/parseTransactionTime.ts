@@ -1,8 +1,10 @@
 import { IDeal } from '../../schema/Deal'
 import { Status } from '../../schema/Status'
+import { trimSpace } from '../../utility'
 
 const parseTransactionTime = (row: IDeal) => {
-  if (row.transactionTime === '') {
+  const value = trimSpace(row.transactionTime)
+  if (value === '') {
     row.parsedValue.transactionTime = {
       value: undefined,
       status: Status.semanticError
@@ -11,14 +13,14 @@ const parseTransactionTime = (row: IDeal) => {
   }
   let year = String(
     Number(
-      row.transactionTime.substring(
-        0, row.transactionTime.length - 4
+      value.substring(
+        0, value.length - 4
       )
     ) + 1911
   )
-  let date = row.transactionTime.substring(
-    row.transactionTime.length - 4,
-    row.transactionTime.length
+  let date = value.substring(
+    value.length - 4,
+    value.length
   )
   try {
     const datetime = new Date(year + '-' + date.substring(0, 2) + '-' + date.substring(2, 4))

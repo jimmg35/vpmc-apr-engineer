@@ -1,5 +1,6 @@
 import { IDeal } from '../../schema/Deal'
 import { Status } from '../../schema/Status'
+import { trimSpace } from '../../utility'
 
 export enum hasCommittee {
   false = 0,
@@ -8,12 +9,13 @@ export enum hasCommittee {
 }
 
 const parseCommittee = (row: IDeal) => {
-  if (row.hasCommittee === '無') {
+  const value = trimSpace(row.hasCommittee)
+  if (value === '無') {
     row.parsedValue.hasCommittee = {
       value: hasCommittee.false,
       status: Status.success
     }
-  } else if (row.hasCommittee === '有') {
+  } else if (value === '有') {
     row.parsedValue.hasCommittee = {
       value: hasCommittee.true,
       status: Status.success

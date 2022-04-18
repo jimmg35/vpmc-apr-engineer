@@ -1,3 +1,4 @@
+import { countBy } from "lodash";
 
 export const getKeyByValue = (
   object: { [key: string]: string },
@@ -11,3 +12,5 @@ export const trimSpace = (value: string) => {
   output = output.trimRight()
   return output
 }
+
+export const countOccurence = (str: string, ch: string) => countBy(str)[ch] || 0
