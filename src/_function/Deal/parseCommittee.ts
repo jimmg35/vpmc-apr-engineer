@@ -1,20 +1,29 @@
 import { IDeal } from '../../schema/Deal'
+import { Status } from '../../schema/Status'
+import { trimSpace } from '../../utility'
+
+export enum hasCommittee {
+  false = 0,
+  true = 1,
+  uncertain = 2
+}
 
 const parseCommittee = (row: IDeal) => {
-  if (row.hasCommittee === '無') {
+  const value = trimSpace(row.hasCommittee)
+  if (value === '無') {
     row.parsedValue.hasCommittee = {
-      value: 0,
-      success: true
+      value: hasCommittee.false,
+      status: Status.success
     }
-  } else if (row.hasCommittee === '有') {
+  } else if (value === '有') {
     row.parsedValue.hasCommittee = {
-      value: 1,
-      success: true
+      value: hasCommittee.true,
+      status: Status.success
     }
   } else {
     row.parsedValue.hasCommittee = {
-      value: 2,
-      success: true
+      value: hasCommittee.uncertain,
+      status: Status.semanticError
     }
   }
 }

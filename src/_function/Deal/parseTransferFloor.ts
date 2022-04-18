@@ -1,24 +1,30 @@
 import { IDeal } from '../../schema/Deal'
 import { toInteger } from 'chinese-numbers-to-arabic'
+import { Status } from '../../schema/Status'
+import { trimSpace, countOccurence } from '../../utility'
 
 const parseTransferFloor = (row: IDeal) => {
-  // console.log(row.floor === '', row.floor)
-  if (row.transferFloor === '' || row.transferFloor.indexOf('層') === -1) {
+  const value = trimSpace(row.transferFloor)
+  if (
+    value === '' ||
+    value.indexOf('地下') !== -1 ||
+    countOccurence(value, '層') !== 1
+  ) {
     row.parsedValue.transferFloor = {
       value: undefined,
-      success: false
+      status: Status.semanticError
     }
     return
   }
   try {
     row.parsedValue.transferFloor = {
-      value: toInteger(row.transferFloor),
-      success: true
+      value: toInteger(value),
+      status: Status.success
     }
   } catch {
     row.parsedValue.transferFloor = {
       value: undefined,
-      success: false
+      status: Status.parseError
     }
   }
 }

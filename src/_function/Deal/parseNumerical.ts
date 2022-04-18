@@ -1,53 +1,54 @@
 import { IDeal } from '../../schema/Deal'
+import { Status } from '../../schema/Status'
 
 const parseNumerical = (row: IDeal) => {
   row.parsedValue.landTransferArea = {
     value: Number(row.landTransferArea),
-    success: true
+    status: Status.success
   }
   row.parsedValue.buildingTransferArea = {
     value: Number(row.buildingTransferArea),
-    success: true
+    status: Status.success
   }
   row.parsedValue.roomNumber = {
     value: Number(row.roomNumber),
-    success: true
+    status: Status.success
   }
   row.parsedValue.hallNumber = {
     value: Number(row.hallNumber),
-    success: true
+    status: Status.success
   }
   row.parsedValue.bathNumber = {
     value: Number(row.bathNumber),
-    success: true
+    status: Status.success
   }
   row.parsedValue.price = {
     value: Number(row.price),
-    success: true
+    status: Status.success
   }
   row.parsedValue.unitPrice = {
     value: Number(row.unitPrice),
-    success: true
+    status: Status.success
   }
   row.parsedValue.parkingSpaceTransferArea = {
     value: Number(row.parkingSpaceTransferArea),
-    success: true
+    status: Status.success
   }
   row.parsedValue.parkingSpacePrice = {
     value: Number(row.parkingSpacePrice),
-    success: true
+    status: Status.success
   }
   row.parsedValue.buildingArea = {
     value: Number(row.buildingArea),
-    success: true
+    status: Status.success
   }
   row.parsedValue.subBuildingArea = {
     value: Number(row.subBuildingArea),
-    success: true
+    status: Status.success
   }
   row.parsedValue.belconyArea = {
     value: Number(row.belconyArea),
-    success: true
+    status: Status.success
   }
 }
 
