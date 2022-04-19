@@ -10,7 +10,7 @@ export interface IDeal {
   transactionTarget: string         // Deprecate
   address: string                   // Deprecate
   landTransferArea: string          // Done
-  urbanLandUse: string
+  urbanLandUse: string              // Done
   nonUrbanLandUse: string
   nonUrbanLandUsePlanning: string
   transactionTime: string           // Done
@@ -67,5 +67,6 @@ export interface IDeal {
     parkAmount?: IParsedValue<number | undefined>
 
     urbanLandUse?: IParsedValue<number | undefined>
+    nonUrbanLandUse?: IParsedValue<number | undefined>
   }
 }
