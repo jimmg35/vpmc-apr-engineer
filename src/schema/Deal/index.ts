@@ -65,5 +65,7 @@ export interface IDeal {
     landAmount?: IParsedValue<number | undefined>
     buildingAmount?: IParsedValue<number | undefined>
     parkAmount?: IParsedValue<number | undefined>
+
+    urbanLandUse?: IParsedValue<number | undefined>
   }
 }
