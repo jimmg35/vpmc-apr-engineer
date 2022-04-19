@@ -7,27 +7,29 @@ import { toInteger } from 'chinese-numbers-to-arabic'
   const deals = await readCsvFile<IDeal>('./repository/taipei/merged/taipei.csv')
   deals
     .showTop()
-    //   .parseTransactionTime()
-    //   .parseCompletionTime()
-    //   .parseFloor()
-    //   .parseTransferFloor()
-    //   .parseElevator()
-    //   .parseCommittee()
-    //   .parseCompartment()
-    //   .parseNumerical()
-    //   .parseTransactionAmount()
-    //   .parseId()
-    // .parseUrbanLandUse()
-    // .parseNonUrbanLandUse()
+    .parseTransactionTime()
+    .parseCompletionTime()
+    .parseFloor()
+    .parseTransferFloor()
+    .parseElevator()
+    .parseCommittee()
+    .parseCompartment()
+    .parseNumerical()
+    .parseTransactionAmount()
+    .parseId()
+    .parseUrbanLandUse()
+    .parseNonUrbanLandUse()
     .parseNonUrbanLandUsePlanning()
+    .parseBuildingType()
+    .parseParkingSpaceType()
     .showTop()
 
-  const aa: any[] = []
-  deals.map((deal) => {
-    if (!aa.includes(deal.nonUrbanLandUsePlanning)) {
-      aa.push(deal.nonUrbanLandUsePlanning)
-    }
-  })
-  console.log(aa)
+  // const aa: any[] = []
+  // deals.map((deal) => {
+  //   if (!aa.includes(deal.parkingSpaceType)) {
+  //     aa.push(deal.parkingSpaceType)
+  //   }
+  // })
+  // console.log(aa)
 
 })()

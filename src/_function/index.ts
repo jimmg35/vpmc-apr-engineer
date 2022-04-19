@@ -13,6 +13,8 @@ import parseId from './Deal/parseId'
 import parseUrbanLandUse from './Deal/parseUrbanLandUse'
 import parseNonUrbanLandUse from './Deal/parseNonUrbanLandUse'
 import parseNonUrbanLandUsePlanning from './Deal/parseNonUrbanLandUsePlanning'
+import parseBuildingType from './Deal/parseBuildingType'
+import parseParkingSpaceType from './Deal/parseParkingSpaceType'
 
 declare global {
   interface Array<T> {
@@ -31,6 +33,8 @@ declare global {
     parseUrbanLandUse (): Array<T>
     parseNonUrbanLandUse (): Array<T>
     parseNonUrbanLandUsePlanning (): Array<T>
+    parseBuildingType (): Array<T>
+    parseParkingSpaceType (): Array<T>
   }
 }
 
@@ -162,6 +166,24 @@ Object.defineProperty(Array.prototype, 'parseNonUrbanLandUsePlanning', {
   value: function <T> (this: Array<IDeal>): Array<IDeal> {
     this.map((row) => {
       parseNonUrbanLandUsePlanning(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseBuildingType', {
+  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+    this.map((row) => {
+      parseBuildingType(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseParkingSpaceType', {
+  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+    this.map((row) => {
+      parseParkingSpaceType(row)
     })
     return this
   }

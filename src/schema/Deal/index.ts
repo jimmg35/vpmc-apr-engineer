@@ -12,14 +12,14 @@ export interface IDeal {
   landTransferArea: string          // Done
   urbanLandUse: string              // Done
   nonUrbanLandUse: string           // Done
-  nonUrbanLandUsePlanning: string
+  nonUrbanLandUsePlanning: string   // Done
   transactionTime: string           // Done
   transactionAmount: string         // Done
   transferFloor: string             // Done
   floor: string                     // Done
-  buildingType: string
-  usage: string
-  buildingMaterial: string
+  buildingType: string              // Done
+  usage: string                     // Deprecate
+  buildingMaterial: string          // Deprecate
   completionTime: string            // Done
   buildingTransferArea: string      // Done
   roomNumber: string                // Done
@@ -68,5 +68,8 @@ export interface IDeal {
 
     urbanLandUse?: IParsedValue<number | undefined>
     nonUrbanLandUse?: IParsedValue<number | undefined>
+    nonUrbanLandUsePlanning?: IParsedValue<number | undefined>
+    buildingType?: IParsedValue<number | undefined>
+    parkingSpaceType?: IParsedValue<number | undefined>
   }
 }
