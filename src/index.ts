@@ -18,15 +18,16 @@ import { toInteger } from 'chinese-numbers-to-arabic'
     //   .parseTransactionAmount()
     //   .parseId()
     // .parseUrbanLandUse()
-    .parseNonUrbanLandUse()
+    // .parseNonUrbanLandUse()
+    .parseNonUrbanLandUsePlanning()
     .showTop()
 
-  // const aa: any[] = []
-  // deals.map((deal) => {
-  //   if (!aa.includes(deal.nonUrbanLandUsePlanning)) {
-  //     aa.push(deal.nonUrbanLandUsePlanning)
-  //   }
-  // })
-  // console.log(aa)
+  const aa: any[] = []
+  deals.map((deal) => {
+    if (!aa.includes(deal.nonUrbanLandUsePlanning)) {
+      aa.push(deal.nonUrbanLandUsePlanning)
+    }
+  })
+  console.log(aa)
 
 })()

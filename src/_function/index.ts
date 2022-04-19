@@ -12,6 +12,7 @@ import parseTransactionAmount from './Deal/parseTransactionAmount'
 import parseId from './Deal/parseId'
 import parseUrbanLandUse from './Deal/parseUrbanLandUse'
 import parseNonUrbanLandUse from './Deal/parseNonUrbanLandUse'
+import parseNonUrbanLandUsePlanning from './Deal/parseNonUrbanLandUsePlanning'
 
 declare global {
   interface Array<T> {
@@ -29,6 +30,7 @@ declare global {
     parseId (): Array<T>
     parseUrbanLandUse (): Array<T>
     parseNonUrbanLandUse (): Array<T>
+    parseNonUrbanLandUsePlanning (): Array<T>
   }
 }
 
@@ -151,6 +153,15 @@ Object.defineProperty(Array.prototype, 'parseNonUrbanLandUse', {
   value: function <T> (this: Array<IDeal>): Array<IDeal> {
     this.map((row) => {
       parseNonUrbanLandUse(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseNonUrbanLandUsePlanning', {
+  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+    this.map((row) => {
+      parseNonUrbanLandUsePlanning(row)
     })
     return this
   }

@@ -11,7 +11,7 @@ export interface IDeal {
   address: string                   // Deprecate
   landTransferArea: string          // Done
   urbanLandUse: string              // Done
-  nonUrbanLandUse: string
+  nonUrbanLandUse: string           // Done
   nonUrbanLandUsePlanning: string
   transactionTime: string           // Done
   transactionAmount: string         // Done
