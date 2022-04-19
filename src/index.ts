@@ -3,21 +3,18 @@ import { IDeal } from './schema/Deal'
 import './_function/index'
 import { toInteger } from 'chinese-numbers-to-arabic'
 
-// [ '房地(土地+建物)', '土地', '車位', '房地(土地+建物)+車位', '建物' ]
-// 土地 建物 車位
-
 (async () => {
   const deals = await readCsvFile<IDeal>('./repository/taipei/merged/taipei.csv')
   deals
     .showTop()
-    // .parseTransactionTime()
-    // .parseCompletionTime()
-    // .parseFloor()
-    // .parseTransferFloor()
-    // .parseElevator()
-    // .parseCommittee()
-    // .parseCompartment()
-    // .parseNumerical()
+    .parseTransactionTime()
+    .parseCompletionTime()
+    .parseFloor()
+    .parseTransferFloor()
+    .parseElevator()
+    .parseCommittee()
+    .parseCompartment()
+    .parseNumerical()
     .parseTransactionAmount()
     .showTop()
 

@@ -6,15 +6,15 @@ interface IParsedValue<T> {
 }
 
 export interface IDeal {
-  town: string
-  transactionTarget: string
-  address: string
+  town: string                      // Deprecate
+  transactionTarget: string         // Deprecate
+  address: string                   // Deprecate
   landTransferArea: string          // Done
   urbanLandUse: string
   nonUrbanLandUse: string
   nonUrbanLandUsePlanning: string
   transactionTime: string           // Done
-  transactionAmount: string
+  transactionAmount: string         // Done
   transferFloor: string             // Done
   floor: string                     // Done
   buildingType: string
@@ -32,15 +32,15 @@ export interface IDeal {
   parkingSpaceType: string
   parkingSpaceTransferArea: string  // Done
   parkingSpacePrice: string         // Done
-  coordinate_y: string
-  coordinate_x: string
-  hasNotes: string
+  coordinate_y: string              // Done
+  coordinate_x: string              // Done
+  hasNotes: string                  // Deprecate
   notes: string
-  id: string
-  buildingArea: string             // Done
-  subBuildingArea: string          // Done
-  belconyArea: string              // Done
-  hasElevator: string              // Done
+  id: string                        // Done
+  buildingArea: string              // Done
+  subBuildingArea: string           // Done
+  belconyArea: string               // Done
+  hasElevator: string               // Done
   parsedValue: {
     transactionTime?: IParsedValue<Date | undefined>
     completionTime?: IParsedValue<Date | undefined>
@@ -58,6 +58,7 @@ export interface IDeal {
     unitPrice?: IParsedValue<number | undefined>
     parkingSpaceTransferArea?: IParsedValue<number | undefined>
     parkingSpacePrice?: IParsedValue<number | undefined>
+    id?: IParsedValue<string | undefined>
     buildingArea?: IParsedValue<number | undefined>
     subBuildingArea?: IParsedValue<number | undefined>
     belconyArea?: IParsedValue<number | undefined>
