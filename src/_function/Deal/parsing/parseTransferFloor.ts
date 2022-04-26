@@ -1,7 +1,7 @@
-import { IDeal } from '../../schema/deal'
+import { IDeal } from '../../../schema/deal'
 import { toInteger } from 'chinese-numbers-to-arabic'
-import { Status } from '../../schema/status'
-import { trimSpace, countOccurence } from '../../utility'
+import { Status } from '../../../schema/status'
+import { trimSpace, countOccurence } from '../../../utility'
 
 const parseTransferFloor = (row: IDeal) => {
   const value = trimSpace(row.transferFloor)

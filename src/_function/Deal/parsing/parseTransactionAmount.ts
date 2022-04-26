@@ -1,5 +1,5 @@
-import { IDeal } from '../../schema/deal'
-import { Status } from '../../schema/status'
+import { IDeal } from '../../../schema/deal'
+import { Status } from '../../../schema/status'
 
 const parseTransactionAmount = (row: IDeal) => {
   const anchorA = row.transactionAmount.indexOf('土地')

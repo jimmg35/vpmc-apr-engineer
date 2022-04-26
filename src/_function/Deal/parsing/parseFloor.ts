@@ -1,7 +1,7 @@
-import { IDeal } from '../../schema/deal'
+import { IDeal } from '../../../schema/deal'
 import { toInteger } from 'chinese-numbers-to-arabic'
-import { Status } from '../../schema/status'
-import { trimSpace } from '../../utility'
+import { Status } from '../../../schema/status'
+import { trimSpace } from '../../../utility'
 
 const parseFloor = (row: IDeal) => {
   const value = trimSpace(row.floor)

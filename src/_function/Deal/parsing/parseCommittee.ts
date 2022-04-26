@@ -1,7 +1,7 @@
-import { IDeal } from '../../schema/deal'
-import { Status } from '../../schema/status'
-import { trimSpace } from '../../utility'
-import { hasCommittee } from '../../schema/enum'
+import { IDeal } from '../../../schema/deal'
+import { Status } from '../../../schema/status'
+import { trimSpace } from '../../../utility'
+import { hasCommittee } from '../../../schema/enum'
 
 const parseCommittee = (row: IDeal) => {
   const value = trimSpace(row.hasCommittee)

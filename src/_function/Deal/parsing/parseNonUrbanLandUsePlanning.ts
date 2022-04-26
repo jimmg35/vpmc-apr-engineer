@@ -1,7 +1,7 @@
-import { IDeal } from '../../schema/deal'
-import { Status } from '../../schema/status'
-import { trimSpace } from '../../utility'
-import { nonUrbanLandUsePlanning } from '../../schema/enum'
+import { IDeal } from '../../../schema/deal'
+import { Status } from '../../../schema/status'
+import { trimSpace } from '../../../utility'
+import { nonUrbanLandUsePlanning } from '../../../schema/enum'
 
 
 const parseNonUrbanLandUsePlanning = (row: IDeal) => {
