@@ -1,7 +1,7 @@
 import { IDeal } from '../../../schema/deal'
 import { Status } from '../../../schema/status'
 import { trimSpace } from '../../../utility'
-import { hasCompartment } from '../../../schema/enum'
+import { hasCompartment } from '../enum'
 
 const parseCompartment = (row: IDeal) => {
   const value = trimSpace(row.hasCompartment)

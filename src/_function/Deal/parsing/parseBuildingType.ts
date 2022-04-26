@@ -1,7 +1,7 @@
 import { IDeal } from '../../../schema/deal'
 import { Status } from '../../../schema/status'
 import { trimSpace } from '../../../utility'
-import { buildingType } from '../../../schema/enum'
+import { buildingType } from '../enum'
 
 const parseBuildingType = (row: IDeal) => {
   const value = trimSpace(row.buildingType)

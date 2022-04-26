@@ -1,7 +1,7 @@
 import { IDeal } from '../../../schema/deal'
 import { Status } from '../../../schema/status'
 import { trimSpace } from '../../../utility'
-import { parkingSpaceType } from '../../../schema/enum'
+import { parkingSpaceType } from '../enum'
 
 const parseParkingSpaceType = (row: IDeal) => {
   const value = trimSpace(row.parkingSpaceType)

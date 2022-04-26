@@ -1,7 +1,7 @@
 import { IDeal } from '../../../schema/deal'
 import { Status } from '../../../schema/status'
 import { trimSpace } from '../../../utility'
-import { hasElevator } from '../../../schema/enum'
+import { hasElevator } from '../enum'
 
 const parseElevator = (row: IDeal) => {
   const value = trimSpace(row.hasElevator)
