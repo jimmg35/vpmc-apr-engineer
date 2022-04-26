@@ -4,6 +4,7 @@ import './_function/index'
 import { toInteger } from 'chinese-numbers-to-arabic'
 
 (async () => {
+
   const deals = await readCsvFile<IDeal>('./repository/taipei/merged/taipei.csv')
   deals
     .showTop()
@@ -23,13 +24,5 @@ import { toInteger } from 'chinese-numbers-to-arabic'
     .parseBuildingType()
     .parseParkingSpaceType()
     .showTop()
-
-  // const aa: any[] = []
-  // deals.map((deal) => {
-  //   if (!aa.includes(deal.parkingSpaceType)) {
-  //     aa.push(deal.parkingSpaceType)
-  //   }
-  // })
-  // console.log(aa)
 
 })()

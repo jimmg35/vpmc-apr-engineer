@@ -1,10 +1,8 @@
 import { IDeal } from '../../schema/Deal'
 import { Status } from '../../schema/Status'
 import { trimSpace } from '../../utility'
+import { nonUrbanLandUsePlanning } from '../../schema/enum'
 
-export enum nonUrbanLandUsePlanning {
-  none = 0
-}
 
 const parseNonUrbanLandUsePlanning = (row: IDeal) => {
   const value = trimSpace(row.nonUrbanLandUsePlanning)

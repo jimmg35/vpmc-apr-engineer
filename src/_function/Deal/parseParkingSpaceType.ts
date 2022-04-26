@@ -1,17 +1,7 @@
 import { IDeal } from '../../schema/Deal'
 import { Status } from '../../schema/Status'
 import { trimSpace } from '../../utility'
-
-export enum parkingSpaceType {
-  none = 0,
-  tower = 1,       // 塔式車位
-  rampPlane = 2,   // 坡道平面
-  liftPlane = 3,   // 升降平面
-  liftMachine = 4, // 升降機械
-  rampMachine = 5, // 坡道機械
-  groundPlane = 6, // 一樓平面
-  other = 7
-}
+import { parkingSpaceType } from '../../schema/enum'
 
 const parseParkingSpaceType = (row: IDeal) => {
   const value = trimSpace(row.parkingSpaceType)
