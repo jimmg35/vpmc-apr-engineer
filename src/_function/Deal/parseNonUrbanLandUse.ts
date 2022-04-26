@@ -1,5 +1,5 @@
-import { IDeal } from '../../schema/Deal'
-import { Status } from '../../schema/Status'
+import { IDeal } from '../../schema/deal'
+import { Status } from '../../schema/status'
 import { trimSpace } from '../../utility'
 import { nonUrbanLandUse } from '../../schema/enum'
 

@@ -1,4 +1,4 @@
-import { IDeal } from '../../schema/Deal'
+import { IDeal } from '../../schema/deal'
 import { mapKeys } from 'lodash'
 
 const showDeviants = (row: IDeal) => {

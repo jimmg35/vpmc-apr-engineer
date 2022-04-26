@@ -1,5 +1,5 @@
 import { readCsvFile } from './io'
-import { IDeal } from './schema/Deal'
+import { IDeal } from './schema/deal'
 import './_function/index'
 import { toInteger } from 'chinese-numbers-to-arabic'
 
