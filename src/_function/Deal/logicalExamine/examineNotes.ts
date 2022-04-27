@@ -1,4 +1,4 @@
-import { IDeal } from '../../schema/Deal'
+import { IDeal } from '../../../schema/deal'
 
 const parseNotes = (row: IDeal) => {
   const notesForbid = ["公共設施保留地之交易", "公共設施保留地", "公共設施",

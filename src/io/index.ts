@@ -1,7 +1,7 @@
 import csvParser from 'csv-parser'
 import fs from 'fs'
 import internal from 'stream'
-import { langMapping } from '../schema/LanguageMapping'
+import { langMapping } from '../schema/languageMapping'
 import { getKeyByValue } from '../utility'
 import { mapKeys } from 'lodash'
 

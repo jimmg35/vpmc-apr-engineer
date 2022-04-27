@@ -1,7 +1,7 @@
-import { IDeal } from '../../schema/Deal'
+import { IDeal } from '../../../schema/deal'
 import { toInteger } from 'chinese-numbers-to-arabic'
-import { Status } from '../../schema/Status'
-import { trimSpace } from '../../utility'
+import { Status } from '../../../schema/status'
+import { trimSpace } from '../../../utility'
 
 const parseId = (row: IDeal) => {
   const value = trimSpace(row.id)

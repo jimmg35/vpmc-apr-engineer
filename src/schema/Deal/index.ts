@@ -1,4 +1,4 @@
-import { Status } from '../Status'
+import { Status } from '../status'
 
 interface IParsedValue<T> {
   value?: T

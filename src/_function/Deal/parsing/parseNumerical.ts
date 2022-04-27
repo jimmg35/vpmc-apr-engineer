@@ -1,5 +1,5 @@
-import { IDeal } from '../../schema/Deal'
-import { Status } from '../../schema/Status'
+import { IDeal } from '../../../schema/deal'
+import { Status } from '../../../schema/status'
 
 const parseNumerical = (row: IDeal) => {
   row.parsedValue.landTransferArea = {
