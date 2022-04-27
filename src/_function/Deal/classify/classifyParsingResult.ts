@@ -1,7 +1,7 @@
 import { IDeal } from '../../../schema/deal'
 import { mapKeys } from 'lodash'
 
-const examineParsingResult = (row: IDeal): boolean => {
+const classifyParsingResult = (row: IDeal): boolean => {
   let status = true
   mapKeys(row.parsedValue, (value, key) => {
     if (value?.status === 0) {
@@ -12,4 +12,4 @@ const examineParsingResult = (row: IDeal): boolean => {
   return status
 }
 
-export default examineParsingResult
+export default classifyParsingResult
