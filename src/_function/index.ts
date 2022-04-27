@@ -16,6 +16,8 @@ import parseNonUrbanLandUsePlanning from './deal/parsing/parseNonUrbanLandUsePla
 import parseBuildingType from './deal/parsing/parseBuildingType'
 import parseParkingSpaceType from './deal/parsing/parseParkingSpaceType'
 
+import examineParsingResult from './deal/examine/examineParsingResult'
+
 declare global {
   interface Array<T> {
     showTop (): Array<T>
@@ -35,6 +37,7 @@ declare global {
     parseNonUrbanLandUsePlanning (): Array<T>
     parseBuildingType (): Array<T>
     parseParkingSpaceType (): Array<T>
+    examineParsingResult (): Array<T>
   }
 }
 
@@ -184,6 +187,15 @@ Object.defineProperty(Array.prototype, 'parseParkingSpaceType', {
   value: function <T> (this: Array<IDeal>): Array<IDeal> {
     this.map((row) => {
       parseParkingSpaceType(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'examineParsingResult', {
+  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+    this.map((row) => {
+      examineParsingResult(row)
     })
     return this
   }
