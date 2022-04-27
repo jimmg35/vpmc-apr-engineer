@@ -1,6 +1,6 @@
 import { IDeal } from '../../../schema/deal'
 
-const parseNotes = (row: IDeal) => {
+const examineNotes = (row: IDeal) => {
   const notesForbid = ["公共設施保留地之交易", "公共設施保留地", "公共設施",
     "公共設施交易", "公共設施",
     "受債權債務影響或債務抵償之交易", "債權債務", "債權", "債務", "抵償", "債務抵償",
@@ -17,11 +17,13 @@ const parseNotes = (row: IDeal) => {
     "賣清買清(稅費議定誰負擔)", "賣清買清", "賣清", "買清",
     "農地交易(興建農舍_375租約)", "375租約", "農地交易", "農地", "農舍"]
 
+  row.logicalExamine.note = true
   notesForbid.forEach((forbid) => {
     if (row.notes.includes(forbid)) {
-
+      row.logicalExamine.note = false
+      return
     }
   })
 }
 
-export default parseNotes
+export default examineNotes

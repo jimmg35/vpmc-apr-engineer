@@ -31,6 +31,7 @@ export const readCsvFile = async <T> (filePath: string): Promise<T[]> => {
           return langMapping[key]
         })
         resultTranslated.parsedValue = {}
+        resultTranslated.logicalExamine = {}
         // resultTranslated.parsedValue.transactionTime = {}
         // resultTranslated.parsedValue.completionTime = {}
         translatedResults.push(resultTranslated)

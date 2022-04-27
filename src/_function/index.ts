@@ -18,6 +18,8 @@ import parseParkingSpaceType from './deal/parsing/parseParkingSpaceType'
 
 import examineParsingResult from './deal/examine/examineParsingResult'
 
+import examineNotes from './deal/logicalExamine/examineNotes'
+
 declare global {
   interface Array<T> {
     showTop (): Array<T>
@@ -38,6 +40,7 @@ declare global {
     parseBuildingType (): Array<T>
     parseParkingSpaceType (): Array<T>
     examineParsingResult (): { parseSuccessCases: Array<IDeal>, parseFailCases: Array<IDeal> }
+    examineNotes (): Array<T>
   }
 }
 
@@ -204,5 +207,14 @@ Object.defineProperty(Array.prototype, 'examineParsingResult', {
       }
     })
     return { parseSuccessCases, parseFailCases }
+  }
+})
+
+Object.defineProperty(Array.prototype, 'examineNotes', {
+  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+    this.map((row) => {
+      examineNotes(row)
+    })
+    return this
   }
 })

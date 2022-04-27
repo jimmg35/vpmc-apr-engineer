@@ -72,4 +72,7 @@ export interface IDeal {
     buildingType?: IParsedValue<number | undefined>
     parkingSpaceType?: IParsedValue<number | undefined>
   }
+  logicalExamine: {
+    note: boolean
+  }
 }
