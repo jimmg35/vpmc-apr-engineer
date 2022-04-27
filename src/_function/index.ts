@@ -37,7 +37,7 @@ declare global {
     parseNonUrbanLandUsePlanning (): Array<T>
     parseBuildingType (): Array<T>
     parseParkingSpaceType (): Array<T>
-    examineParsingResult (): Array<T>
+    examineParsingResult (): { parseSuccessCases: Array<IDeal>, parseFailCases: Array<IDeal> }
   }
 }
 
@@ -193,10 +193,16 @@ Object.defineProperty(Array.prototype, 'parseParkingSpaceType', {
 })
 
 Object.defineProperty(Array.prototype, 'examineParsingResult', {
-  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+  value: function <T> (this: Array<IDeal>): { parseSuccessCases: Array<IDeal>, parseFailCases: Array<IDeal> } {
+    const parseFailCases: IDeal[] = []
+    const parseSuccessCases: IDeal[] = []
     this.map((row) => {
-      examineParsingResult(row)
+      if (examineParsingResult(row)) {
+        parseSuccessCases.push(row)
+      } else {
+        parseFailCases.push(row)
+      }
     })
-    return this
+    return { parseSuccessCases, parseFailCases }
   }
 })

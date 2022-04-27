@@ -1,7 +1,7 @@
 import { readCsvFile } from './io'
 import { IDeal } from './schema/deal'
 import './_function/index'
-import { toInteger } from 'chinese-numbers-to-arabic'
+// import examineParsingResult from './_function/deal/examine/examineParsingResult'
 
 (async () => {
 
@@ -27,6 +27,9 @@ import { toInteger } from 'chinese-numbers-to-arabic'
     .parseParkingSpaceType()
 
   // 進行parsing結果檢查
-  deals.examineParsingResult()
+  const { parseSuccessCases, parseFailCases } = deals.examineParsingResult()
+  console.log(`解析成功案例數量 : ${parseSuccessCases.length}`)
+  console.log(`解析失敗案例數量 : ${parseFailCases.length}`)
+
 
 })()
