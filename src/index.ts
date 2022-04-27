@@ -10,7 +10,6 @@ import './_function/index'
 
   // 進行資料parsing (Phase 2)
   deals
-    .showTop()
     .parseTransactionTime()
     .parseCompletionTime()
     .parseFloor()
@@ -46,10 +45,11 @@ import './_function/index'
   console.log('==========================================')
 
   // 進行總價與車位價計算與檢核 (Phase 6)
-  examineSuccessCases.examineTotalPrice().showTop()
+  examineSuccessCases.examineTotalPrice()
 
-  parseFailCases
-  examineFailCases
-  examineSuccessCases
+  // 輸出csv檔
+  // parseFailCases.exportCsvFile()
+  // examineFailCases
+  examineSuccessCases.exportCsvFile()
 
 })()

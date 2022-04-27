@@ -9,6 +9,7 @@
     "@types/lodash": "^4.14.181",
     "chinese-numbers-to-arabic": "^1.4.0",
     "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
     "lodash": "^4.17.21",
     "pg": "^8.4.0",
     "reflect-metadata": "^0.1.10",

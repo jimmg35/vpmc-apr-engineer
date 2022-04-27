@@ -24,6 +24,9 @@ import examineBuildingType from './deal/logicalExamine/examineBuildingType'
 import examineTransferFloor from './deal/logicalExamine/examineTransferFloor'
 import examineTotalPrice from './deal/logicalExamine/examineTotalPrice'
 
+import { exportCsvFile } from '../io'
+import { mapKeys } from 'lodash'
+
 declare global {
   interface Array<T> {
     showTop (): Array<T>
@@ -49,6 +52,7 @@ declare global {
     examineBuildingType (): Array<T>
     examineTransferFloor (): Array<T>
     examineTotalPrice (): Array<T>
+    exportCsvFile (): void
   }
 }
 
@@ -266,5 +270,25 @@ Object.defineProperty(Array.prototype, 'examineTotalPrice', {
       examineTotalPrice(row)
     })
     return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'exportCsvFile', {
+  value: function <T> (this: Array<IDeal>): void {
+    const data: any = []
+    // console.log(this[0])
+    this.forEach((row) => {
+      const packedRow: any = {}
+      mapKeys(row.parsedValue, (value, key) => {
+        packedRow[key] = value?.value
+      })
+      packedRow.priceWithoutParking = row.calculatedPrice.priceWithoutParking
+      packedRow.price = row.calculatedPrice.price
+      packedRow.coordinate_x = row.coordinate_x
+      packedRow.coordinate_y = row.coordinate_y
+      data.push(packedRow)
+    })
+    // console.log(data[0])
+    exportCsvFile(data)
   }
 })
