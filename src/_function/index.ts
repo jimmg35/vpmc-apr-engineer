@@ -16,9 +16,12 @@ import parseNonUrbanLandUsePlanning from './deal/parsing/parseNonUrbanLandUsePla
 import parseBuildingType from './deal/parsing/parseBuildingType'
 import parseParkingSpaceType from './deal/parsing/parseParkingSpaceType'
 
-import examineParsingResult from './deal/examine/examineParsingResult'
+import classifyParsingResult from './deal/classify/classifyParsingResult'
+import classifyLogicalResult from './deal/classify/classifyLogicalResult'
 
 import examineNotes from './deal/logicalExamine/examineNotes'
+import examineBuildingType from './deal/logicalExamine/examineBuildingType'
+import examineTransferFloor from './deal/logicalExamine/examineTransferFloor'
 
 declare global {
   interface Array<T> {
@@ -39,8 +42,11 @@ declare global {
     parseNonUrbanLandUsePlanning (): Array<T>
     parseBuildingType (): Array<T>
     parseParkingSpaceType (): Array<T>
-    examineParsingResult (): { parseSuccessCases: Array<IDeal>, parseFailCases: Array<IDeal> }
+    classifyParsingResult (): { parseSuccessCases: Array<IDeal>, parseFailCases: Array<IDeal> }
+    classifyLogicalResult (): { examineSuccessCases: Array<IDeal>, examineFailCases: Array<IDeal> }
     examineNotes (): Array<T>
+    examineBuildingType (): Array<T>
+    examineTransferFloor (): Array<T>
   }
 }
 
@@ -195,12 +201,12 @@ Object.defineProperty(Array.prototype, 'parseParkingSpaceType', {
   }
 })
 
-Object.defineProperty(Array.prototype, 'examineParsingResult', {
+Object.defineProperty(Array.prototype, 'classifyParsingResult', {
   value: function <T> (this: Array<IDeal>): { parseSuccessCases: Array<IDeal>, parseFailCases: Array<IDeal> } {
     const parseFailCases: IDeal[] = []
     const parseSuccessCases: IDeal[] = []
     this.map((row) => {
-      if (examineParsingResult(row)) {
+      if (classifyParsingResult(row)) {
         parseSuccessCases.push(row)
       } else {
         parseFailCases.push(row)
@@ -210,10 +216,43 @@ Object.defineProperty(Array.prototype, 'examineParsingResult', {
   }
 })
 
+Object.defineProperty(Array.prototype, 'classifyLogicalResult', {
+  value: function <T> (this: Array<IDeal>): { examineSuccessCases: Array<IDeal>, examineFailCases: Array<IDeal> } {
+    const examineFailCases: IDeal[] = []
+    const examineSuccessCases: IDeal[] = []
+    this.map((row) => {
+      if (classifyLogicalResult(row)) {
+        examineSuccessCases.push(row)
+      } else {
+        examineFailCases.push(row)
+      }
+    })
+    return { examineSuccessCases, examineFailCases }
+  }
+})
+
 Object.defineProperty(Array.prototype, 'examineNotes', {
   value: function <T> (this: Array<IDeal>): Array<IDeal> {
     this.map((row) => {
       examineNotes(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'examineBuildingType', {
+  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+    this.map((row) => {
+      examineBuildingType(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'examineTransferFloor', {
+  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+    this.map((row) => {
+      examineTransferFloor(row)
     })
     return this
   }

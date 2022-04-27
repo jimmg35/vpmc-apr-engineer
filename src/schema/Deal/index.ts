@@ -74,5 +74,7 @@ export interface IDeal {
   }
   logicalExamine: {
     note: boolean
+    buildingType: boolean
+    transferFloor: boolean
   }
 }

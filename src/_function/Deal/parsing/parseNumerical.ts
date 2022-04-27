@@ -1,13 +1,70 @@
 import { IDeal } from '../../../schema/deal'
 import { Status } from '../../../schema/status'
+import { trimSpace } from '../../../utility'
 
 const parseNumerical = (row: IDeal) => {
+  if (trimSpace(row.buildingTransferArea) === '') {
+    row.parsedValue.buildingTransferArea = {
+      value: 0,
+      status: Status.semanticError
+    }
+  } else {
+    row.parsedValue.buildingTransferArea = {
+      value: Number(row.buildingTransferArea),
+      status: Status.success
+    }
+  }
+
+  if (trimSpace(row.price) === '') {
+    row.parsedValue.price = {
+      value: 0,
+      status: Status.semanticError
+    }
+  } else {
+    row.parsedValue.price = {
+      value: Number(row.price),
+      status: Status.success
+    }
+  }
+
+  if (trimSpace(row.unitPrice) === '') {
+    row.parsedValue.unitPrice = {
+      value: 0,
+      status: Status.semanticError
+    }
+  } else {
+    row.parsedValue.unitPrice = {
+      value: Number(row.unitPrice),
+      status: Status.success
+    }
+  }
+
+  if (trimSpace(row.parkingSpaceTransferArea) === '') {
+    row.parsedValue.parkingSpaceTransferArea = {
+      value: 0,
+      status: Status.semanticError
+    }
+  } else {
+    row.parsedValue.parkingSpaceTransferArea = {
+      value: Number(row.parkingSpaceTransferArea),
+      status: Status.success
+    }
+  }
+
+  if (trimSpace(row.parkingSpacePrice) === '') {
+    row.parsedValue.parkingSpacePrice = {
+      value: 0,
+      status: Status.semanticError
+    }
+  } else {
+    row.parsedValue.parkingSpacePrice = {
+      value: Number(row.parkingSpacePrice),
+      status: Status.success
+    }
+  }
+
   row.parsedValue.landTransferArea = {
     value: Number(row.landTransferArea),
-    status: Status.success
-  }
-  row.parsedValue.buildingTransferArea = {
-    value: Number(row.buildingTransferArea),
     status: Status.success
   }
   row.parsedValue.roomNumber = {
@@ -20,22 +77,6 @@ const parseNumerical = (row: IDeal) => {
   }
   row.parsedValue.bathNumber = {
     value: Number(row.bathNumber),
-    status: Status.success
-  }
-  row.parsedValue.price = {
-    value: Number(row.price),
-    status: Status.success
-  }
-  row.parsedValue.unitPrice = {
-    value: Number(row.unitPrice),
-    status: Status.success
-  }
-  row.parsedValue.parkingSpaceTransferArea = {
-    value: Number(row.parkingSpaceTransferArea),
-    status: Status.success
-  }
-  row.parsedValue.parkingSpacePrice = {
-    value: Number(row.parkingSpacePrice),
     status: Status.success
   }
   row.parsedValue.buildingArea = {
