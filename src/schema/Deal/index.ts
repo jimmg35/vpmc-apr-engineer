@@ -77,4 +77,8 @@ export interface IDeal {
     buildingType: boolean
     transferFloor: boolean
   }
+  calculatedPrice: {
+    priceWithoutParking: number
+    price: number
+  }
 }

@@ -32,6 +32,7 @@ export const readCsvFile = async <T> (filePath: string): Promise<T[]> => {
         })
         resultTranslated.parsedValue = {}
         resultTranslated.logicalExamine = {}
+        resultTranslated.calculatedPrice = {}
         // resultTranslated.parsedValue.transactionTime = {}
         // resultTranslated.parsedValue.completionTime = {}
         translatedResults.push(resultTranslated)

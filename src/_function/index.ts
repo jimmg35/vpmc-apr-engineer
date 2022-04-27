@@ -22,6 +22,7 @@ import classifyLogicalResult from './deal/classify/classifyLogicalResult'
 import examineNotes from './deal/logicalExamine/examineNotes'
 import examineBuildingType from './deal/logicalExamine/examineBuildingType'
 import examineTransferFloor from './deal/logicalExamine/examineTransferFloor'
+import examineTotalPrice from './deal/logicalExamine/examineTotalPrice'
 
 declare global {
   interface Array<T> {
@@ -47,6 +48,7 @@ declare global {
     examineNotes (): Array<T>
     examineBuildingType (): Array<T>
     examineTransferFloor (): Array<T>
+    examineTotalPrice (): Array<T>
   }
 }
 
@@ -253,6 +255,15 @@ Object.defineProperty(Array.prototype, 'examineTransferFloor', {
   value: function <T> (this: Array<IDeal>): Array<IDeal> {
     this.map((row) => {
       examineTransferFloor(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'examineTotalPrice', {
+  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+    this.map((row) => {
+      examineTotalPrice(row)
     })
     return this
   }

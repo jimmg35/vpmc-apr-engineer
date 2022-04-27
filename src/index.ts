@@ -10,6 +10,7 @@ import './_function/index'
 
   // 進行資料parsing (Phase 2)
   deals
+    .showTop()
     .parseTransactionTime()
     .parseCompletionTime()
     .parseFloor()
@@ -44,7 +45,8 @@ import './_function/index'
   console.log(`邏輯檢核失敗案例數量 : ${examineFailCases.length}`)
   console.log('==========================================')
 
-  // 進行總價與車位價計算與檢核 (Phase 5)
+  // 進行總價與車位價計算與檢核 (Phase 6)
+  examineSuccessCases.examineTotalPrice().showTop()
 
 
 })()
