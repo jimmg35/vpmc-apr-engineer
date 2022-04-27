@@ -48,5 +48,8 @@ import './_function/index'
   // 進行總價與車位價計算與檢核 (Phase 6)
   examineSuccessCases.examineTotalPrice().showTop()
 
+  parseFailCases
+  examineFailCases
+  examineSuccessCases
 
 })()
