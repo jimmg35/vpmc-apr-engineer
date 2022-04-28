@@ -44,12 +44,15 @@ import './_function/index'
   console.log(`邏輯檢核失敗案例數量 : ${examineFailCases.length}`)
   console.log('==========================================')
 
-  // 進行總價與車位價計算與檢核 (Phase 6)
-  examineSuccessCases.examineTotalPrice()
+  // 分類出建物交易紀錄(phase 6)
+  const { dealCases } = examineSuccessCases.classifyTransactionItem()
+
+  // 進行總價與車位價計算與檢核 (Phase 7)
+  dealCases.examineTotalPrice()
 
   // 輸出csv檔
-  // parseFailCases.exportCsvFile()
+  // parseFailCases
   // examineFailCases
-  examineSuccessCases.exportCsvFile()
+  dealCases.exportCsvFile('./output/out2.csv')
 
 })()

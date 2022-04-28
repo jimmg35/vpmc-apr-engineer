@@ -24,6 +24,8 @@ import examineBuildingType from './deal/logicalExamine/examineBuildingType'
 import examineTransferFloor from './deal/logicalExamine/examineTransferFloor'
 import examineTotalPrice from './deal/logicalExamine/examineTotalPrice'
 
+import classifyTransactionItem from './deal/classify/classifyTransactionItem'
+
 import { exportCsvFile } from '../io'
 import { mapKeys } from 'lodash'
 
@@ -52,7 +54,8 @@ declare global {
     examineBuildingType (): Array<T>
     examineTransferFloor (): Array<T>
     examineTotalPrice (): Array<T>
-    exportCsvFile (): void
+    exportCsvFile (filename: string): void
+    classifyTransactionItem (): { dealCases: Array<IDeal> }
   }
 }
 
@@ -274,7 +277,7 @@ Object.defineProperty(Array.prototype, 'examineTotalPrice', {
 })
 
 Object.defineProperty(Array.prototype, 'exportCsvFile', {
-  value: function <T> (this: Array<IDeal>): void {
+  value: function <T> (this: Array<IDeal>, filename: string): void {
     const data: any = []
     // console.log(this[0])
     this.forEach((row) => {
@@ -288,7 +291,19 @@ Object.defineProperty(Array.prototype, 'exportCsvFile', {
       packedRow.coordinate_y = row.coordinate_y
       data.push(packedRow)
     })
-    // console.log(data[0])
-    exportCsvFile(data)
+    // console.log(data[0]) 
+    exportCsvFile(data, filename)
+  }
+})
+
+Object.defineProperty(Array.prototype, 'classifyTransactionItem', {
+  value: function <T> (this: Array<IDeal>): { dealCases: Array<IDeal> } {
+    const dealCases: Array<IDeal> = []
+    this.forEach((row) => {
+      if (classifyTransactionItem(row)) {
+        dealCases.push(row)
+      }
+    })
+    return { dealCases }
   }
 })

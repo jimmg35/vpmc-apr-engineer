@@ -35,8 +35,6 @@ export const readCsvFile = async <T> (filePath: string): Promise<T[]> => {
         resultTranslated.parsedValue = {}
         resultTranslated.logicalExamine = {}
         resultTranslated.calculatedPrice = {}
-        // resultTranslated.parsedValue.transactionTime = {}
-        // resultTranslated.parsedValue.completionTime = {}
         translatedResults.push(resultTranslated)
       })
       resolve(translatedResults)
@@ -44,8 +42,7 @@ export const readCsvFile = async <T> (filePath: string): Promise<T[]> => {
   })
 }
 
-export const exportCsvFile = async (data: any[]) => {
-  // console.log('============================')
+export const exportCsvFile = async (data: any[], filename: string) => {
   const header: any = []
   mapKeys(data[0], (value, key) => {
     const column = {
@@ -54,7 +51,7 @@ export const exportCsvFile = async (data: any[]) => {
     header.push(column)
   })
   const csvWriter = createObjectCsvWriter({
-    path: 'out.csv',
+    path: filename,
     header: header
   })
   // console.log(header)
