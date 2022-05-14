@@ -30,6 +30,8 @@ import classifyNullRecord from './deal/classify/classifyNullRecord'
 import { exportCsvFile } from '../io'
 import { mapKeys } from 'lodash'
 
+import proj4 from 'proj4'
+
 declare global {
   interface Array<T> {
     showTop (): Array<T>
@@ -55,7 +57,7 @@ declare global {
     examineBuildingType (): Array<T>
     examineTransferFloor (): Array<T>
     examineTotalPrice (): Array<T>
-    exportCsvFile (filename: string): void
+    exportCsvFile (filename: string, projection: string): void
     classifyTransactionItem (): { dealCases: Array<IDeal> }
     classifyNullRecord (): { nonNullCases: Array<IDeal> }
   }
@@ -278,8 +280,9 @@ Object.defineProperty(Array.prototype, 'examineTotalPrice', {
   }
 })
 
+
 Object.defineProperty(Array.prototype, 'exportCsvFile', {
-  value: function <T> (this: Array<IDeal>, filename: string): void {
+  value: function <T> (this: Array<IDeal>, filename: string, projection: string): void {
     const data: any = []
     // console.log(this[0])
     this.forEach((row) => {
@@ -289,8 +292,9 @@ Object.defineProperty(Array.prototype, 'exportCsvFile', {
       })
       packedRow.priceWithoutParking = row.calculatedPrice.priceWithoutParking
       packedRow.price = row.calculatedPrice.price
-      packedRow.coordinate_x = row.coordinate_y
-      packedRow.coordinate_y = row.coordinate_x
+      const [x, y] = proj4(projection).inverse([Number(row.coordinate_y), Number(row.coordinate_x)])
+      packedRow.coordinate_x = x
+      packedRow.coordinate_y = y
       data.push(packedRow)
     })
     // console.log(data[0]) 

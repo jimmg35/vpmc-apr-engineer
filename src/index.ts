@@ -5,7 +5,9 @@ import './_function/index'
 
 (async () => {
 
-  const county = 'yunlin'
+  const county = 'newtaipei'
+  const twd97tm2 = 'PROJCS["TWD97TM2",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["False_Easting",250000.0],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",121.0],PARAMETER["Scale_Factor",0.9999],PARAMETER["Latitude_Of_Origin",0.0],UNIT["Meter",1.0]]'
+  const twd97tm2_119 = 'PROJCS["TWD97TM2-119",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["False_Easting",250000.0],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",119.0],PARAMETER["Scale_Factor",0.9999],PARAMETER["Latitude_Of_Origin",0.0],UNIT["Meter",1.0]]'
 
   // 讀取檔案
   const deals = await readCsvFile<IDeal>(`./repository/${county}/merged/${county}.csv`)
@@ -58,6 +60,11 @@ import './_function/index'
   // 輸出csv檔
   // parseFailCases
   // examineFailCases
-  nonNullCases.exportCsvFile(`./output/${county}.csv`)
+  nonNullCases.exportCsvFile(
+    `./output/${county}.csv`,
+    ['kinmen', 'lianjiang', 'penghu'].includes(county)
+      ? twd97tm2_119
+      : twd97tm2
+  )
 
 })()

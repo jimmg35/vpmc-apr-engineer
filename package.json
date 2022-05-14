@@ -7,11 +7,13 @@
   "license": "MIT",
   "dependencies": {
     "@types/lodash": "^4.14.181",
+    "@types/proj4": "^2.5.2",
     "chinese-numbers-to-arabic": "^1.4.0",
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
     "lodash": "^4.17.21",
     "pg": "^8.4.0",
+    "proj4": "^2.8.0",
     "reflect-metadata": "^0.1.10",
     "typeorm": "0.2.41",
     "typescript": "^4.6.3"
