@@ -4,7 +4,7 @@
    "port": 5432,
    "username": "postgres",
    "password": "r2tadmiadc",
-   "database": "vpmcapr",
+   "database": "vpmcnode",
    "synchronize": false,
    "logging": false,
    "entities": [

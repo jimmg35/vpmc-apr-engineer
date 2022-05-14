@@ -19,7 +19,8 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "migrate": "node --require ts-node/register ./node_modules/typeorm/cli.js migration:generate -n migration",
-    "update": "node --require ts-node/register ./node_modules/typeorm/cli.js migration:run"
+    "update": "node --require ts-node/register ./node_modules/typeorm/cli.js migration:run",
+    "inspect": "typeorm-model-generator -h 140.122.82.98 -d vpmcnode -p 5432 -u postgres -x r2tadmiadc -e postgres -o ./generated-entity"
   },
   "devDependencies": {
     "@types/node": "^8.0.29",

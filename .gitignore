@@ -9,3 +9,6 @@ repository/
 output/
 _src/gis-output/
 _src/gis-garbage/
+generated-entity/
+commitee/data/
+commitee/license_geocoded.csv
