@@ -42,8 +42,8 @@ export interface IDeal {
   belconyArea: string               // Done
   hasElevator: string               // Done
   parsedValue: {
-    transactionTime?: IParsedValue<Date | undefined>
-    completionTime?: IParsedValue<Date | undefined>
+    transactionTime?: IParsedValue<string | undefined>
+    completionTime?: IParsedValue<string | undefined>
     floor?: IParsedValue<number | undefined>
     transferFloor?: IParsedValue<number | undefined>
     hasElevator?: IParsedValue<number | undefined>
@@ -81,3 +81,4 @@ export interface IDeal {
     price: number
   }
 }
+// RPUNMLLMQHHFFBA67CA

@@ -25,8 +25,9 @@ const parseTransactionTime = (row: IDeal) => {
   try {
     const datetime = new Date(year + '-' + date.substring(0, 2) + '-' + date.substring(2, 4))
     let iso = datetime.toISOString()
+
     row.parsedValue.transactionTime = {
-      value: datetime,
+      value: datetime.toISOString().split('T')[0],
       status: Status.success
     }
   } catch {

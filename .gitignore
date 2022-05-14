@@ -7,3 +7,5 @@ temp/
 src/migration/
 repository/
 output/
+_src/gis-output/
+_src/gis-garbage/

@@ -25,6 +25,7 @@ import examineTransferFloor from './deal/logicalExamine/examineTransferFloor'
 import examineTotalPrice from './deal/logicalExamine/examineTotalPrice'
 
 import classifyTransactionItem from './deal/classify/classifyTransactionItem'
+import classifyNullRecord from './deal/classify/classifyNullRecord'
 
 import { exportCsvFile } from '../io'
 import { mapKeys } from 'lodash'
@@ -56,6 +57,7 @@ declare global {
     examineTotalPrice (): Array<T>
     exportCsvFile (filename: string): void
     classifyTransactionItem (): { dealCases: Array<IDeal> }
+    classifyNullRecord (): { nonNullCases: Array<IDeal> }
   }
 }
 
@@ -287,8 +289,8 @@ Object.defineProperty(Array.prototype, 'exportCsvFile', {
       })
       packedRow.priceWithoutParking = row.calculatedPrice.priceWithoutParking
       packedRow.price = row.calculatedPrice.price
-      packedRow.coordinate_x = row.coordinate_x
-      packedRow.coordinate_y = row.coordinate_y
+      packedRow.coordinate_x = row.coordinate_y
+      packedRow.coordinate_y = row.coordinate_x
       data.push(packedRow)
     })
     // console.log(data[0]) 
@@ -305,5 +307,21 @@ Object.defineProperty(Array.prototype, 'classifyTransactionItem', {
       }
     })
     return { dealCases }
+  }
+})
+
+Object.defineProperty(Array.prototype, 'classifyNullRecord', {
+  value: function <T> (this: Array<IDeal>): { nonNullCases: Array<IDeal> } {
+    const nonNullCases: Array<IDeal> = []
+    let aa = 0
+    this.forEach((row) => {
+      if (classifyNullRecord(row)) {
+        nonNullCases.push(row)
+      } else {
+        aa += 1
+      }
+    })
+    // console.log(aa)
+    return { nonNullCases }
   }
 })

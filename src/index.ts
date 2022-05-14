@@ -5,8 +5,10 @@ import './_function/index'
 
 (async () => {
 
+  const county = 'yunlin'
+
   // 讀取檔案
-  const deals = await readCsvFile<IDeal>('./repository/taipei/merged/taipei.csv')
+  const deals = await readCsvFile<IDeal>(`./repository/${county}/merged/${county}.csv`)
 
   // 進行資料parsing (Phase 2)
   deals
@@ -46,13 +48,16 @@ import './_function/index'
 
   // 分類出建物交易紀錄(phase 6)
   const { dealCases } = examineSuccessCases.classifyTransactionItem()
+  console.log(`建物交易案例數量 : ${dealCases.length}`)
 
   // 進行總價與車位價計算與檢核 (Phase 7)
   dealCases.examineTotalPrice()
+  const { nonNullCases } = dealCases.classifyNullRecord()
+  console.log(`去除空值案例數量 : ${nonNullCases.length}`)
 
   // 輸出csv檔
   // parseFailCases
   // examineFailCases
-  dealCases.exportCsvFile('./output/out2.csv')
+  nonNullCases.exportCsvFile(`./output/${county}.csv`)
 
 })()
