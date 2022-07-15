@@ -6,6 +6,8 @@ import { langMapping } from '../schema/languageMapping'
 import { getKeyByValue } from '../utility'
 import { mapKeys } from 'lodash'
 import { IDeal } from '../schema/deal'
+import { Connection } from 'typeorm'
+import { Commitee, ICommitee } from '../entity/Commitee'
 
 export const zn2En = (params: { header: string, index: number }) => {
   return langMapping[params.header]
@@ -15,7 +17,7 @@ export const en2Zn = (params: { header: string, index: number }) => {
   return getKeyByValue(langMapping, params.header)
 }
 
-export const readCsvFile = async <T> (filePath: string): Promise<T[]> => {
+export const readCsvFileApr = async <T> (filePath: string): Promise<T[]> => {
   return new Promise((resolve) => {
     const results: T[] = []
     const stream: fs.ReadStream = fs.createReadStream(filePath)
@@ -91,4 +93,19 @@ export const exportCsvFile = async (data: any[], filename: string) => {
   // csvWriter
   //   .writeRecords(datas)
   //   .then(() => console.log('The CSV file was written successfully'));
+}
+
+export const readCsvFile = async <T> (filePath: string): Promise<T[]> => {
+  return new Promise((resolve) => {
+    const stream: fs.ReadStream = fs.createReadStream(filePath)
+    const transform: internal.Transform = stream.pipe(csvParser())
+    const results: T[] = []
+    transform.on('data', (data: T) => {
+      results.push(data)
+    })
+    transform.on('end', () => {
+      stream.close()
+      resolve(results)
+    })
+  })
 }

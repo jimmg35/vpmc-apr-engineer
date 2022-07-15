@@ -11,8 +11,11 @@ def parseLicense(licenseNumber):
 
 
 outColumn = [
+    "fuck",
     "date",
     "organization",
+    "address",
+    "license",
     "licenseYear",
     "licenseCode",
     "latitude",
@@ -26,10 +29,15 @@ if __name__ == "__main__":
 
     total = []
     for index, row in data.iterrows():
+        # if index > 2:
+        #     break
         try:
             rowData = [
+                '1',
                 datetime.strptime(str(int(row["date"])), '%Y%m%d').strftime('%Y/%m/%d'),
-                row["organization"]
+                row["organization"],
+                row["address"],
+                row["license"]
             ]
         except:
             continue
@@ -43,6 +51,8 @@ if __name__ == "__main__":
 
         try:
             x, y = myCoder.address2Geolocation(row["address"])
+            if x == None or y == None:
+                continue
             rowData.append(y)
             rowData.append(x)
         except:
@@ -53,5 +63,5 @@ if __name__ == "__main__":
         
     # 輸出geocoded的表
     joinGeocoded = pd.DataFrame(np.array(total), columns=outColumn)
-    joinGeocoded.to_csv("license_geocoded.csv", encoding="utf-8-sig", index=False)
+    joinGeocoded.to_csv("./output/newtaipei.csv", encoding="utf-8-sig", index=False)
 

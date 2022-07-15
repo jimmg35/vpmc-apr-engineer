@@ -286,7 +286,7 @@ Object.defineProperty(Array.prototype, 'exportCsvFile', {
     const data: any = []
     // console.log(this[0])
     this.forEach((row) => {
-      const packedRow: any = {}
+      const packedRow: any = { none: '' }
       mapKeys(row.parsedValue, (value, key) => {
         packedRow[key] = value?.value
       })

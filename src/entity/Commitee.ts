@@ -17,6 +17,12 @@ export class Commitee {
   organization: string
 
   @Column()
+  address: string
+
+  @Column()
+  license: string
+
+  @Column()
   licenseYear: string
 
   @Column()
@@ -25,4 +31,15 @@ export class Commitee {
   @Column("geography")
   coordinate: string
 
+}
+
+export interface ICommitee {
+  date: Date
+  organization: string
+  address: string
+  license: string
+  licenseYear: string
+  licenseCode: string
+  latitude: string
+  longitude: string
 }
