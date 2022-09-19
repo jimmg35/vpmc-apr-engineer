@@ -2,22 +2,22 @@ import csvParser from 'csv-parser'
 import { createObjectCsvWriter } from 'csv-writer'
 import fs from 'fs'
 import internal from 'stream'
-import { langMapping } from '../schema/languageMapping'
+import { ILangMapping } from '../schema/languageMapping'
 import { getKeyByValue } from '../utility'
 import { mapKeys } from 'lodash'
 import { IDeal } from '../schema/deal'
 import { Connection } from 'typeorm'
 import { Commitee, ICommitee } from '../entity/Commitee'
 
-export const zn2En = (params: { header: string, index: number }) => {
-  return langMapping[params.header]
-}
+// export const zn2En = (params: { header: string, index: number }) => {
+//   return dealLangMapping[params.header]
+// }
 
-export const en2Zn = (params: { header: string, index: number }) => {
-  return getKeyByValue(langMapping, params.header)
-}
+// export const en2Zn = (params: { header: string, index: number }) => {
+//   return getKeyByValue(dealLangMapping, params.header)
+// }
 
-export const readCsvFileApr = async <T> (filePath: string): Promise<T[]> => {
+export const readCsvFileApr = async <T> (filePath: string, langMapping: ILangMapping): Promise<T[]> => {
   return new Promise((resolve) => {
     const results: T[] = []
     const stream: fs.ReadStream = fs.createReadStream(filePath)
@@ -28,11 +28,9 @@ export const readCsvFileApr = async <T> (filePath: string): Promise<T[]> => {
     transform.on('end', () => {
       const translatedResults: T[] = []
       results.forEach((result: any) => {
+        // console.log(result)
         let resultTranslated: any = mapKeys(result, (value, key) => {
-          if (langMapping[key] === undefined) {
-            return 'town'
-          }
-          return langMapping[key]
+          return langMapping[key.trim()]
         })
         resultTranslated.parsedValue = {}
         resultTranslated.logicalExamine = {}

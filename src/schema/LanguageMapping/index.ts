@@ -1,5 +1,18 @@
 
-export const langMapping: { [key: string]: string } = {
+export interface ILangMapping { [key: string]: string }
+
+export const landLangMapping: { [key: string]: string } = {
+  '編號': 'id',
+  '土地位置': 'address',
+  '土地移轉總面積(平方公尺)': 'landTransferArea',
+  '使用分區或編定': 'landUse',
+  '權利人持分分母': 'rightDenumerate',
+  '權利人持分分子': 'rightNumerate',
+  '移轉情形': 'transferStatus',
+  '地號': 'parcelNumber'
+}
+
+export const dealLangMapping: { [key: string]: string } = {
   '鄉鎮市區': 'town',
   '交易標的': 'transactionTarget',
   '土地位置/建物門牌': 'address',

@@ -81,4 +81,25 @@ export interface IDeal {
     price: number
   }
 }
-// RPUNMLLMQHHFFBA67CA
+
+export interface ILand {
+  id: string               // 編號
+  address: string          // 土地位置
+  landTransferArea: string // 土地移轉總面積(平方公尺)
+  landUse: string          // 使用分區或編定
+  rightDenumerate: string  // 權利人持分分母
+  rightNumerate: string    // 權利人持分分子
+  transferStatus: string   // 移轉情形
+  parcelNumber: string     // 地號
+  parsedValue: {
+    id?: IParsedValue<string | undefined>
+    address?: IParsedValue<string | undefined>
+    landTransferArea?: IParsedValue<number | undefined>
+    landUse?: IParsedValue<number | undefined>
+    rightNumerate?: IParsedValue<number | undefined>
+    transferStatus?: IParsedValue<number | undefined>
+    parcelNumber?: IParsedValue<string | undefined>
+  }
+  logicalExamine: {}
+  calculatedPrice: {}
+}
