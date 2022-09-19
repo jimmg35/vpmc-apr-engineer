@@ -4,12 +4,30 @@ export interface ILangMapping { [key: string]: string }
 export const landLangMapping: { [key: string]: string } = {
   '編號': 'id',
   '土地位置': 'address',
-  '土地移轉總面積(平方公尺)': 'landTransferArea',
+  '土地移轉面積(平方公尺)': 'landTransferArea',
   '使用分區或編定': 'landUse',
   '權利人持分分母': 'rightDenumerate',
   '權利人持分分子': 'rightNumerate',
   '移轉情形': 'transferStatus',
   '地號': 'parcelNumber'
+}
+
+export const buildLangMapping: { [key: string]: string } = {
+  '編號': 'id',
+  '建物移轉面積(平方公尺)': 'buildingTransferArea',
+  '主要用途': 'usage',
+  '主要建材': 'material',
+  '建築完成日期': '',
+  '總層數': '',
+  '建物分層': 'buildingLayer'
+}
+
+export const parkLangMapping: { [key: string]: string } = {
+  '編號': 'id',
+  '車位類別': 'parkingSpaceType',
+  '車位價格': 'parkingSpacePrice',
+  '車位面積平方公尺': 'parkingSpaceTransferArea',
+  '車位所在樓層': 'locateLevel',
 }
 
 export const dealLangMapping: { [key: string]: string } = {

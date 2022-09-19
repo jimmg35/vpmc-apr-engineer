@@ -95,10 +95,45 @@ export interface ILand {
     id?: IParsedValue<string | undefined>
     address?: IParsedValue<string | undefined>
     landTransferArea?: IParsedValue<number | undefined>
-    landUse?: IParsedValue<number | undefined>
+    landUse?: IParsedValue<string | undefined>
+    rightDenumerate?: IParsedValue<number | undefined>
     rightNumerate?: IParsedValue<number | undefined>
     transferStatus?: IParsedValue<number | undefined>
     parcelNumber?: IParsedValue<string | undefined>
+  }
+  logicalExamine: {}
+  calculatedPrice: {}
+}
+
+export interface IBuild {
+  id: string                        // 編號
+  buildingTransferArea: string      // 建物移轉面積(平方公尺)
+  usage: string                     // 主要用途
+  material: string                  // 主要建材
+  buildingLayer: string             // 建物分層
+  parsedValue: {
+    id?: IParsedValue<string | undefined>
+    buildingTransferArea?: IParsedValue<number | undefined>
+    usage?: IParsedValue<string | undefined>
+    material?: IParsedValue<string | undefined>
+    buildingLayer?: IParsedValue<string | undefined>
+  }
+  logicalExamine: {}
+  calculatedPrice: {}
+}
+
+export interface IPark {
+  id: string                        // 編號
+  parkingSpaceType: string          // 車位類別
+  parkingSpacePrice: string         // 車位總價
+  parkingSpaceTransferArea: string  // 車位面積平方公尺
+  locateLevel: string               // 車位所在樓層
+  parsedValue: {
+    id?: IParsedValue<string | undefined>
+    parkingSpaceType?: IParsedValue<number | undefined>
+    parkingSpacePrice?: IParsedValue<number | undefined>
+    parkingSpaceTransferArea?: IParsedValue<number | undefined>
+    locateLevel?: IParsedValue<string | undefined>
   }
   logicalExamine: {}
   calculatedPrice: {}
