@@ -1,4 +1,4 @@
-import { IDeal, ILand, IBuild } from '../schema/deal'
+import { IDeal, ILand, IBuild, IPark } from '../schema/deal'
 import parseTransactionTime from './deal/parsing/parseTransactionTime'
 import showDeviants from './deal/showDeviant'
 import parseCompletionTime from './deal/parsing/parseCompletionTime'
@@ -37,7 +37,10 @@ import parseNumericalLand from './land/parsing/parseNumerical'
 import parseTextLand from './land/parsing/parseText'
 import parseLandTransferStatus from './land/parsing/parseLandTransferStatus'
 import parseTextBuild from './build/parsing/parseTextBuild'
+import parseNumericalBuild from './build/parsing/parseNumerical'
 
+import parseTextPark from './park/parsing/parseText'
+import parseNumericalPark from './park/parsing/parseNumerical'
 
 declare global {
   interface Array<T> {
@@ -73,6 +76,10 @@ declare global {
     parseLandTransferStatus (): Array<T>
 
     parseTextBuild (): Array<T>
+    parseNumericalBuild (): Array<T>
+
+    parseTextPark (): Array<T>
+    parseNumericalPark (): Array<T>
 
     exportCsvFileNormal (filename: string): void
   }
@@ -391,6 +398,36 @@ Object.defineProperty(Array.prototype, 'parseTextBuild', {
   value: function <T> (this: Array<IBuild>): Array<IBuild> {
     this.map((row) => {
       parseTextBuild(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseNumericalBuild', {
+  value: function <T> (this: Array<IBuild>): Array<IBuild> {
+    this.map((row) => {
+      parseNumericalBuild(row)
+    })
+    return this
+  }
+})
+
+// parseTextPark(): Array<T>
+// parseNumericalPark(): Array<T>
+
+Object.defineProperty(Array.prototype, 'parseTextPark', {
+  value: function <T> (this: Array<IPark>): Array<IPark> {
+    this.map((row) => {
+      parseTextPark(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseNumericalPark', {
+  value: function <T> (this: Array<IPark>): Array<IPark> {
+    this.map((row) => {
+      parseNumericalPark(row)
     })
     return this
   }

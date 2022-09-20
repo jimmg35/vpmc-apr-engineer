@@ -12,37 +12,75 @@ import { landLangMapping, dealLangMapping, buildLangMapping, parkLangMapping } f
   //   path.resolve(__dirname, '../repository')
   // )
 
-  const counties = ['taipei']
+  const counties = [
+    'changhua', 'chiayi',
+    'chiayi_city', 'hsinchu',
+    'hsinchu_city', 'hualien',
+    'kaohsiung', 'keelung',
+    'kinmen', 'lianjiang',
+    'miaoli', 'nantou', 'penghu',
+    'pingtung', 'taichung',
+    'tainan', 'taipei',
+    'taitung', 'taoyuan',
+    'yilan', 'yunlin',
+    'newtaipei'
+  ]
+
+  // const counties = ['newtaipei']
 
   for (let i = 0; i < counties.length; i++) {
     const county = counties[i]
     const twd97tm2 = 'PROJCS["TWD97TM2",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["False_Easting",250000.0],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",121.0],PARAMETER["Scale_Factor",0.9999],PARAMETER["Latitude_Of_Origin",0.0],UNIT["Meter",1.0]]'
     const twd97tm2_119 = 'PROJCS["TWD97TM2-119",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["False_Easting",250000.0],PARAMETER["False_Northing",0.0],PARAMETER["Central_Meridian",119.0],PARAMETER["Scale_Factor",0.9999],PARAMETER["Latitude_Of_Origin",0.0],UNIT["Meter",1.0]]'
 
+    const landsPath = `./repository/${county}/merged/land.csv`
+    const buildsPath = `./repository/${county}/merged/build.csv`
+    const parksPath = `./repository/${county}/merged/park.csv`
+    const dealsPath = `./repository/${county}/merged/deal.csv`
+
     // 讀取各資產類別檔案
-    const lands = await readCsvFileApr<ILand>(`./repository/${county}/merged/land.csv`, landLangMapping)
-    const builds = await readCsvFileApr<IBuild>(`./repository/${county}/merged/build.csv`, buildLangMapping)
-    // const parks = await readCsvFileApr<IPark>(`./repository/${county}/merged/park.csv`, parkLangMapping)
+    const lands = fs.existsSync(landsPath)
+      ? await readCsvFileApr<ILand>(landsPath, landLangMapping)
+      : []
+    const builds = fs.existsSync(buildsPath)
+      ? await readCsvFileApr<IBuild>(buildsPath, buildLangMapping)
+      : []
+    const parks = fs.existsSync(parksPath)
+      ? await readCsvFileApr<IPark>(parksPath, parkLangMapping)
+      : []
 
     // 讀取交易紀錄檔案
-    const deals = await readCsvFileApr<IDeal>(`./repository/${county}/merged/deal.csv`, dealLangMapping)
+    const deals = fs.existsSync(dealsPath)
+      ? await readCsvFileApr<IDeal>(dealsPath, dealLangMapping)
+      : []
 
-    const processBuilds = () => {
-      builds.parseTextBuild().showTop()
+    const processParks = (parks: IPark[]) => {
+      parks
+        .parseTextPark()
+        .parseNumericalPark()
+      parks.exportCsvFileNormal(
+        `./apr-output/${county}-park.csv`)
     }
 
-    const processLands = () => {
+    const processBuilds = (builds: IBuild[]) => {
+      builds
+        .parseTextBuild()
+        .parseNumericalBuild()
+      builds.exportCsvFileNormal(
+        `./apr-output/${county}-build.csv`)
+    }
+
+    const processLands = (lands: ILand[]) => {
       // 進行土地資料parsing (Phase 2)
       lands
         .parseNumericalLand()
         .parseTextLand()
         .parseLandTransferStatus()
-        .showTop()
       lands.exportCsvFileNormal(
         `./apr-output/${county}-land.csv`)
     }
 
-    const processDeals = () => {
+    const processDeals = (deals: IDeal[]) => {
       // 進行交易資料parsing (Phase 2)
       deals
         .parseTransactionTime()
@@ -92,16 +130,18 @@ import { landLangMapping, dealLangMapping, buildLangMapping, parkLangMapping } f
       // parseFailCases
       // examineFailCases
       nonNullCases.exportCsvFile(
-        `./apr-output/${county}.csv`,
+        `./apr-output/${county}-deal.csv`,
         ['kinmen', 'lianjiang', 'penghu'].includes(county)
           ? twd97tm2_119
           : twd97tm2
       )
     }
 
-    processBuilds()
-    // processLands()
-    // processDeals()
+    console.log(county)
+    processParks(parks)
+    processBuilds(builds)
+    processLands(lands)
+    processDeals(deals)
 
   }
 
