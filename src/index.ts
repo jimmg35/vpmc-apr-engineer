@@ -19,11 +19,13 @@ import { landLangMapping, dealLangMapping, buildLangMapping, parkLangMapping } f
     'kaohsiung', 'keelung',
     'kinmen', 'lianjiang',
     'miaoli', 'nantou', 'penghu',
-    'pingtung', 'taichung',
+    'pingtung',
     'tainan', 'taipei',
-    'taitung', 'taoyuan',
+    'taitung',
     'yilan', 'yunlin',
-    'newtaipei'
+    'taoyuan',
+    'newtaipei',
+    'taichung'
   ]
 
   // const counties = ['newtaipei']

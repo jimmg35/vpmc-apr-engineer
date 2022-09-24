@@ -42,6 +42,7 @@ export interface IDeal {
   belconyArea: string               // 陽台面積
   hasElevator: string               // 電梯
   parsedValue: {
+    address?: IParsedValue<string | undefined>
     transactionTime?: IParsedValue<string | undefined>
     completionTime?: IParsedValue<string | undefined>
     floor?: IParsedValue<number | undefined>

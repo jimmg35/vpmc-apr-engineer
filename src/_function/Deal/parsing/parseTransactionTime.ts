@@ -3,6 +3,10 @@ import { Status } from '../../../schema/status'
 import { trimSpace } from '../../../utility'
 
 const parseTransactionTime = (row: IDeal) => {
+  row.parsedValue.address = {
+    value: row.address,
+    status: Status.success
+  }
   const value = trimSpace(row.transactionTime)
   if (value === '') {
     row.parsedValue.transactionTime = {
