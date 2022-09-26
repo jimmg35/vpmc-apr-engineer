@@ -31,35 +31,36 @@ interface IImportInfo {
 
 (async () => {
 
-  // `INSERT INTO apr (id, "address", "transactionTime", "completionTime", floor, "transferFloor", "hasElevator", "hasCommittee", "hasCompartment", "buildingTransferArea", price, "unitPrice", "parkingSpaceTransferArea", "parkingSpacePrice", "landTransferArea", "roomNumber", "hallNumber", "bathNumber", "buildingArea", "subBuildingArea", "belconyArea", "landAmount", "buildingAmount", "parkAmount", "urbanLandUse", "nonUrbanLandUse", "nonUrbanLandUsePlanning", "buildingType", "parkingSpaceType", "priceWithoutParking", coordinate) VALUES ('${apr.id}', '${apr.address}', '${apr.transactionTime}', '${apr.completionTime}', ${apr.floor}, ${apr.transferFloor}, ${apr.hasElevator}, ${apr.hasCommittee}, ${apr.hasCompartment}, ${apr.buildingTransferArea}, ${apr.price}, ${apr.unitPrice}, ${apr.parkingSpaceTransferArea}, ${apr.parkingSpacePrice}, ${apr.landTransferArea}, ${apr.roomNumber}, ${apr.hallNumber}, ${apr.bathNumber}, ${apr.buildingArea}, ${apr.subBuildingArea}, ${apr.belconyArea}, ${apr.landAmount}, ${apr.buildingAmount}, ${apr.parkAmount}, ${apr.urbanLandUse}, ${apr.nonUrbanLandUse}, ${apr.nonUrbanLandUsePlanning}, ${apr.buildingType}, ${apr.parkingSpaceType}, ${apr.priceWithoutParking}, 'SRID=4326;POINT(${apr.coordinate_x} ${apr.coordinate_y})');`
+  const county = process.argv[2]
+  const sheetType = process.argv[3]
+  const counties = [
+    'changhua',
+    'chiayi',
+    'chiayi_city',
+    'hsinchu',
+    'hsinchu_city',
+    'hualien',
+    'kaohsiung',
+    'keelung',
+    'kinmen',
+    'lianjiang',
+    'miaoli',
+    'nantou',
+    'penghu',
+    'pingtung',
+    'tainan',
+    'yilan',
+    'taitung',
+    'yunlin',
+    'taipei',
+    'taoyuan',
+    'newtaipei',
+    'taichung'
+  ]
+  if (!counties.includes(county)) return
+
   // 新增db connection
   const connection = await createConnection()
-
-  const counties = [
-    // 'changhua',
-    // 'chiayi',
-    // 'chiayi_city',
-    'hsinchu',
-    // 'hsinchu_city',
-    // 'hualien',
-    // 'kaohsiung',
-    // 'keelung',
-    // 'kinmen',
-    // 'lianjiang',
-    // 'miaoli',
-    // 'nantou',
-    // 'penghu',
-    // 'pingtung',
-    // 'tainan',
-    // 'taipei',
-    // 'taitung',
-    // 'yilan',
-    // 'yunlin',
-    // 'taoyuan',
-    // 'newtaipei',
-    // 'taichung'
-  ]
-
 
   const importDataBySheetType = async <FT extends IAprFileGeneric, DT> ({
     county,
@@ -67,7 +68,8 @@ interface IImportInfo {
   }: IImportInfo, entityType: EntityTarget<AprLand>) => {
     const aprs = await readCsvFile<FT>(`./apr-output/${county}-${sheetType}.csv`)
     const repository = connection.getRepository(entityType)
-    aprs.forEach(async (apr) => {
+    const totalLength = aprs.length
+    aprs.forEach(async (apr, index) => {
       let insertString = ``
       if (sheetType === 'deal') {
         insertString = `INSERT INTO apr (id, "address", "transactionTime", "completionTime", floor, "transferFloor", "hasElevator", "hasCommittee", "hasCompartment", "buildingTransferArea", price, "unitPrice", "parkingSpaceTransferArea", "parkingSpacePrice", "landTransferArea", "roomNumber", "hallNumber", "bathNumber", "buildingArea", "subBuildingArea", "belconyArea", "landAmount", "buildingAmount", "parkAmount", "urbanLandUse", "nonUrbanLandUse", "nonUrbanLandUsePlanning", "buildingType", "parkingSpaceType", "priceWithoutParking", coordinate) VALUES ('${apr.id}', '${apr.address}', '${apr.transactionTime}', '${apr.completionTime}', ${apr.floor}, ${apr.transferFloor}, ${apr.hasElevator}, ${apr.hasCommittee}, ${apr.hasCompartment}, ${apr.buildingTransferArea}, ${apr.price}, ${apr.unitPrice}, ${apr.parkingSpaceTransferArea}, ${apr.parkingSpacePrice}, ${apr.landTransferArea}, ${apr.roomNumber}, ${apr.hallNumber}, ${apr.bathNumber}, ${apr.buildingArea}, ${apr.subBuildingArea}, ${apr.belconyArea}, ${apr.landAmount}, ${apr.buildingAmount}, ${apr.parkAmount}, ${apr.urbanLandUse}, ${apr.nonUrbanLandUse}, ${apr.nonUrbanLandUsePlanning}, ${apr.buildingType}, ${apr.parkingSpaceType}, ${apr.priceWithoutParking}, 'SRID=4326;POINT(${apr.coordinate_x} ${apr.coordinate_y})');`
@@ -82,20 +84,15 @@ interface IImportInfo {
         insertString = `INSERT INTO aprpark ("aprId", "locateLevel", "parkingSpaceType", "parkingSpacePrice", "parkingSpaceTransferArea") VALUES ('${apr.id}', '${apr.locateLevel}', ${apr.parkingSpaceType}, ${apr.parkingSpacePrice}, ${apr.parkingSpaceTransferArea});`
       }
       await repository.query(insertString)
-      console.log(`${apr.id} ${county} input!`)
+      console.log(`${apr.id} ${county} input! | ${index} / ${totalLength}`)
     })
-
   }
 
   // 讀取實價登陸資料
-  for (let i = 0; i < counties.length; i++) {
-    const county = counties[i]
-    await importDataBySheetType({
-      county: county,
-      sheetType: 'land'
-    }, AprLand)
-  }
-
+  await importDataBySheetType({
+    county: county,
+    sheetType: sheetType as SheetType
+  }, AprLand)
 
 
 
