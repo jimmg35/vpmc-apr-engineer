@@ -1,4 +1,4 @@
-import { IDeal } from '../schema/deal'
+import { IDeal, ILand, IBuild, IPark } from '../schema/deal'
 import parseTransactionTime from './deal/parsing/parseTransactionTime'
 import showDeviants from './deal/showDeviant'
 import parseCompletionTime from './deal/parsing/parseCompletionTime'
@@ -32,6 +32,16 @@ import { mapKeys } from 'lodash'
 
 import proj4 from 'proj4'
 
+
+import parseNumericalLand from './land/parsing/parseNumerical'
+import parseTextLand from './land/parsing/parseText'
+import parseLandTransferStatus from './land/parsing/parseLandTransferStatus'
+import parseTextBuild from './build/parsing/parseTextBuild'
+import parseNumericalBuild from './build/parsing/parseNumerical'
+
+import parseTextPark from './park/parsing/parseText'
+import parseNumericalPark from './park/parsing/parseNumerical'
+
 declare global {
   interface Array<T> {
     showTop (): Array<T>
@@ -60,6 +70,18 @@ declare global {
     exportCsvFile (filename: string, projection: string): void
     classifyTransactionItem (): { dealCases: Array<IDeal> }
     classifyNullRecord (): { nonNullCases: Array<IDeal> }
+
+    parseNumericalLand (): Array<T>
+    parseTextLand (): Array<T>
+    parseLandTransferStatus (): Array<T>
+
+    parseTextBuild (): Array<T>
+    parseNumericalBuild (): Array<T>
+
+    parseTextPark (): Array<T>
+    parseNumericalPark (): Array<T>
+
+    exportCsvFileNormal (filename: string): void
   }
 }
 
@@ -302,6 +324,21 @@ Object.defineProperty(Array.prototype, 'exportCsvFile', {
   }
 })
 
+Object.defineProperty(Array.prototype, 'exportCsvFileNormal', {
+  value: function <T> (this: Array<ILand>, filename: string): void {
+    const data: any = []
+    // console.log(this[0])
+    this.forEach((row) => {
+      const packedRow: any = { none: '' }
+      mapKeys(row.parsedValue, (value, key) => {
+        packedRow[key] = value?.value
+      })
+      data.push(packedRow)
+    })
+    exportCsvFile(data, filename)
+  }
+})
+
 Object.defineProperty(Array.prototype, 'classifyTransactionItem', {
   value: function <T> (this: Array<IDeal>): { dealCases: Array<IDeal> } {
     const dealCases: Array<IDeal> = []
@@ -327,5 +364,71 @@ Object.defineProperty(Array.prototype, 'classifyNullRecord', {
     })
     // console.log(aa)
     return { nonNullCases }
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseNumericalLand', {
+  value: function <T> (this: Array<ILand>): Array<ILand> {
+    this.map((row) => {
+      parseNumericalLand(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseTextLand', {
+  value: function <T> (this: Array<ILand>): Array<ILand> {
+    this.map((row) => {
+      parseTextLand(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseLandTransferStatus', {
+  value: function <T> (this: Array<ILand>): Array<ILand> {
+    this.map((row) => {
+      parseLandTransferStatus(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseTextBuild', {
+  value: function <T> (this: Array<IBuild>): Array<IBuild> {
+    this.map((row) => {
+      parseTextBuild(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseNumericalBuild', {
+  value: function <T> (this: Array<IBuild>): Array<IBuild> {
+    this.map((row) => {
+      parseNumericalBuild(row)
+    })
+    return this
+  }
+})
+
+// parseTextPark(): Array<T>
+// parseNumericalPark(): Array<T>
+
+Object.defineProperty(Array.prototype, 'parseTextPark', {
+  value: function <T> (this: Array<IPark>): Array<IPark> {
+    this.map((row) => {
+      parseTextPark(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseNumericalPark', {
+  value: function <T> (this: Array<IPark>): Array<IPark> {
+    this.map((row) => {
+      parseNumericalPark(row)
+    })
+    return this
   }
 })

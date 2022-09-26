@@ -61,3 +61,9 @@ export enum parkingSpaceType {
   groundPlane = 6, // 一樓平面
   other = 7
 }
+
+export enum landTransferStatusType {
+  partial = 0,
+  entire = 1,
+  none = 3
+}

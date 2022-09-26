@@ -42,6 +42,7 @@ export interface IDeal {
   belconyArea: string               // 陽台面積
   hasElevator: string               // 電梯
   parsedValue: {
+    address?: IParsedValue<string | undefined>
     transactionTime?: IParsedValue<string | undefined>
     completionTime?: IParsedValue<string | undefined>
     floor?: IParsedValue<number | undefined>
@@ -81,4 +82,60 @@ export interface IDeal {
     price: number
   }
 }
-// RPUNMLLMQHHFFBA67CA
+
+export interface ILand {
+  id: string               // 編號
+  address: string          // 土地位置
+  landTransferArea: string // 土地移轉總面積(平方公尺)
+  landUse: string          // 使用分區或編定
+  rightDenumerate: string  // 權利人持分分母
+  rightNumerate: string    // 權利人持分分子
+  transferStatus: string   // 移轉情形
+  parcelNumber: string     // 地號
+  parsedValue: {
+    id?: IParsedValue<string | undefined>
+    address?: IParsedValue<string | undefined>
+    landTransferArea?: IParsedValue<number | undefined>
+    landUse?: IParsedValue<string | undefined>
+    rightDenumerate?: IParsedValue<number | undefined>
+    rightNumerate?: IParsedValue<number | undefined>
+    transferStatus?: IParsedValue<number | undefined>
+    parcelNumber?: IParsedValue<string | undefined>
+  }
+  logicalExamine: {}
+  calculatedPrice: {}
+}
+
+export interface IBuild {
+  id: string                        // 編號
+  buildingTransferArea: string      // 建物移轉面積(平方公尺)
+  usage: string                     // 主要用途
+  material: string                  // 主要建材
+  buildingLayer: string             // 建物分層
+  parsedValue: {
+    id?: IParsedValue<string | undefined>
+    buildingTransferArea?: IParsedValue<number | undefined>
+    usage?: IParsedValue<string | undefined>
+    material?: IParsedValue<string | undefined>
+    buildingLayer?: IParsedValue<string | undefined>
+  }
+  logicalExamine: {}
+  calculatedPrice: {}
+}
+
+export interface IPark {
+  id: string                        // 編號
+  parkingSpaceType: string          // 車位類別
+  parkingSpacePrice: string         // 車位總價
+  parkingSpaceTransferArea: string  // 車位面積平方公尺
+  locateLevel: string               // 車位所在樓層
+  parsedValue: {
+    id?: IParsedValue<string | undefined>
+    parkingSpaceType?: IParsedValue<number | undefined>
+    parkingSpacePrice?: IParsedValue<number | undefined>
+    parkingSpaceTransferArea?: IParsedValue<number | undefined>
+    locateLevel?: IParsedValue<string | undefined>
+  }
+  logicalExamine: {}
+  calculatedPrice: {}
+}

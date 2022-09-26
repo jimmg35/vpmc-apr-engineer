@@ -94,6 +94,9 @@ export class Apr {
     @Column()
     priceWithoutParking: number
 
+    @Column()
+    address: string
+
     @Column("geography")
     coordinate: string
 }
@@ -128,6 +131,7 @@ export interface IApr {
     buildingType: number
     parkingSpaceType: number
     priceWithoutParking: number
+    address: string
     coordinate_x: number
     coordinate_y: number
 }
