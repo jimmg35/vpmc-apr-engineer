@@ -13,7 +13,7 @@ export class AprLand {
     @Column()
     aprId: string
 
-    @Column()
+    @Column({ type: 'double precision' })
     landTransferArea: number
 
     @Column()

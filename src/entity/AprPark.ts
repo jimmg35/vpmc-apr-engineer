@@ -19,10 +19,10 @@ export class AprPark {
     @Column()
     parkingSpaceType: number
 
-    @Column()
+    @Column({ type: 'double precision' })
     parkingSpacePrice: number
 
-    @Column()
+    @Column({ type: 'double precision' })
     parkingSpaceTransferArea: number
 }
 

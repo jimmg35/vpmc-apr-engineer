@@ -31,22 +31,22 @@ export class Apr {
     @Column()
     hasCompartment: number
 
-    @Column()
+    @Column({ type: 'double precision' })
     buildingTransferArea: number
 
-    @Column()
+    @Column({ type: 'double precision' })
     price: number
 
-    @Column()
+    @Column({ type: 'double precision' })
     unitPrice: number
 
-    @Column()
+    @Column({ type: 'double precision' })
     parkingSpaceTransferArea: number
 
-    @Column()
+    @Column({ type: 'double precision' })
     parkingSpacePrice: number
 
-    @Column()
+    @Column({ type: 'double precision' })
     landTransferArea: number
 
     @Column()
@@ -58,13 +58,13 @@ export class Apr {
     @Column()
     bathNumber: number
 
-    @Column()
+    @Column({ type: 'double precision' })
     buildingArea: number
 
-    @Column()
+    @Column({ type: 'double precision' })
     subBuildingArea: number
 
-    @Column()
+    @Column({ type: 'double precision' })
     belconyArea: number
 
     @Column()

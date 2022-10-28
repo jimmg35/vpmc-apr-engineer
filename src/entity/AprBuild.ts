@@ -22,7 +22,7 @@ export class AprBuild {
     @Column({ nullable: true })
     buildingLayer: string
 
-    @Column()
+    @Column({ type: 'double precision' })
     buildingTransferArea: number
 }
 
