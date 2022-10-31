@@ -15,6 +15,11 @@ import { EntityTarget } from 'typeorm'
 // 輸入順序
 // deal => land => build => park
 
+const isNull = (value: any) => {
+  if (value === 'NULL') return true
+  return false
+}
+
 const parseLicenseDate = (value: string) => {
   const dateArray = value.replace('年', '/').replace('月', '/').replace('日', '/').split('/')
   return Number(dateArray[0]) + 1911 + '/' + Number(dateArray[1]) + '/' + Number(dateArray[2])
@@ -72,7 +77,10 @@ interface IImportInfo {
     aprs.forEach(async (apr, index) => {
       let insertString = ``
       if (sheetType === 'deal') {
-        insertString = `INSERT INTO apr (id, "address", "transactionTime", "completionTime", floor, "transferFloor", "hasElevator", "hasCommittee", "hasCompartment", "buildingTransferArea", price, "unitPrice", "parkingSpaceTransferArea", "parkingSpacePrice", "landTransferArea", "roomNumber", "hallNumber", "bathNumber", "buildingArea", "subBuildingArea", "belconyArea", "landAmount", "buildingAmount", "parkAmount", "urbanLandUse", "nonUrbanLandUse", "nonUrbanLandUsePlanning", "buildingType", "parkingSpaceType", "priceWithoutParking", coordinate) VALUES ('${apr.id}', '${apr.address}', '${apr.transactionTime}', '${apr.completionTime}', ${apr.floor}, ${apr.transferFloor}, ${apr.hasElevator}, ${apr.hasCommittee}, ${apr.hasCompartment}, ${apr.buildingTransferArea}, ${apr.price}, ${apr.unitPrice}, ${apr.parkingSpaceTransferArea}, ${apr.parkingSpacePrice}, ${apr.landTransferArea}, ${apr.roomNumber}, ${apr.hallNumber}, ${apr.bathNumber}, ${apr.buildingArea}, ${apr.subBuildingArea}, ${apr.belconyArea}, ${apr.landAmount}, ${apr.buildingAmount}, ${apr.parkAmount}, ${apr.urbanLandUse}, ${apr.nonUrbanLandUse}, ${apr.nonUrbanLandUsePlanning}, ${apr.buildingType}, ${apr.parkingSpaceType}, ${apr.priceWithoutParking}, 'SRID=4326;POINT(${apr.coordinate_x} ${apr.coordinate_y})');`
+        const addressString = isNull(apr.address) ? "NULL" : `'${apr.address}'`
+        const transactionString = isNull(apr.transactionTime) ? "NULL" : `'${apr.transactionTime}'`
+        const completionString = isNull(apr.completionTime) ? "NULL" : `'${apr.completionTime}'`
+        insertString = `INSERT INTO apr (id, "address", "transactionTime", "completionTime", floor, "transferFloor", "hasElevator", "hasCommittee", "hasCompartment", "buildingTransferArea", price, "unitPrice", "parkingSpaceTransferArea", "parkingSpacePrice", "landTransferArea", "roomNumber", "hallNumber", "bathNumber", "buildingArea", "subBuildingArea", "belconyArea", "landAmount", "buildingAmount", "parkAmount", "urbanLandUse", "nonUrbanLandUse", "nonUrbanLandUsePlanning", "buildingType", "parkingSpaceType", "priceWithoutParking", coordinate) VALUES ('${apr.id}', ${addressString} , ${transactionString}, ${completionString}, ${apr.floor}, ${apr.transferFloor}, ${apr.hasElevator}, ${apr.hasCommittee}, ${apr.hasCompartment}, ${apr.buildingTransferArea}, ${apr.price}, ${apr.unitPrice}, ${apr.parkingSpaceTransferArea}, ${apr.parkingSpacePrice}, ${apr.landTransferArea}, ${apr.roomNumber}, ${apr.hallNumber}, ${apr.bathNumber}, ${apr.buildingArea}, ${apr.subBuildingArea}, ${apr.belconyArea}, ${apr.landAmount}, ${apr.buildingAmount}, ${apr.parkAmount}, ${apr.urbanLandUse}, ${apr.nonUrbanLandUse}, ${apr.nonUrbanLandUsePlanning}, ${apr.buildingType}, ${apr.parkingSpaceType}, ${apr.priceWithoutParking}, 'SRID=4326;POINT(${apr.coordinate_x} ${apr.coordinate_y})');`
       }
       if (sheetType === 'land') {
         insertString = `INSERT INTO aprland ("aprId", "landTransferArea", "rightDenumerate", "rightNumerate", address, "landUse", "parcelNumber", "transferStatus") VALUES ('${apr.id}', ${apr.landTransferArea}, ${apr.rightDenumerate}, ${apr.rightNumerate}, '${apr.address}', '${apr.landUse}', '${apr.parcelNumber}', ${apr.transferStatus});`
@@ -83,8 +91,13 @@ interface IImportInfo {
       if (sheetType === 'park') {
         insertString = `INSERT INTO aprpark ("aprId", "locateLevel", "parkingSpaceType", "parkingSpacePrice", "parkingSpaceTransferArea") VALUES ('${apr.id}', '${apr.locateLevel}', ${apr.parkingSpaceType}, ${apr.parkingSpacePrice}, ${apr.parkingSpaceTransferArea});`
       }
-      await repository.query(insertString)
-      console.log(`${apr.id} ${county} input! | ${index} / ${totalLength}`)
+      try {
+        await repository.query(insertString)
+        console.log(`${apr.id} ${county} input! | ${index} / ${totalLength}`)
+      } catch (err) {
+        console.log(err)
+        console.log(insertString)
+      }
     })
   }
 

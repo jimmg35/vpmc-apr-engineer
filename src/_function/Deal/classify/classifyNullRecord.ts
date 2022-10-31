@@ -8,6 +8,7 @@ const classifyNullRecord = (row: IDeal) => {
     if (row.parsedValue[key].value === undefined) {
       // console.log(key, row.id)
       status = false
+      // if (!status) console.log(key)
     }
   })
   mapKeys(row.calculatedPrice, (value, key) => {
@@ -15,6 +16,7 @@ const classifyNullRecord = (row: IDeal) => {
     if (row.calculatedPrice[key] === undefined) {
       // console.log(key, row.id)
       status = false
+      // if (!status) console.log(key)
     }
   })
   return status

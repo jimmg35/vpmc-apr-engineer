@@ -1,8 +1,9 @@
 import {
     Entity,
     Column,
-    PrimaryColumn
+    PrimaryColumn, Index
 } from "typeorm"
+import { Point } from 'geojson'
 
 @Entity({ name: 'apr' })
 export class Apr {
@@ -10,95 +11,101 @@ export class Apr {
     @PrimaryColumn()
     id: string
 
-    @Column()
+    @Column({ nullable: true })
     transactionTime: Date
 
-    @Column()
+    @Column({ nullable: true })
     completionTime: Date
 
-    @Column()
+    @Column({ nullable: true })
     floor: number
 
-    @Column()
+    @Column({ nullable: true })
     transferFloor: number
 
-    @Column()
+    @Column({ nullable: true })
     hasElevator: number
 
-    @Column()
+    @Column({ nullable: true })
     hasCommittee: number
 
-    @Column()
+    @Column({ nullable: true })
     hasCompartment: number
 
-    @Column({ type: 'double precision' })
+    @Column({ type: 'decimal', nullable: true })
     buildingTransferArea: number
 
-    @Column({ type: 'double precision' })
+    @Column({ type: 'decimal', nullable: true })
     price: number
 
-    @Column({ type: 'double precision' })
+    @Column({ type: 'decimal', nullable: true })
     unitPrice: number
 
-    @Column({ type: 'double precision' })
+    @Column({ type: 'decimal', nullable: true })
     parkingSpaceTransferArea: number
 
-    @Column({ type: 'double precision' })
+    @Column({ type: 'decimal', nullable: true })
     parkingSpacePrice: number
 
-    @Column({ type: 'double precision' })
+    @Column({ type: 'decimal', nullable: true })
     landTransferArea: number
 
-    @Column()
+    @Column({ nullable: true })
     roomNumber: number
 
-    @Column()
+    @Column({ nullable: true })
     hallNumber: number
 
-    @Column()
+    @Column({ nullable: true })
     bathNumber: number
 
-    @Column({ type: 'double precision' })
+    @Column({ type: 'decimal', nullable: true })
     buildingArea: number
 
-    @Column({ type: 'double precision' })
+    @Column({ type: 'decimal', nullable: true })
     subBuildingArea: number
 
-    @Column({ type: 'double precision' })
+    @Column({ type: 'decimal', nullable: true })
     belconyArea: number
 
-    @Column()
+    @Column({ nullable: true })
     landAmount: number
 
-    @Column()
+    @Column({ nullable: true })
     buildingAmount: number
 
-    @Column()
+    @Column({ nullable: true })
     parkAmount: number
 
-    @Column()
+    @Column({ nullable: true })
     urbanLandUse: number
 
-    @Column()
+    @Column({ nullable: true })
     nonUrbanLandUse: number
 
-    @Column()
+    @Column({ nullable: true })
     nonUrbanLandUsePlanning: number
 
-    @Column()
+    @Column({ nullable: true })
     buildingType: number
 
-    @Column()
+    @Column({ nullable: true })
     parkingSpaceType: number
 
-    @Column()
+    @Column({ type: 'decimal', nullable: true })
     priceWithoutParking: number
 
-    @Column()
+    @Column({ nullable: true })
     address: string
 
-    @Column("geography")
-    coordinate: string
+    @Index({ spatial: true })
+    @Column({
+        type: 'geography',
+        spatialFeatureType: 'Point',
+        srid: 4326,
+        nullable: true
+    })
+    coordinate: Point
 }
 
 export interface IApr {

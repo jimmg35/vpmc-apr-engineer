@@ -13,16 +13,17 @@ import { landLangMapping, dealLangMapping, buildLangMapping, parkLangMapping } f
   // )
 
   const counties = [
-    'changhua', 'chiayi',
-    'chiayi_city', 'hsinchu',
-    'hsinchu_city', 'hualien',
-    'kaohsiung', 'keelung',
-    'kinmen', 'lianjiang',
-    'miaoli', 'nantou', 'penghu',
-    'pingtung',
-    'tainan', 'taipei',
-    'taitung',
-    'yilan', 'yunlin',
+    // 'changhua', 'chiayi',
+    // 'chiayi_city', 'hsinchu',
+    // 'hsinchu_city', 'hualien',
+    // 'kaohsiung', 'keelung',
+    // 'kinmen', 'lianjiang',
+    // 'miaoli', 'nantou', 'penghu',
+    // 'pingtung',
+    // 'tainan',
+    // 'taipei',
+    // 'taitung',
+    // 'yilan', 'yunlin',
     'taoyuan',
     'newtaipei',
     'taichung'
@@ -41,15 +42,15 @@ import { landLangMapping, dealLangMapping, buildLangMapping, parkLangMapping } f
     const dealsPath = `./repository/${county}/merged/deal.csv`
 
     // 讀取各資產類別檔案
-    const lands = fs.existsSync(landsPath)
-      ? await readCsvFileApr<ILand>(landsPath, landLangMapping)
-      : []
-    const builds = fs.existsSync(buildsPath)
-      ? await readCsvFileApr<IBuild>(buildsPath, buildLangMapping)
-      : []
-    const parks = fs.existsSync(parksPath)
-      ? await readCsvFileApr<IPark>(parksPath, parkLangMapping)
-      : []
+    // const lands = fs.existsSync(landsPath)
+    //   ? await readCsvFileApr<ILand>(landsPath, landLangMapping)
+    //   : []
+    // const builds = fs.existsSync(buildsPath)
+    //   ? await readCsvFileApr<IBuild>(buildsPath, buildLangMapping)
+    //   : []
+    // const parks = fs.existsSync(parksPath)
+    //   ? await readCsvFileApr<IPark>(parksPath, parkLangMapping)
+    //   : []
 
     // 讀取交易紀錄檔案
     const deals = fs.existsSync(dealsPath)
@@ -101,6 +102,10 @@ import { landLangMapping, dealLangMapping, buildLangMapping, parkLangMapping } f
         .parseBuildingType()
         .parseParkingSpaceType()
 
+
+      // RPVNMLTLKIPFFDA56EA 透天厝
+      // RPUNMLRJJHGGFDA67EA 廠辦
+      const exampleId = 'RPUNMLRJJHGGFDA67EA'
       // 進行解析結果檢查分類 (Phase 3)
       const { parseSuccessCases, parseFailCases } = deals.classifyParsingResult()
       console.log(`解析成功案例數量 : ${parseSuccessCases.length}`)
@@ -119,19 +124,18 @@ import { landLangMapping, dealLangMapping, buildLangMapping, parkLangMapping } f
       console.log(`邏輯檢核失敗案例數量 : ${examineFailCases.length}`)
       console.log('==========================================')
 
+
       // 分類出建物交易紀錄(phase 6)
       const { dealCases } = examineSuccessCases.classifyTransactionItem()
       console.log(`建物交易案例數量 : ${dealCases.length}`)
 
       // 進行總價與車位價計算與檢核 (Phase 7)
       dealCases.examineTotalPrice()
-      const { nonNullCases } = dealCases.classifyNullRecord()
-      console.log(`去除空值案例數量 : ${nonNullCases.length}`)
+      // const { nonNullCases } = dealCases.classifyNullRecord()
+      // console.log(`去除空值案例數量 : ${nonNullCases.length}`)
 
       // 輸出csv檔
-      // parseFailCases
-      // examineFailCases
-      nonNullCases.exportCsvFile(
+      dealCases.exportCsvFile(
         `./apr-output/${county}-deal.csv`,
         ['kinmen', 'lianjiang', 'penghu'].includes(county)
           ? twd97tm2_119
@@ -140,9 +144,9 @@ import { landLangMapping, dealLangMapping, buildLangMapping, parkLangMapping } f
     }
 
     console.log(county)
-    processParks(parks)
-    processBuilds(builds)
-    processLands(lands)
+    // processParks(parks)
+    // processBuilds(builds)
+    // processLands(lands)
     processDeals(deals)
 
   }
