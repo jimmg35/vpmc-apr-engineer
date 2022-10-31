@@ -13,13 +13,13 @@ export class AprLand {
     @Column()
     aprId: string
 
-    @Column({ type: 'double precision' })
+    @Column({ type: 'decimal' })
     landTransferArea: number
 
-    @Column()
+    @Column({ type: 'decimal' })
     rightDenumerate: number
 
-    @Column()
+    @Column({ type: 'decimal' })
     rightNumerate: number
 
     @Column()
