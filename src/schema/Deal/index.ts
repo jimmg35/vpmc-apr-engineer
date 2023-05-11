@@ -75,7 +75,7 @@ export interface IDeal {
   logicalExamine: {
     note: boolean
     buildingType: boolean
-    transferFloor: boolean
+    // transferFloor: boolean
   }
   calculatedPrice: {
     priceWithoutParking: number
@@ -134,7 +134,7 @@ export interface IPark {
     parkingSpaceType?: IParsedValue<number | undefined>
     parkingSpacePrice?: IParsedValue<number | undefined>
     parkingSpaceTransferArea?: IParsedValue<number | undefined>
-    locateLevel?: IParsedValue<string | undefined>
+    locateLevel?: IParsedValue<number | undefined>
   }
   logicalExamine: {}
   calculatedPrice: {}

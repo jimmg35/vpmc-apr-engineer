@@ -41,6 +41,7 @@ import parseNumericalBuild from './build/parsing/parseNumerical'
 
 import parseTextPark from './park/parsing/parseText'
 import parseNumericalPark from './park/parsing/parseNumerical'
+import parseParkLevel from './park/parsing/parseParkLevel'
 
 declare global {
   interface Array<T> {
@@ -80,6 +81,7 @@ declare global {
 
     parseTextPark (): Array<T>
     parseNumericalPark (): Array<T>
+    parseParkLevel (): Array<T>
 
     exportCsvFileNormal (filename: string): void
   }
@@ -438,9 +440,6 @@ Object.defineProperty(Array.prototype, 'parseNumericalBuild', {
   }
 })
 
-// parseTextPark(): Array<T>
-// parseNumericalPark(): Array<T>
-
 Object.defineProperty(Array.prototype, 'parseTextPark', {
   value: function <T> (this: Array<IPark>): Array<IPark> {
     this.map((row) => {
@@ -454,6 +453,15 @@ Object.defineProperty(Array.prototype, 'parseNumericalPark', {
   value: function <T> (this: Array<IPark>): Array<IPark> {
     this.map((row) => {
       parseNumericalPark(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseParkLevel', {
+  value: function <T> (this: Array<IPark>): Array<IPark> {
+    this.map((row) => {
+      parseParkLevel(row)
     })
     return this
   }

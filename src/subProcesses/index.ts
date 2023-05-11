@@ -1,3 +1,4 @@
+import '../_function/index'
 import {
   IPark,
   IBuild,
@@ -12,6 +13,7 @@ export const processParks = (parks: IPark[], county: string) => {
   parks
     .parseTextPark()
     .parseNumericalPark()
+    .parseParkLevel()
   parks.exportCsvFileNormal(
     `./apr-output/${county}-park.csv`)
 }
@@ -62,7 +64,7 @@ export const processDeals = (deals: IDeal[], county: string) => {
   // 進行解析成功案例的邏輯檢查 (Phase 4)
   parseSuccessCases
     .examineNotes()
-    .examineBuildingType()
+    // .examineBuildingType()
     .examineTransferFloor()
 
   // 進行邏輯檢查結果分類 (Phase 5)

@@ -1,4 +1,5 @@
-import './_function/index'
+// import './_function/index'
+// import './_function/index'
 import fs from 'fs'
 import { landLangMapping, dealLangMapping, buildLangMapping, parkLangMapping } from './schema/languageMapping'
 import { processParks, processBuilds, processDeals, processLands } from './subProcesses'

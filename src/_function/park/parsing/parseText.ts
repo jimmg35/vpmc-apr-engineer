@@ -10,10 +10,10 @@ const parseTextPark = (row: IPark) => {
     status: Status.success
   }
 
-  row.parsedValue.locateLevel = {
-    value: row.locateLevel,
-    status: Status.success
-  }
+  // row.parsedValue.locateLevel = {
+  //   value: row.locateLevel,
+  //   status: Status.success
+  // }
 
   const value = trimSpace(row.parkingSpaceType)
   if (value === '') {
