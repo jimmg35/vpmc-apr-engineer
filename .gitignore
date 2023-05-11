@@ -6,6 +6,7 @@ tmp/
 temp/
 src/migration/
 repository/
+apr-deviant/
 apr-output/
 _src/gis-output/
 _src/gis-garbage/
