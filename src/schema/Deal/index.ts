@@ -46,7 +46,7 @@ export interface IDeal {
     transactionTime?: IParsedValue<string | undefined>
     completionTime?: IParsedValue<string | undefined>
     floor?: IParsedValue<number | undefined>
-    transferFloor?: IParsedValue<number | undefined>
+    transferFloor?: IParsedValue<number[] | undefined>
     hasElevator?: IParsedValue<number | undefined>
     hasCommittee?: IParsedValue<number | undefined>
     hasCompartment?: IParsedValue<number | undefined>

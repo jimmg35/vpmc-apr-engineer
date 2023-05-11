@@ -15,11 +15,14 @@ const parseFloor = (row: IDeal) => {
     }
     return
   }
+
+
   try {
     row.parsedValue.floor = {
       value: toInteger(value),
       status: Status.success
     }
+    // console.log(`${value} ${toInteger(value)}`)
   } catch {
     row.parsedValue.floor = {
       value: undefined,

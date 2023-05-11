@@ -308,15 +308,32 @@ Object.defineProperty(Array.prototype, 'examineTotalPrice', {
 Object.defineProperty(Array.prototype, 'exportCsvFile', {
   value: function <T> (this: Array<IDeal>, filename: string, projection: string): void {
     const data: any = []
+    const rowTransferFloors: any[] = []
     // console.log(this[0])
     this.forEach((row) => {
       const packedRow: any = { none: '' }
       mapKeys(row.parsedValue, (value, key) => {
+        // console.log(`${value} ${key}`)
         if (value !== undefined) {
           if (value.value == undefined) {
             packedRow[key] = 'NULL'
           } else {
             packedRow[key] = value.value
+          }
+        }
+
+        if (key === 'transferFloor') {
+          if (value !== undefined) {
+            if (value.value !== undefined) {
+              // @ts-ignore
+              value.value.forEach((floor) => {
+                const level = {
+                  id: row.id,
+                  floor: floor
+                }
+                rowTransferFloors.push(level)
+              });
+            }
           }
         }
       })
@@ -328,6 +345,8 @@ Object.defineProperty(Array.prototype, 'exportCsvFile', {
       data.push(packedRow)
     })
     exportCsvFile(data, filename)
+    exportCsvFile(rowTransferFloors, `${filename.split(".csv")[0]}-TF.csv`)
+    // console.log(rowTransferFloors)
   }
 })
 

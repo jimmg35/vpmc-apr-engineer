@@ -6,9 +6,7 @@ import { trimSpace, countOccurence } from '../../../utility'
 const parseTransferFloor = (row: IDeal) => {
   const value = trimSpace(row.transferFloor)
   if (
-    value === '' ||
-    value.indexOf('地下') !== -1 ||
-    countOccurence(value, '層') !== 1
+    value === ''
   ) {
     row.parsedValue.transferFloor = {
       value: undefined,
@@ -16,9 +14,28 @@ const parseTransferFloor = (row: IDeal) => {
     }
     return
   }
+
+  const convertedFloors: number[] = []
+  const floors = value.split("，")
+  for (let i = 0; i < floors.length; i++) {
+    const floor = floors[i]
+    if (floor.indexOf('層') === -1) continue
+    if (floor === '夾層') {
+      convertedFloors.push(0)
+      continue
+    }
+    if (floor.indexOf('地下') !== -1) {
+      if (floor === '地下層') continue
+      // console.log(`${-toInteger(floor)} ${floor}`)
+      convertedFloors.push(-toInteger(floor))
+      continue
+    }
+    convertedFloors.push(toInteger(floor))
+  }
+
   try {
     row.parsedValue.transferFloor = {
-      value: toInteger(value),
+      value: convertedFloors,//toInteger(value),
       status: Status.success
     }
   } catch {

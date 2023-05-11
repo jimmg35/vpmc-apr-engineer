@@ -54,43 +54,8 @@ export const exportCsvFile = async (data: any[], filename: string) => {
     path: filename,
     header: header
   })
-  // console.log(header)
-  // console.log(data[0])
   await csvWriter.writeRecords(data)
   console.log('The CSV file was written successfully')
-
-
-  // const csvWriter = createObjectCsvWriter({
-  //   path: 'out.csv',
-  //   header: [
-  //     { id: 'name', title: 'Name' },
-  //     { id: 'surname', title: 'Surname' },
-  //     { id: 'age', title: 'Age' },
-  //     { id: 'gender', title: 'Gender' },
-  //   ]
-  // });
-  // const datas = [
-  //   {
-  //     name: 'John',
-  //     surname: 'Snow',
-  //     age: 26,
-  //     gender: 'M'
-  //   }, {
-  //     name: 'Clair',
-  //     surname: 'White',
-  //     age: 33,
-  //     gender: 'F',
-  //   }, {
-  //     name: 'Fancy',
-  //     surname: 'Brown',
-  //     age: 78,
-  //     gender: 'F'
-  //   }
-  // ];
-
-  // csvWriter
-  //   .writeRecords(datas)
-  //   .then(() => console.log('The CSV file was written successfully'));
 }
 
 export const readCsvFile = async <T> (filePath: string): Promise<T[]> => {
