@@ -635,10 +635,10 @@ typeorm@0.2.41:
     yargs "^17.0.1"
     zen-observable-ts "^1.0.0"
 
-typescript@^4.6.3:
-  version "4.6.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.3.tgz#eefeafa6afdd31d725584c67a0eaba80f6fc6c6c"
-  integrity sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==
+typescript@_^4.6.3:
+  version "5.2.0-dev.20230524"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.2.0-dev.20230524.tgz#c2714b82f5ef8c63328a253692ae0b8c244c86d6"
+  integrity sha512-1XzSUJCt31jm7jIZ3vBKzK46ZxnmqX2VdVg/dur9AIaz9WmidrABs7F8H8d4onpIV8RYD/L6xW6MXR5EHjl+LA==
 
 v8flags@^3.0.0:
   version "3.2.0"

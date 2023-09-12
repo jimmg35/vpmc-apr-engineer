@@ -1,22 +1,28 @@
 import {
     Entity,
     Column,
-    PrimaryGeneratedColumn
+    PrimaryGeneratedColumn,
+    OneToMany, ManyToMany, JoinTable
 } from "typeorm"
+import { parkingSpaceType } from "../_function/deal/enum"
 
-@Entity({ name: 'aprpark' })
-export class AprPark {
+@Entity({ name: 'park' })
+export class Park {
 
     @PrimaryGeneratedColumn("uuid")
     id: string
 
-    @Column()
+    @Column({ type: 'text' })
     aprId: string
 
-    @Column({ nullable: true })
-    locateLevel: string
+    @Column({ type: 'integer', nullable: true })
+    locateLevel: number
 
-    @Column()
+    @Column({
+        type: 'integer',
+        default: null,
+        nullable: true
+    })
     parkingSpaceType: number
 
     @Column({ type: 'decimal' })
@@ -24,6 +30,8 @@ export class AprPark {
 
     @Column({ type: 'decimal' })
     parkingSpaceTransferArea: number
+
+
 }
 
 export interface IAprPark {

@@ -1,29 +1,31 @@
 import {
     Entity,
     Column,
-    PrimaryGeneratedColumn
+    PrimaryGeneratedColumn,
+    OneToMany, ManyToMany, JoinTable
 } from "typeorm"
 
-@Entity({ name: 'aprbuild' })
-export class AprBuild {
+@Entity({ name: 'build' })
+export class Build {
 
-    @PrimaryGeneratedColumn("uuid")
+    @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @Column()
+    @Column({ type: 'text' })
     aprId: string
 
-    @Column()
+    @Column({ type: 'text' })
     usage: string
 
-    @Column()
+    @Column({ type: 'text' })
     material: string
 
-    @Column({ nullable: true })
+    @Column({ type: 'text', nullable: true })
     buildingLayer: string
 
     @Column({ type: 'decimal' })
     buildingTransferArea: number
+
 }
 
 export interface IAprBuild {

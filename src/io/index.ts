@@ -58,6 +58,16 @@ export const exportCsvFile = async (data: any[], filename: string) => {
   console.log('The CSV file was written successfully')
 }
 
+export const exportJsonFile = async (data: any[], filename: string) => {
+  const jsonData = JSON.stringify(data)
+  fs.writeFile(filename, jsonData, function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+
+}
+
 export const readCsvFile = async <T> (filePath: string): Promise<T[]> => {
   return new Promise((resolve) => {
     const stream: fs.ReadStream = fs.createReadStream(filePath)

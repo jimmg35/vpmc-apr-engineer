@@ -1,16 +1,18 @@
 import {
     Entity,
     Column,
-    PrimaryGeneratedColumn
+    PrimaryGeneratedColumn,
+    OneToMany, ManyToMany, JoinTable
 } from "typeorm"
+import { landTransferStatusType } from "../_function/deal/enum"
 
-@Entity({ name: 'aprland' })
-export class AprLand {
+@Entity({ name: 'land' })
+export class Land {
 
-    @PrimaryGeneratedColumn("uuid")
+    @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @Column()
+    @Column({ type: 'text' })
     aprId: string
 
     @Column({ type: 'decimal' })
@@ -22,17 +24,21 @@ export class AprLand {
     @Column({ type: 'decimal' })
     rightNumerate: number
 
-    @Column()
+    @Column({ type: 'text' })
     address: string
 
-    @Column()
+    @Column({ type: 'text' })
     landUse: string
 
-    @Column()
+    @Column({ type: 'text' })
     parcelNumber: string
 
-    @Column()
-    transferStatus: number
+    @Column({
+        type: 'integer',
+        default: null,
+        nullable: true
+    })
+    transferStatus: number;
 
 }
 

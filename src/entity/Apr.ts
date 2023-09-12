@@ -1,35 +1,49 @@
 import {
     Entity,
     Column,
-    PrimaryColumn, Index
+    PrimaryGeneratedColumn, Index,
+    OneToMany, ManyToMany, JoinTable
 } from "typeorm"
-import { Point } from 'geojson'
+import { Point } from "geojson"
+import { buildingType, hasCommittee, hasCompartment, hasElevator, nonUrbanLandUse, parkingSpaceType, urbanLandUse } from "../_function/deal/enum"
 
-@Entity({ name: 'apr' })
-export class Apr {
+@Entity({ name: 'deal' })
+export class Deal {
 
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn('uuid')
     id: string
 
-    @Column({ nullable: true })
+    @Column({ type: 'text', unique: true })
+    aprId: string
+
+    @Column({ nullable: true, type: 'timestamptz' })
     transactionTime: Date
 
-    @Column({ nullable: true })
+    @Column({ nullable: true, type: 'timestamptz' })
     completionTime: Date
 
     @Column({ nullable: true })
     floor: number
 
-    @Column({ nullable: true })
-    transferFloor: number
-
-    @Column({ nullable: true })
+    @Column({
+        type: 'integer',
+        default: null,
+        nullable: true
+    })
     hasElevator: number
 
-    @Column({ nullable: true })
+    @Column({
+        type: 'integer',
+        default: null,
+        nullable: true
+    })
     hasCommittee: number
 
-    @Column({ nullable: true })
+    @Column({
+        type: 'integer',
+        default: null,
+        nullable: true
+    })
     hasCompartment: number
 
     @Column({ type: 'decimal', nullable: true })
@@ -77,19 +91,35 @@ export class Apr {
     @Column({ nullable: true })
     parkAmount: number
 
-    @Column({ nullable: true })
+    @Column({
+        type: 'integer',
+        default: null,
+        nullable: true
+    })
     urbanLandUse: number
 
-    @Column({ nullable: true })
+    @Column({
+        type: 'integer',
+        default: null,
+        nullable: true
+    })
     nonUrbanLandUse: number
 
     @Column({ nullable: true })
     nonUrbanLandUsePlanning: number
 
-    @Column({ nullable: true })
+    @Column({
+        type: 'integer',
+        default: null,
+        nullable: true
+    })
     buildingType: number
 
-    @Column({ nullable: true })
+    @Column({
+        type: 'integer',
+        default: null,
+        nullable: true
+    })
     parkingSpaceType: number
 
     @Column({ type: 'decimal', nullable: true })
@@ -106,6 +136,7 @@ export class Apr {
         nullable: true
     })
     coordinate: Point
+
 }
 
 export interface IApr {
@@ -113,7 +144,6 @@ export interface IApr {
     transactionTime: Date
     completionTime: Date
     floor: number
-    transferFloor: number
     hasElevator: number
     hasCommittee: number
     hasCompartment: number

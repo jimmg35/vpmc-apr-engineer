@@ -27,7 +27,7 @@ import examineTotalPrice from './deal/logicalExamine/examineTotalPrice'
 import classifyTransactionItem from './deal/classify/classifyTransactionItem'
 import classifyNullRecord from './deal/classify/classifyNullRecord'
 
-import { exportCsvFile } from '../io'
+import { exportCsvFile, exportJsonFile } from '../io'
 import { mapKeys } from 'lodash'
 
 import proj4 from 'proj4'
@@ -344,8 +344,12 @@ Object.defineProperty(Array.prototype, 'exportCsvFile', {
       const [x, y] = proj4(projection).inverse([Number(row.coordinate_y), Number(row.coordinate_x)])
       packedRow.coordinate_x = x
       packedRow.coordinate_y = y
+      delete packedRow.transferFloor
       data.push(packedRow)
     })
+    exportJsonFile(data, `${filename.split(".csv")[0]}.json`)
+    exportJsonFile(rowTransferFloors, `${filename.split(".csv")[0]}-TF.json`)
+
     exportCsvFile(data, filename)
     exportCsvFile(rowTransferFloors, `${filename.split(".csv")[0]}-TF.csv`)
     // console.log(rowTransferFloors)
@@ -363,6 +367,7 @@ Object.defineProperty(Array.prototype, 'exportCsvFileNormal', {
       })
       data.push(packedRow)
     })
+    exportJsonFile(data, `${filename.split(".csv")[0]}.json`)
     exportCsvFile(data, filename)
   }
 })

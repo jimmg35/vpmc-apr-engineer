@@ -1,10 +1,10 @@
 {
    "type": "postgres",
    "host": "localhost",
-   "port": 5432,
+   "port": 5435,
    "username": "postgres",
    "password": "r2tadmiadc",
-   "database": "vpmcnode",
+   "database": "apr",
    "synchronize": false,
    "logging": false,
    "entities": [

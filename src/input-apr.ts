@@ -1,8 +1,8 @@
 import { readCsvFile } from './io'
-import { Apr, IApr } from './entity/Apr'
-import { AprLand, IAprLand } from './entity/AprLand'
-import { AprBuild, IAprBuild } from './entity/AprBuild'
-import { AprPark, IAprPark } from './entity/AprPark'
+import { Deal, IApr } from './entity/Apr'
+import { Land, IAprLand } from './entity/AprLand'
+import { Build, IAprBuild } from './entity/AprBuild'
+import { Park, IAprPark } from './entity/AprPark'
 import { Commitee, ICommitee } from './entity/Commitee'
 import { createConnection } from 'typeorm'
 import { ILicense, License } from './entity/License'
@@ -27,7 +27,7 @@ const parseLicenseDate = (value: string) => {
 
 interface IAprFileGeneric extends IApr, IAprLand, IAprBuild, IAprPark { }
 
-type SheetType = 'land' | 'build' | 'park' | 'deal'
+type SheetType = 'land' | 'build' | 'park' | 'deal' | 'transferFloor'
 
 interface IImportInfo {
   county: string
@@ -36,8 +36,8 @@ interface IImportInfo {
 
 (async () => {
 
-  const county = process.argv[2]
-  const sheetType = process.argv[3]
+  const county = process.argv[3]
+  const sheetType = process.argv[2]
   const counties = [
     'changhua',
     'chiayi',
@@ -70,8 +70,13 @@ interface IImportInfo {
   const importDataBySheetType = async <FT extends IAprFileGeneric, DT> ({
     county,
     sheetType
-  }: IImportInfo, entityType: EntityTarget<AprLand>) => {
-    const aprs = await readCsvFile<FT>(`./apr-output/${county}-${sheetType}.csv`)
+  }: IImportInfo, entityType: EntityTarget<Land>) => {
+
+    let filePath = `./apr-output/${county}-${sheetType}.csv`
+    if (sheetType === 'transferFloor') {
+      filePath = `./apr-output/${county}-deal-TF.csv`
+    }
+    const aprs = await readCsvFile<FT>(filePath)
     const repository = connection.getRepository(entityType)
     const totalLength = aprs.length
     aprs.forEach(async (apr, index) => {
@@ -80,16 +85,19 @@ interface IImportInfo {
         const addressString = isNull(apr.address) ? "NULL" : `'${apr.address}'`
         const transactionString = isNull(apr.transactionTime) ? "NULL" : `'${apr.transactionTime}'`
         const completionString = isNull(apr.completionTime) ? "NULL" : `'${apr.completionTime}'`
-        insertString = `INSERT INTO apr (id, "address", "transactionTime", "completionTime", floor, "transferFloor", "hasElevator", "hasCommittee", "hasCompartment", "buildingTransferArea", price, "unitPrice", "parkingSpaceTransferArea", "parkingSpacePrice", "landTransferArea", "roomNumber", "hallNumber", "bathNumber", "buildingArea", "subBuildingArea", "belconyArea", "landAmount", "buildingAmount", "parkAmount", "urbanLandUse", "nonUrbanLandUse", "nonUrbanLandUsePlanning", "buildingType", "parkingSpaceType", "priceWithoutParking", coordinate) VALUES ('${apr.id}', ${addressString} , ${transactionString}, ${completionString}, ${apr.floor}, ${apr.transferFloor}, ${apr.hasElevator}, ${apr.hasCommittee}, ${apr.hasCompartment}, ${apr.buildingTransferArea}, ${apr.price}, ${apr.unitPrice}, ${apr.parkingSpaceTransferArea}, ${apr.parkingSpacePrice}, ${apr.landTransferArea}, ${apr.roomNumber}, ${apr.hallNumber}, ${apr.bathNumber}, ${apr.buildingArea}, ${apr.subBuildingArea}, ${apr.belconyArea}, ${apr.landAmount}, ${apr.buildingAmount}, ${apr.parkAmount}, ${apr.urbanLandUse}, ${apr.nonUrbanLandUse}, ${apr.nonUrbanLandUsePlanning}, ${apr.buildingType}, ${apr.parkingSpaceType}, ${apr.priceWithoutParking}, 'SRID=4326;POINT(${apr.coordinate_x} ${apr.coordinate_y})');`
+        insertString = `INSERT INTO deal ("aprId", "address", "transactionTime", "completionTime", floor, "hasElevator", "hasCommittee", "hasCompartment", "buildingTransferArea", price, "unitPrice", "parkingSpaceTransferArea", "parkingSpacePrice", "landTransferArea", "roomNumber", "hallNumber", "bathNumber", "buildingArea", "subBuildingArea", "belconyArea", "landAmount", "buildingAmount", "parkAmount", "urbanLandUse", "nonUrbanLandUse", "nonUrbanLandUsePlanning", "buildingType", "parkingSpaceType", "priceWithoutParking", coordinate) VALUES ('${apr.id}', ${addressString} , ${transactionString}, ${completionString}, ${apr.floor}, ${apr.hasElevator}, ${apr.hasCommittee}, ${apr.hasCompartment}, ${apr.buildingTransferArea}, ${apr.price}, ${apr.unitPrice}, ${apr.parkingSpaceTransferArea}, ${apr.parkingSpacePrice}, ${apr.landTransferArea}, ${apr.roomNumber}, ${apr.hallNumber}, ${apr.bathNumber}, ${apr.buildingArea}, ${apr.subBuildingArea}, ${apr.belconyArea}, ${apr.landAmount}, ${apr.buildingAmount}, ${apr.parkAmount}, ${apr.urbanLandUse}, ${apr.nonUrbanLandUse}, ${apr.nonUrbanLandUsePlanning}, ${apr.buildingType}, ${apr.parkingSpaceType}, ${apr.priceWithoutParking}, 'SRID=4326;POINT(${apr.coordinate_x} ${apr.coordinate_y})');`
       }
       if (sheetType === 'land') {
-        insertString = `INSERT INTO aprland ("aprId", "landTransferArea", "rightDenumerate", "rightNumerate", address, "landUse", "parcelNumber", "transferStatus") VALUES ('${apr.id}', ${apr.landTransferArea}, ${apr.rightDenumerate}, ${apr.rightNumerate}, '${apr.address}', '${apr.landUse}', '${apr.parcelNumber}', ${apr.transferStatus});`
+        insertString = `INSERT INTO land ("aprId", "landTransferArea", "rightDenumerate", "rightNumerate", address, "landUse", "parcelNumber", "transferStatus") VALUES ('${apr.id}', ${apr.landTransferArea}, ${apr.rightDenumerate}, ${apr.rightNumerate}, '${apr.address}', '${apr.landUse}', '${apr.parcelNumber}', ${apr.transferStatus});`
       }
       if (sheetType === 'build') {
-        insertString = `INSERT INTO aprbuild ("aprId", "usage", "material", "buildingLayer", "buildingTransferArea") VALUES ('${apr.id}', '${apr.usage}', '${apr.material}', '${apr.buildingLayer}', ${apr.buildingTransferArea});`
+        insertString = `INSERT INTO build ("aprId", "usage", "material", "buildingLayer", "buildingTransferArea") VALUES ('${apr.id}', '${apr.usage}', '${apr.material}', '${apr.buildingLayer}', ${apr.buildingTransferArea});`
       }
       if (sheetType === 'park') {
-        insertString = `INSERT INTO aprpark ("aprId", "locateLevel", "parkingSpaceType", "parkingSpacePrice", "parkingSpaceTransferArea") VALUES ('${apr.id}', '${apr.locateLevel}', ${apr.parkingSpaceType}, ${apr.parkingSpacePrice}, ${apr.parkingSpaceTransferArea});`
+        insertString = `INSERT INTO park ("aprId", "locateLevel", "parkingSpaceType", "parkingSpacePrice", "parkingSpaceTransferArea") VALUES ('${apr.id}', ${apr.locateLevel === '' ? 'null' : apr.locateLevel}, ${apr.parkingSpaceType}, ${apr.parkingSpacePrice}, ${apr.parkingSpaceTransferArea});`
+      }
+      if (sheetType === 'transferFloor') {
+        insertString = `INSERT INTO transferfloor ("aprId", "floor") VALUES ('${apr.id}', ${apr.floor});`
       }
       try {
         await repository.query(insertString)
@@ -105,7 +113,7 @@ interface IImportInfo {
   await importDataBySheetType({
     county: county,
     sheetType: sheetType as SheetType
-  }, AprLand)
+  }, Land)
 
 
 
