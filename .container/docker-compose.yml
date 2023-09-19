@@ -1,0 +1,27 @@
+# docker-compose.yml
+version: '3'
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  apr-data:
+
+
+services:
+
+  postgres:
+    image: postgis/postgis:14-3.3
+    container_name: postgreSQL
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: r2tadmiadc
+      PGDATA: /data/postgres
+    volumes:
+      - apr-data:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
