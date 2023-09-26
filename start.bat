@@ -1,91 +1,91 @@
-start yarn devParks_changhua
-start yarn devParks_chiayi
-start yarn devParks_chiayi_city
-start yarn devParks_hsinchu
-start yarn devParks_hsinchu_city
-start yarn devParks_hualien
-start yarn devParks_kaohsiung
-start yarn devParks_keelung
-start yarn devParks_kinmen
-start yarn devParks_lianjiang
-start yarn devParks_miaoli
-start yarn devParks_nantou
-start yarn devParks_penghu
-start yarn devParks_pingtung
-start yarn devParks_tainan
-start yarn devParks_taipei
-start yarn devParks_taitung
-start yarn devParks_yilan
-start yarn devParks_yunlin
-start yarn devParks_taoyuan
-start yarn devParks_newtaipei
-start yarn devParks_taichung
+@REM start yarn devParks_changhua
+@REM start yarn devParks_chiayi
+@REM start yarn devParks_chiayi_city
+@REM start yarn devParks_hsinchu
+@REM start yarn devParks_hsinchu_city
+@REM start yarn devParks_hualien
+@REM start yarn devParks_kaohsiung
+@REM start yarn devParks_keelung
+@REM start yarn devParks_kinmen
+@REM start yarn devParks_lianjiang
+@REM start yarn devParks_miaoli
+@REM start yarn devParks_nantou
+@REM start yarn devParks_penghu
+@REM start yarn devParks_pingtung
+@REM start yarn devParks_tainan
+@REM start yarn devParks_taipei
+@REM start yarn devParks_taitung
+@REM start yarn devParks_yilan
+@REM start yarn devParks_yunlin
+@REM start yarn devParks_taoyuan
+@REM start yarn devParks_newtaipei
+@REM start yarn devParks_taichung
 
-start yarn devBuilds_changhua
-start yarn devBuilds_chiayi
-start yarn devBuilds_chiayi_city
-start yarn devBuilds_hsinchu
-start yarn devBuilds_hsinchu_city
-start yarn devBuilds_hualien
-start yarn devBuilds_kaohsiung
-start yarn devBuilds_keelung
-start yarn devBuilds_kinmen
-start yarn devBuilds_lianjiang
-start yarn devBuilds_miaoli
-start yarn devBuilds_nantou
-start yarn devBuilds_penghu
-start yarn devBuilds_pingtung
-start yarn devBuilds_tainan
-start yarn devBuilds_taipei
-start yarn devBuilds_taitung
-start yarn devBuilds_yilan
-start yarn devBuilds_yunlin
-start yarn devBuilds_taoyuan
-start yarn devBuilds_newtaipei
-start yarn devBuilds_taichung
+@REM start yarn devBuilds_changhua
+@REM start yarn devBuilds_chiayi
+@REM start yarn devBuilds_chiayi_city
+@REM start yarn devBuilds_hsinchu
+@REM start yarn devBuilds_hsinchu_city
+@REM start yarn devBuilds_hualien
+@REM start yarn devBuilds_kaohsiung
+@REM start yarn devBuilds_keelung
+@REM start yarn devBuilds_kinmen
+@REM start yarn devBuilds_lianjiang
+@REM start yarn devBuilds_miaoli
+@REM start yarn devBuilds_nantou
+@REM start yarn devBuilds_penghu
+@REM start yarn devBuilds_pingtung
+@REM start yarn devBuilds_tainan
+@REM start yarn devBuilds_taipei
+@REM start yarn devBuilds_taitung
+@REM start yarn devBuilds_yilan
+@REM start yarn devBuilds_yunlin
+@REM start yarn devBuilds_taoyuan
+@REM start yarn devBuilds_newtaipei
+@REM start yarn devBuilds_taichung
 
-start yarn devLands_changhua
-start yarn devLands_chiayi
-start yarn devLands_chiayi_city
-start yarn devLands_hsinchu
-start yarn devLands_hsinchu_city
-start yarn devLands_hualien
-start yarn devLands_kaohsiung
-start yarn devLands_keelung
-start yarn devLands_kinmen
-start yarn devLands_lianjiang
-start yarn devLands_miaoli
-start yarn devLands_nantou
-start yarn devLands_penghu
-start yarn devLands_pingtung
-start yarn devLands_tainan
-start yarn devLands_taipei
-start yarn devLands_taitung
-start yarn devLands_yilan
-start yarn devLands_yunlin
-start yarn devLands_taoyuan
-start yarn devLands_newtaipei
-start yarn devLands_taichung
+@REM start yarn devLands_changhua
+@REM start yarn devLands_chiayi
+@REM start yarn devLands_chiayi_city
+@REM start yarn devLands_hsinchu
+@REM start yarn devLands_hsinchu_city
+@REM start yarn devLands_hualien
+@REM start yarn devLands_kaohsiung
+@REM start yarn devLands_keelung
+@REM start yarn devLands_kinmen
+@REM start yarn devLands_lianjiang
+@REM start yarn devLands_miaoli
+@REM start yarn devLands_nantou
+@REM start yarn devLands_penghu
+@REM start yarn devLands_pingtung
+@REM start yarn devLands_tainan
+@REM start yarn devLands_taipei
+@REM start yarn devLands_taitung
+@REM start yarn devLands_yilan
+@REM start yarn devLands_yunlin
+@REM start yarn devLands_taoyuan
+@REM start yarn devLands_newtaipei
+@REM start yarn devLands_taichung
 
-start yarn devDeals_changhua
-start yarn devDeals_chiayi
-start yarn devDeals_chiayi_city
-start yarn devDeals_hsinchu
-start yarn devDeals_hsinchu_city
-start yarn devDeals_hualien
-start yarn devDeals_kaohsiung
-start yarn devDeals_keelung
-start yarn devDeals_kinmen
-start yarn devDeals_lianjiang
-start yarn devDeals_miaoli
-start yarn devDeals_nantou
-start yarn devDeals_penghu
-start yarn devDeals_pingtung
-start yarn devDeals_tainan
-start yarn devDeals_taipei
-start yarn devDeals_taitung
-start yarn devDeals_yilan
-start yarn devDeals_yunlin
-start yarn devDeals_taoyuan
-start yarn devDeals_newtaipei
-start yarn devDeals_taichung
+@REM start yarn devDeals_changhua
+@REM start yarn devDeals_chiayi
+@REM start yarn devDeals_chiayi_city
+@REM start yarn devDeals_hsinchu
+@REM start yarn devDeals_hsinchu_city
+@REM start yarn devDeals_hualien
+@REM start yarn devDeals_kaohsiung
+@REM start yarn devDeals_keelung
+@REM start yarn devDeals_kinmen
+@REM start yarn devDeals_lianjiang
+@REM start yarn devDeals_miaoli
+@REM start yarn devDeals_nantou
+@REM start yarn devDeals_penghu
+@REM start yarn devDeals_pingtung
+@REM start yarn devDeals_tainan
+@REM start yarn devDeals_taipei
+@REM start yarn devDeals_taitung
+@REM start yarn devDeals_yilan
+@REM start yarn devDeals_yunlin
+@REM start yarn devDeals_taoyuan
+@REM start yarn devDeals_newtaipei
+@REM start yarn devDeals_taichung

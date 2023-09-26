@@ -222,6 +222,8 @@
     "inputTransferFloor_newtaipei": "ts-node src/input-apr.ts transferFloor newtaipei",
     "inputTransferFloor_taichung": "ts-node src/input-apr.ts transferFloor taichung",
     "input": "ts-node src/input-apr.ts",
+    "compose:up:dev": "cd ./.container && docker-compose up -d",
+    "compose:up:test": "cd ./.container-test && docker-compose up -d",
     "migrate": "node --require ts-node/register ./node_modules/typeorm/cli.js migration:generate -n migration",
     "update": "node --require ts-node/register ./node_modules/typeorm/cli.js migration:run",
     "inspect": "typeorm-model-generator -h 140.122.82.98 -d vpmcnode -p 5433 -u postgres -x r2tadmiadc -e postgres -o ./generated-entity"

@@ -8,6 +8,7 @@ from requests import head
 import xlrd
 import pandas as pd
 from os import listdir
+import shutil
 
 def loadSheetsOfCounty(path):
     file_path_template = path
@@ -106,7 +107,16 @@ def exportMergedSheet(merged_worksheet, path, category):
             writer.writerow(row)
     print(f"{category} 輸出完畢")
         
-        
+
+def mergeSheetWithException(schema_list, worksheet_list):
+    # 合併資料表
+    merged_worksheet = [schema_list[0]]
+    for worksheet in worksheet_list:
+        for j in range(1, worksheet.nrows): #迴圈列印每一行
+            merged_worksheet.append(worksheet.row_values(j)[0:8])
+
+    return merged_worksheet
+
 
 
 if __name__ == '__main__':
@@ -124,13 +134,27 @@ if __name__ == '__main__':
             land_schema_list, build_schema_list, park_schema_list, deal_schema_list
         ] = loadSheetsOfCounty(os.path.join(repo_path, county, 'raw'))
 
+        # for i in land_schema_list:
+        #     print(i)
+        # print('=============')
+        # for i in build_schema_list:
+        #     print(i)
+        # print('========')
         if compareSchema(land_schema_list):
             merged_worksheet = mergeSheets(land_schema_list, land_worksheet_list)
             exportMergedSheet(merged_worksheet, output_path, 'land')
+        else:
+            merged_worksheet = mergeSheets(land_schema_list, land_worksheet_list)
+            exportMergedSheet(merged_worksheet, output_path, 'land')
+
 
         if compareSchema(build_schema_list):
             merged_worksheet = mergeSheets(build_schema_list, build_worksheet_list)
             exportMergedSheet(merged_worksheet, output_path, 'build')
+        else:
+            merged_worksheet = mergeSheetWithException(build_schema_list, build_worksheet_list)
+            exportMergedSheet(merged_worksheet, output_path, 'build')
+
 
         if compareSchema(park_schema_list):
             merged_worksheet = mergeSheets(park_schema_list, park_worksheet_list)

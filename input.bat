@@ -1,719 +1,114 @@
-@REM start python index.py 20210101.csv
-@REM start python index.py 20210102.csv
-@REM start python index.py 20210103.csv
-@REM start python index.py 20210104.csv
-@REM start python index.py 20210105.csv
-@REM start python index.py 20210106.csv
-@REM start python index.py 20210107.csv
-@REM start python index.py 20210108.csv
-@REM start python index.py 20210109.csv
-@REM start python index.py 20210110.csv
-@REM start python index.py 20210111.csv
-@REM start python index.py 20210112.csv
-@REM start python index.py 20210113.csv
-@REM start python index.py 20210114.csv
-@REM start python index.py 20210115.csv
-@REM start python index.py 20210116.csv
-@REM start python index.py 20210117.csv
-@REM start python index.py 20210118.csv
-@REM start python index.py 20210119.csv
-@REM start python index.py 20210120.csv
-@REM start python index.py 20210201.csv
-@REM start python index.py 20210202.csv
-@REM start python index.py 20210203.csv
-@REM start python index.py 20210204.csv
-@REM start python index.py 20210205.csv
-@REM start python index.py 20210206.csv
-@REM start python index.py 20210207.csv
-@REM start python index.py 20210208.csv
-@REM start python index.py 20210209.csv
-@REM start python index.py 20210210.csv
-@REM start python index.py 20210211.csv
-@REM start python index.py 20210212.csv
-@REM start python index.py 20210213.csv
-@REM start python index.py 20210214.csv
-@REM start python index.py 20210215.csv
-@REM start python index.py 20210216.csv
-@REM start python index.py 20210217.csv
-@REM start python index.py 20210218.csv
-@REM start python index.py 20210219.csv
-@REM start python index.py 20210220.csv
-@REM start python index.py 20210221.csv
-@REM start python index.py 20210222.csv
-@REM start python index.py 20210223.csv
-@REM start python index.py 20210224.csv
-@REM start python index.py 20210225.csv
-@REM start python index.py 20210226.csv
-@REM start python index.py 20210227.csv
-@REM start python index.py 20210228.csv
-@REM start python index.py 20210301.csv
-@REM start python index.py 20210302.csv
-@REM start python index.py 20210303.csv
-@REM start python index.py 20210304.csv
-@REM start python index.py 20210305.csv
-@REM start python index.py 20210306.csv
-@REM start python index.py 20210307.csv
-@REM start python index.py 20210308.csv
-@REM start python index.py 20210309.csv
-@REM start python index.py 20210310.csv
-@REM start python index.py 20210311.csv
-@REM start python index.py 20210312.csv
-@REM start python index.py 20210313.csv
-@REM start python index.py 20210314.csv
-@REM start python index.py 20210315.csv
-@REM start python index.py 20210316.csv
-@REM start python index.py 20210317.csv
-@REM start python index.py 20210318.csv
-@REM start python index.py 20210319.csv
-@REM start python index.py 20210320.csv
-@REM start python index.py 20210321.csv
-@REM start python index.py 20210322.csv
-@REM start python index.py 20210323.csv
-@REM start python index.py 20210324.csv
-@REM start python index.py 20210325.csv
-@REM start python index.py 20210326.csv
-@REM start python index.py 20210327.csv
-@REM start python index.py 20210328.csv
-@REM start python index.py 20210329.csv
-@REM start python index.py 20210330.csv
-@REM start python index.py 20210331.csv
-@REM start python index.py 20210401.csv
-@REM start python index.py 20210402.csv
-@REM start python index.py 20210403.csv
-@REM start python index.py 20210404.csv
-@REM start python index.py 20210405.csv
-@REM start python index.py 20210406.csv
-@REM start python index.py 20210407.csv
-@REM start python index.py 20210408.csv
-@REM start python index.py 20210409.csv
-@REM start python index.py 20210410.csv
-@REM start python index.py 20210411.csv
-@REM start python index.py 20210412.csv
-@REM start python index.py 20210413.csv
-@REM start python index.py 20210414.csv
-@REM start python index.py 20210415.csv
-@REM start python index.py 20210416.csv
-@REM start python index.py 20210417.csv
-@REM start python index.py 20210418.csv
-@REM start python index.py 20210419.csv
-@REM start python index.py 20210420.csv
-@REM start python index.py 20210421.csv
-@REM start python index.py 20210422.csv
-@REM start python index.py 20210423.csv
-@REM start python index.py 20210424.csv
-@REM start python index.py 20210425.csv
-@REM start python index.py 20210426.csv
-@REM start python index.py 20210427.csv
-@REM start python index.py 20210428.csv
-@REM start python index.py 20210429.csv
-@REM start python index.py 20210430.csv
-@REM start python index.py 20210501.csv
-@REM start python index.py 20210502.csv
-@REM start python index.py 20210503.csv
-@REM start python index.py 20210504.csv
-@REM start python index.py 20210505.csv
-@REM start python index.py 20210506.csv
-@REM start python index.py 20210507.csv
-@REM start python index.py 20210508.csv
-@REM start python index.py 20210509.csv
-@REM start python index.py 20210510.csv
-@REM start python index.py 20210511.csv
-@REM start python index.py 20210512.csv
-@REM start python index.py 20210513.csv
-@REM start python index.py 20210514.csv
-@REM start python index.py 20210515.csv
-@REM start python index.py 20210516.csv
-@REM start python index.py 20210517.csv
-@REM start python index.py 20210518.csv
-@REM start python index.py 20210519.csv
-@REM start python index.py 20210520.csv
-@REM start python index.py 20210521.csv
-@REM start python index.py 20210522.csv
-@REM start python index.py 20210523.csv
-@REM start python index.py 20210524.csv
-@REM start python index.py 20210525.csv
-@REM start python index.py 20210526.csv
-@REM start python index.py 20210527.csv
-@REM start python index.py 20210528.csv
-@REM start python index.py 20210529.csv
-@REM start python index.py 20210530.csv
-@REM start python index.py 20210531.csv
-@REM start python index.py 20210601.csv
-@REM start python index.py 20210602.csv
-@REM start python index.py 20210603.csv
-@REM start python index.py 20210604.csv
-@REM start python index.py 20210605.csv
-@REM start python index.py 20210606.csv
-@REM start python index.py 20210607.csv
-@REM start python index.py 20210608.csv
-@REM start python index.py 20210609.csv
-@REM start python index.py 20210610.csv
-@REM start python index.py 20210611.csv
-@REM start python index.py 20210612.csv
-@REM start python index.py 20210613.csv
-@REM start python index.py 20210614.csv
-@REM start python index.py 20210615.csv
-@REM start python index.py 20210616.csv
-@REM start python index.py 20210617.csv
-@REM start python index.py 20210618.csv
-@REM start python index.py 20210619.csv
-@REM start python index.py 20210620.csv
-@REM start python index.py 20210621.csv
-@REM start python index.py 20210622.csv
-@REM start python index.py 20210623.csv
-@REM start python index.py 20210624.csv
-@REM start python index.py 20210625.csv
-@REM start python index.py 20210626.csv
-@REM start python index.py 20210627.csv
-@REM start python index.py 20210628.csv
-@REM start python index.py 20210629.csv
-@REM start python index.py 20210630.csv
-@REM start python index.py 20210701.csv
-@REM start python index.py 20210702.csv
-@REM start python index.py 20210703.csv
-@REM start python index.py 20210704.csv
-@REM start python index.py 20210705.csv
-@REM start python index.py 20210706.csv
-@REM start python index.py 20210707.csv
-@REM start python index.py 20210708.csv
-@REM start python index.py 20210709.csv
-@REM start python index.py 20210710.csv
-@REM start python index.py 20210711.csv
-@REM start python index.py 20210712.csv
-@REM start python index.py 20210713.csv
-@REM start python index.py 20210714.csv
-@REM start python index.py 20210715.csv
-@REM start python index.py 20210716.csv
-@REM start python index.py 20210717.csv
-@REM start python index.py 20210718.csv
-@REM start python index.py 20210719.csv
-@REM start python index.py 20210720.csv
-@REM start python index.py 20210721.csv
-@REM start python index.py 20210722.csv
-@REM start python index.py 20210723.csv
-@REM start python index.py 20210724.csv
-@REM start python index.py 20210725.csv
-@REM start python index.py 20210726.csv
-@REM start python index.py 20210727.csv
-@REM start python index.py 20210728.csv
-@REM start python index.py 20210729.csv
-@REM start python index.py 20210730.csv
-@REM start python index.py 20210731.csv
-@REM start python index.py 20210801.csv
-@REM start python index.py 20210802.csv
-@REM start python index.py 20210803.csv
-@REM start python index.py 20210804.csv
-@REM start python index.py 20210805.csv
-@REM start python index.py 20210806.csv
-@REM start python index.py 20210807.csv
-@REM start python index.py 20210808.csv
-@REM start python index.py 20210809.csv
-@REM start python index.py 20210810.csv
-@REM start python index.py 20210811.csv
-@REM start python index.py 20210812.csv
-@REM start python index.py 20210813.csv
-@REM start python index.py 20210814.csv
-@REM start python index.py 20210815.csv
-@REM start python index.py 20210816.csv
-@REM start python index.py 20210817.csv
-@REM start python index.py 20210818.csv
-@REM start python index.py 20210819.csv
-@REM start python index.py 20210820.csv
-@REM start python index.py 20210821.csv
-@REM start python index.py 20210822.csv
-@REM start python index.py 20210823.csv
-@REM start python index.py 20210824.csv
-@REM start python index.py 20210825.csv
-@REM start python index.py 20210826.csv
-@REM start python index.py 20210827.csv
-@REM start python index.py 20210828.csv
-@REM start python index.py 20210829.csv
-@REM start python index.py 20210830.csv
-@REM start python index.py 20210831.csv
-@REM start python index.py 20210901.csv
-@REM start python index.py 20210902.csv
-@REM start python index.py 20210903.csv
-@REM start python index.py 20210904.csv
-@REM start python index.py 20210905.csv
-@REM start python index.py 20210906.csv
-@REM start python index.py 20210907.csv
-@REM start python index.py 20210908.csv
-@REM start python index.py 20210909.csv
-@REM start python index.py 20210910.csv
-@REM start python index.py 20210911.csv
-@REM start python index.py 20210912.csv
-@REM start python index.py 20210913.csv
-@REM start python index.py 20210914.csv
-@REM start python index.py 20210915.csv
-@REM start python index.py 20210916.csv
-@REM start python index.py 20210917.csv
-@REM start python index.py 20210918.csv
-@REM start python index.py 20210919.csv
-@REM start python index.py 20210920.csv
-@REM start python index.py 20210921.csv
-@REM start python index.py 20210922.csv
-@REM start python index.py 20210923.csv
-@REM start python index.py 20210924.csv
-@REM start python index.py 20210925.csv
-@REM start python index.py 20210926.csv
-@REM start python index.py 20210927.csv
-@REM start python index.py 20210928.csv
-@REM start python index.py 20210929.csv
-@REM start python index.py 20210930.csv
-@REM start python index.py 20211001.csv
-@REM start python index.py 20211002.csv
-@REM start python index.py 20211003.csv
-@REM start python index.py 20211004.csv
-@REM start python index.py 20211005.csv
-@REM start python index.py 20211006.csv
-@REM start python index.py 20211007.csv
-@REM start python index.py 20211008.csv
-@REM start python index.py 20211009.csv
-@REM start python index.py 20211010.csv
-@REM start python index.py 20211011.csv
-@REM start python index.py 20211012.csv
-@REM start python index.py 20211013.csv
-@REM start python index.py 20211014.csv
-@REM start python index.py 20211015.csv
-@REM start python index.py 20211016.csv
-@REM start python index.py 20211017.csv
-@REM start python index.py 20211018.csv
-@REM start python index.py 20211019.csv
-@REM start python index.py 20211020.csv
-@REM start python index.py 20211021.csv
-@REM start python index.py 20211022.csv
-@REM start python index.py 20211023.csv
-@REM start python index.py 20211024.csv
-@REM start python index.py 20211025.csv
-@REM start python index.py 20211026.csv
-@REM start python index.py 20211027.csv
-@REM start python index.py 20211028.csv
-@REM start python index.py 20211029.csv
-@REM start python index.py 20211030.csv
-@REM start python index.py 20211031.csv
-@REM start python index.py 20211101.csv
-@REM start python index.py 20211102.csv
-@REM start python index.py 20211103.csv
-@REM start python index.py 20211104.csv
-@REM start python index.py 20211105.csv
-@REM start python index.py 20211106.csv
-@REM start python index.py 20211107.csv
-@REM start python index.py 20211108.csv
-@REM start python index.py 20211109.csv
-@REM start python index.py 20211110.csv
-@REM start python index.py 20211111.csv
-@REM start python index.py 20211112.csv
-@REM start python index.py 20211113.csv
-@REM start python index.py 20211114.csv
-@REM start python index.py 20211115.csv
-@REM start python index.py 20211116.csv
-@REM start python index.py 20211117.csv
-@REM start python index.py 20211118.csv
-@REM start python index.py 20211119.csv
-@REM start python index.py 20211120.csv
-@REM start python index.py 20211121.csv
-@REM start python index.py 20211122.csv
-@REM start python index.py 20211123.csv
-@REM start python index.py 20211124.csv
-@REM start python index.py 20211125.csv
-@REM start python index.py 20211126.csv
-@REM start python index.py 20211127.csv
-@REM start python index.py 20211128.csv
-@REM start python index.py 20211129.csv
-@REM start python index.py 20211130.csv
-@REM start python index.py 20211201.csv
-@REM start python index.py 20211202.csv
-@REM start python index.py 20211203.csv
-@REM start python index.py 20211204.csv
-@REM start python index.py 20211205.csv
-@REM start python index.py 20211206.csv
-@REM start python index.py 20211207.csv
-@REM start python index.py 20211208.csv
-@REM start python index.py 20211209.csv
-@REM start python index.py 20211210.csv
-@REM start python index.py 20211211.csv
-@REM start python index.py 20211212.csv
-@REM start python index.py 20211213.csv
-@REM start python index.py 20211214.csv
-@REM start python index.py 20211215.csv
-@REM start python index.py 20211216.csv
-@REM start python index.py 20211217.csv
-@REM start python index.py 20211218.csv
-@REM start python index.py 20211219.csv
-@REM start python index.py 20211220.csv
-@REM start python index.py 20211221.csv
-@REM start python index.py 20211222.csv
-@REM start python index.py 20211223.csv
-@REM start python index.py 20211224.csv
-@REM start python index.py 20211225.csv
-@REM start python index.py 20211226.csv
-@REM start python index.py 20211227.csv
-@REM start python index.py 20211228.csv
-@REM start python index.py 20211229.csv
-@REM start python index.py 20211230.csv
-@REM start python index.py 20211231.csv
-@REM start python index.py 20220101.csv
-@REM start python index.py 20220102.csv
-@REM start python index.py 20220103.csv
-@REM start python index.py 20220104.csv
-@REM start python index.py 20220105.csv
-@REM start python index.py 20220106.csv
-@REM start python index.py 20220107.csv
-@REM start python index.py 20220108.csv
-@REM start python index.py 20220109.csv
-@REM start python index.py 20220110.csv
-@REM start python index.py 20220111.csv
-@REM start python index.py 20220112.csv
-@REM start python index.py 20220113.csv
-@REM start python index.py 20220114.csv
-@REM start python index.py 20220115.csv
-@REM start python index.py 20220116.csv
-@REM start python index.py 20220117.csv
-@REM start python index.py 20220118.csv
-@REM start python index.py 20220119.csv
-@REM start python index.py 20220120.csv
-@REM start python index.py 20220121.csv
-@REM start python index.py 20220122.csv
-@REM start python index.py 20220123.csv
-@REM start python index.py 20220124.csv
-@REM start python index.py 20220125.csv
-@REM start python index.py 20220126.csv
-@REM start python index.py 20220127.csv
-@REM start python index.py 20220128.csv
-@REM start python index.py 20220129.csv
-@REM start python index.py 20220130.csv
-@REM start python index.py 20220131.csv
-@REM start python index.py 20220201.csv
-@REM start python index.py 20220202.csv
-@REM start python index.py 20220203.csv
-@REM start python index.py 20220204.csv
-@REM start python index.py 20220205.csv
-@REM start python index.py 20220206.csv
-@REM start python index.py 20220207.csv
-@REM start python index.py 20220208.csv
-@REM start python index.py 20220209.csv
-@REM start python index.py 20220210.csv
-@REM start python index.py 20220211.csv
-@REM start python index.py 20220212.csv
-@REM start python index.py 20220213.csv
-@REM start python index.py 20220214.csv
-@REM start python index.py 20220215.csv
-@REM start python index.py 20220216.csv
-@REM start python index.py 20220217.csv
-@REM start python index.py 20220218.csv
-@REM start python index.py 20220219.csv
-@REM start python index.py 20220220.csv
-@REM start python index.py 20220221.csv
-@REM start python index.py 20220222.csv
-@REM start python index.py 20220223.csv
-@REM start python index.py 20220224.csv
-@REM start python index.py 20220225.csv
-@REM start python index.py 20220226.csv
-@REM start python index.py 20220227.csv
-@REM start python index.py 20220228.csv
-@REM start python index.py 20220301.csv
-@REM start python index.py 20220302.csv
-@REM start python index.py 20220303.csv
-@REM start python index.py 20220304.csv
-@REM start python index.py 20220305.csv
-@REM start python index.py 20220306.csv
-@REM start python index.py 20220307.csv
-@REM start python index.py 20220308.csv
-@REM start python index.py 20220309.csv
-@REM start python index.py 20220310.csv
-@REM start python index.py 20220311.csv
-@REM start python index.py 20220312.csv
-@REM start python index.py 20220313.csv
-@REM start python index.py 20220314.csv
-@REM start python index.py 20220315.csv
-@REM start python index.py 20220316.csv
-@REM start python index.py 20220317.csv
-@REM start python index.py 20220318.csv
-@REM start python index.py 20220319.csv
-@REM start python index.py 20220320.csv
-@REM start python index.py 20220321.csv
-@REM start python index.py 20220322.csv
-@REM start python index.py 20220323.csv
-@REM start python index.py 20220324.csv
-@REM start python index.py 20220325.csv
-@REM start python index.py 20220326.csv
-@REM start python index.py 20220327.csv
-@REM start python index.py 20220328.csv
-@REM start python index.py 20220329.csv
-@REM start python index.py 20220330.csv
-@REM start python index.py 20220331.csv
-@REM start python index.py 20220401.csv
-@REM start python index.py 20220402.csv
-@REM start python index.py 20220403.csv
-@REM start python index.py 20220404.csv
-@REM start python index.py 20220405.csv
-@REM start python index.py 20220406.csv
-@REM start python index.py 20220407.csv
-@REM start python index.py 20220408.csv
-@REM start python index.py 20220409.csv
-@REM start python index.py 20220410.csv
-@REM start python index.py 20220411.csv
-@REM start python index.py 20220412.csv
-@REM start python index.py 20220413.csv
-@REM start python index.py 20220414.csv
-@REM start python index.py 20220415.csv
-@REM start python index.py 20220416.csv
-@REM start python index.py 20220417.csv
-@REM start python index.py 20220418.csv
-@REM start python index.py 20220419.csv
-@REM start python index.py 20220420.csv
-@REM start python index.py 20220421.csv
-@REM start python index.py 20220422.csv
-@REM start python index.py 20220423.csv
-@REM start python index.py 20220424.csv
-@REM start python index.py 20220425.csv
-@REM start python index.py 20220426.csv
-@REM start python index.py 20220427.csv
-@REM start python index.py 20220428.csv
-@REM start python index.py 20220429.csv
-@REM start python index.py 20220430.csv
-@REM start python index.py 20220501.csv
-@REM start python index.py 20220502.csv
-@REM start python index.py 20220503.csv
-@REM start python index.py 20220504.csv
-@REM start python index.py 20220505.csv
-@REM start python index.py 20220506.csv
-@REM start python index.py 20220507.csv
-@REM start python index.py 20220508.csv
-@REM start python index.py 20220509.csv
-@REM start python index.py 20220510.csv
-@REM start python index.py 20220511.csv
-@REM start python index.py 20220512.csv
-@REM start python index.py 20220513.csv
-@REM start python index.py 20220514.csv
-@REM start python index.py 20220515.csv
-@REM start python index.py 20220516.csv
-@REM start python index.py 20220517.csv
-@REM start python index.py 20220518.csv
-@REM start python index.py 20220519.csv
-@REM start python index.py 20220520.csv
-@REM start python index.py 20220521.csv
-@REM start python index.py 20220522.csv
-@REM start python index.py 20220523.csv
-@REM start python index.py 20220524.csv
-@REM start python index.py 20220525.csv
-@REM start python index.py 20220526.csv
-@REM start python index.py 20220527.csv
-@REM start python index.py 20220528.csv
-@REM start python index.py 20220529.csv
-@REM start python index.py 20220530.csv
-@REM start python index.py 20220531.csv
-@REM start python index.py 20220601.csv
-@REM start python index.py 20220602.csv
-@REM start python index.py 20220603.csv
-@REM start python index.py 20220604.csv
-@REM start python index.py 20220605.csv
-@REM start python index.py 20220606.csv
-@REM start python index.py 20220607.csv
-@REM start python index.py 20220608.csv
-@REM start python index.py 20220609.csv
-@REM start python index.py 20220610.csv
-@REM start python index.py 20220611.csv
-@REM start python index.py 20220612.csv
-@REM start python index.py 20220613.csv
-@REM start python index.py 20220614.csv
-@REM start python index.py 20220615.csv
-@REM start python index.py 20220616.csv
-@REM start python index.py 20220617.csv
-@REM start python index.py 20220618.csv
-@REM start python index.py 20220619.csv
-@REM start python index.py 20220620.csv
-@REM start python index.py 20220621.csv
-@REM start python index.py 20220622.csv
-@REM start python index.py 20220623.csv
-@REM start python index.py 20220624.csv
-@REM start python index.py 20220625.csv
-@REM start python index.py 20220626.csv
-@REM start python index.py 20220627.csv
-@REM start python index.py 20220628.csv
-@REM start python index.py 20220629.csv
-@REM start python index.py 20220630.csv
-@REM start python index.py 20220701.csv
-@REM start python index.py 20220702.csv
-@REM start python index.py 20220703.csv
-@REM start python index.py 20220704.csv
-@REM start python index.py 20220705.csv
-@REM start python index.py 20220706.csv
-@REM start python index.py 20220707.csv
-@REM start python index.py 20220708.csv
-@REM start python index.py 20220709.csv
-@REM start python index.py 20220710.csv
-@REM start python index.py 20220711.csv
-@REM start python index.py 20220712.csv
-@REM start python index.py 20220713.csv
-@REM start python index.py 20220714.csv
-@REM start python index.py 20220715.csv
-@REM start python index.py 20220716.csv
-@REM start python index.py 20220717.csv
-@REM start python index.py 20220718.csv
-@REM start python index.py 20220719.csv
-@REM start python index.py 20220720.csv
-@REM start python index.py 20220721.csv
-@REM start python index.py 20220722.csv
-@REM start python index.py 20220723.csv
-@REM start python index.py 20220724.csv
-@REM start python index.py 20220725.csv
-@REM start python index.py 20220726.csv
-@REM start python index.py 20220727.csv
-@REM start python index.py 20220728.csv
-@REM start python index.py 20220729.csv
-@REM start python index.py 20220730.csv
-@REM start python index.py 20220731.csv
-@REM start python index.py 20220801.csv
-@REM start python index.py 20220802.csv
-@REM start python index.py 20220803.csv
-@REM start python index.py 20220804.csv
-@REM start python index.py 20220805.csv
-@REM start python index.py 20220806.csv
-@REM start python index.py 20220807.csv
-@REM start python index.py 20220808.csv
-@REM start python index.py 20220809.csv
-@REM start python index.py 20220810.csv
-@REM start python index.py 20220811.csv
-@REM start python index.py 20220812.csv
-@REM start python index.py 20220813.csv
-@REM start python index.py 20220814.csv
-@REM start python index.py 20220815.csv
-@REM start python index.py 20220816.csv
-@REM start python index.py 20220817.csv
-@REM start python index.py 20220818.csv
-@REM start python index.py 20220819.csv
-@REM start python index.py 20220820.csv
-@REM start python index.py 20220821.csv
-@REM start python index.py 20220822.csv
-@REM start python index.py 20220823.csv
-@REM start python index.py 20220824.csv
-@REM start python index.py 20220825.csv
-@REM start python index.py 20220826.csv
-@REM start python index.py 20220827.csv
-@REM start python index.py 20220828.csv
-@REM start python index.py 20220829.csv
-@REM start python index.py 20220830.csv
-@REM start python index.py 20220831.csv
-@REM start python index.py 20220901.csv
-@REM start python index.py 20220902.csv
-@REM start python index.py 20220903.csv
-@REM start python index.py 20220904.csv
-@REM start python index.py 20220905.csv
-@REM start python index.py 20220906.csv
-@REM start python index.py 20220907.csv
-@REM start python index.py 20220908.csv
-@REM start python index.py 20220909.csv
-@REM start python index.py 20220910.csv
-@REM start python index.py 20220911.csv
-@REM start python index.py 20220912.csv
-@REM start python index.py 20220913.csv
-@REM start python index.py 20220914.csv
-@REM start python index.py 20220915.csv
-@REM start python index.py 20220916.csv
-@REM start python index.py 20220917.csv
-@REM start python index.py 20220918.csv
-@REM start python index.py 20220919.csv
-@REM start python index.py 20220920.csv
-@REM start python index.py 20220921.csv
-@REM start python index.py 20220922.csv
-@REM start python index.py 20220923.csv
-@REM start python index.py 20220924.csv
-@REM start python index.py 20220925.csv
-@REM start python index.py 20220926.csv
-@REM start python index.py 20220927.csv
-@REM start python index.py 20220928.csv
-@REM start python index.py 20220929.csv
-@REM start python index.py 20220930.csv
-@REM start python index.py 20221001.csv
-@REM start python index.py 20221002.csv
-@REM start python index.py 20221003.csv
-@REM start python index.py 20221004.csv
-@REM start python index.py 20221005.csv
-@REM start python index.py 20221006.csv
-@REM start python index.py 20221007.csv
-@REM start python index.py 20221008.csv
-@REM start python index.py 20221009.csv
-@REM start python index.py 20221010.csv
-@REM start python index.py 20221011.csv
-@REM start python index.py 20221012.csv
-@REM start python index.py 20221013.csv
-@REM start python index.py 20221014.csv
-@REM start python index.py 20221015.csv
-@REM start python index.py 20221016.csv
-@REM start python index.py 20221017.csv
-@REM start python index.py 20221018.csv
-@REM start python index.py 20221019.csv
-@REM start python index.py 20221020.csv
-@REM start python index.py 20221021.csv
-@REM start python index.py 20221022.csv
-@REM start python index.py 20221023.csv
-@REM start python index.py 20221024.csv
-@REM start python index.py 20221025.csv
-@REM start python index.py 20221026.csv
-@REM start python index.py 20221027.csv
-@REM start python index.py 20221028.csv
-@REM start python index.py 20221029.csv
-@REM start python index.py 20221030.csv
-@REM start python index.py 20221031.csv
-@REM start python index.py 20221101.csv
-@REM start python index.py 20221102.csv
-@REM start python index.py 20221103.csv
-@REM start python index.py 20221104.csv
-@REM start python index.py 20221105.csv
-@REM start python index.py 20221106.csv
-@REM start python index.py 20221107.csv
-@REM start python index.py 20221108.csv
-@REM start python index.py 20221109.csv
-@REM start python index.py 20221110.csv
-@REM start python index.py 20221111.csv
-@REM start python index.py 20221112.csv
-@REM start python index.py 20221113.csv
-@REM start python index.py 20221114.csv
-@REM start python index.py 20221115.csv
-@REM start python index.py 20221116.csv
-@REM start python index.py 20221117.csv
-@REM start python index.py 20221118.csv
-@REM start python index.py 20221119.csv
-@REM start python index.py 20221120.csv
-@REM start python index.py 20221121.csv
-@REM start python index.py 20221122.csv
-@REM start python index.py 20221123.csv
-@REM start python index.py 20221124.csv
-@REM start python index.py 20221125.csv
-@REM start python index.py 20221126.csv
-@REM start python index.py 20221127.csv
-@REM start python index.py 20221128.csv
-@REM start python index.py 20221129.csv
-@REM start python index.py 20221130.csv
-@REM start python index.py 20221201.csv
-@REM start python index.py 20221202.csv
-@REM start python index.py 20221203.csv
-@REM start python index.py 20221204.csv
-@REM start python index.py 20221205.csv
-@REM start python index.py 20221206.csv
-@REM start python index.py 20221207.csv
-@REM start python index.py 20221208.csv
-@REM start python index.py 20221209.csv
-@REM start python index.py 20221210.csv
-@REM start python index.py 20221211.csv
-@REM start python index.py 20221212.csv
-@REM start python index.py 20221213.csv
-@REM start python index.py 20221214.csv
-@REM start python index.py 20221215.csv
-@REM start python index.py 20221216.csv
-@REM start python index.py 20221217.csv
-@REM start python index.py 20221218.csv
-@REM start python index.py 20221219.csv
-@REM start python index.py 20221220.csv
-@REM start python index.py 20221221.csv
-@REM start python index.py 20221222.csv
-@REM start python index.py 20221223.csv
-@REM start python index.py 20221224.csv
-@REM start python index.py 20221225.csv
-@REM start python index.py 20221226.csv
-@REM start python index.py 20221227.csv
-@REM start python index.py 20221228.csv
-@REM start python index.py 20221229.csv
-@REM start python index.py 20221230.csv
-@REM start python index.py 20221231.csv
+@REM start yarn inputParks_changhua
+@REM start yarn inputParks_chiayi
+@REM start yarn inputParks_chiayi_city
+@REM start yarn inputParks_hsinchu
+@REM start yarn inputParks_hsinchu_city
+@REM start yarn inputParks_hualien
+@REM start yarn inputParks_kaohsiung
+@REM start yarn inputParks_keelung
+@REM start yarn inputParks_kinmen
+@REM start yarn inputParks_lianjiang
+@REM start yarn inputParks_miaoli
+@REM start yarn inputParks_nantou
+@REM start yarn inputParks_penghu
+@REM start yarn inputParks_pingtung
+@REM start yarn inputParks_tainan
+@REM start yarn inputParks_taipei
+@REM start yarn inputParks_taitung
+@REM start yarn inputParks_yilan
+@REM start yarn inputParks_yunlin
+@REM start yarn inputParks_taoyuan
+@REM start yarn inputParks_newtaipei
+@REM start yarn inputParks_taichung
+
+@REM start yarn inputBuilds_changhua
+@REM start yarn inputBuilds_chiayi
+@REM start yarn inputBuilds_chiayi_city
+@REM start yarn inputBuilds_hsinchu
+@REM start yarn inputBuilds_hsinchu_city
+@REM start yarn inputBuilds_hualien
+@REM start yarn inputBuilds_kaohsiung
+@REM start yarn inputBuilds_keelung
+@REM start yarn inputBuilds_kinmen
+@REM start yarn inputBuilds_lianjiang
+@REM start yarn inputBuilds_miaoli
+@REM start yarn inputBuilds_nantou
+@REM start yarn inputBuilds_penghu
+@REM start yarn inputBuilds_pingtung
+@REM start yarn inputBuilds_tainan
+@REM start yarn inputBuilds_taipei
+@REM start yarn inputBuilds_taitung
+@REM start yarn inputBuilds_yilan
+@REM start yarn inputBuilds_yunlin
+@REM start yarn inputBuilds_taoyuan
+@REM start yarn inputBuilds_newtaipei
+@REM start yarn inputBuilds_taichung
+
+@REM start yarn inputLands_changhua
+@REM start yarn inputLands_chiayi
+@REM start yarn inputLands_chiayi_city
+@REM start yarn inputLands_hsinchu
+@REM start yarn inputLands_hsinchu_city
+@REM start yarn inputLands_hualien
+@REM start yarn inputLands_kaohsiung
+@REM start yarn inputLands_keelung
+@REM start yarn inputLands_kinmen
+@REM start yarn inputLands_lianjiang
+@REM start yarn inputLands_miaoli
+@REM start yarn inputLands_nantou
+@REM start yarn inputLands_penghu
+@REM start yarn inputLands_pingtung
+@REM start yarn inputLands_tainan
+@REM start yarn inputLands_taipei
+@REM start yarn inputLands_taitung
+@REM start yarn inputLands_yilan
+@REM start yarn inputLands_yunlin
+@REM start yarn inputLands_taoyuan
+@REM start yarn inputLands_newtaipei
+@REM start yarn inputLands_taichung
+
+@REM start yarn inputDeals_changhua
+@REM start yarn inputDeals_chiayi
+@REM start yarn inputDeals_chiayi_city
+@REM start yarn inputDeals_hsinchu
+@REM start yarn inputDeals_hsinchu_city
+@REM start yarn inputDeals_hualien
+@REM start yarn inputDeals_kaohsiung
+@REM start yarn inputDeals_keelung
+@REM start yarn inputDeals_kinmen
+@REM start yarn inputDeals_lianjiang
+@REM start yarn inputDeals_miaoli
+@REM start yarn inputDeals_nantou
+@REM start yarn inputDeals_penghu
+@REM start yarn inputDeals_pingtung
+@REM start yarn inputDeals_tainan
+@REM start yarn inputDeals_taipei
+@REM start yarn inputDeals_taitung
+@REM start yarn inputDeals_yilan
+@REM start yarn inputDeals_yunlin
+@REM start yarn inputDeals_taoyuan
+@REM start yarn inputDeals_newtaipei
+@REM start yarn inputDeals_taichung
+
+@REM start yarn inputTransferFloor_changhua
+@REM start yarn inputTransferFloor_chiayi
+@REM start yarn inputTransferFloor_chiayi_city
+@REM start yarn inputTransferFloor_hsinchu
+@REM start yarn inputTransferFloor_hsinchu_city
+@REM start yarn inputTransferFloor_hualien
+@REM start yarn inputTransferFloor_kaohsiung
+@REM start yarn inputTransferFloor_keelung
+@REM start yarn inputTransferFloor_kinmen
+@REM start yarn inputTransferFloor_lianjiang
+@REM start yarn inputTransferFloor_miaoli
+@REM start yarn inputTransferFloor_nantou
+@REM start yarn inputTransferFloor_penghu
+@REM start yarn inputTransferFloor_pingtung
+@REM start yarn inputTransferFloor_tainan
+@REM start yarn inputTransferFloor_taipei
+@REM start yarn inputTransferFloor_taitung
+@REM start yarn inputTransferFloor_yilan
+@REM start yarn inputTransferFloor_yunlin
+@REM start yarn inputTransferFloor_taoyuan
+@REM start yarn inputTransferFloor_newtaipei
+@REM start yarn inputTransferFloor_taichung
