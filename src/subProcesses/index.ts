@@ -57,36 +57,36 @@ export const processDeals = (deals: IDeal[], county: string) => {
     .parseBuildingType()
     .parseParkingSpaceType()
 
-  // 進行解析結果檢查分類 (Phase 3)
-  const { parseSuccessCases, parseFailCases } = deals.classifyParsingResult()
-  console.log(`解析成功案例數量 : ${parseSuccessCases.length}`)
-  console.log(`解析失敗案例數量 : ${parseFailCases.length}`)
-  console.log('==========================================')
+  // // 進行解析結果檢查分類 (Phase 3)
+  // const { parseSuccessCases, parseFailCases } = deals.classifyParsingResult()
+  // console.log(`解析成功案例數量 : ${parseSuccessCases.length}`)
+  // console.log(`解析失敗案例數量 : ${parseFailCases.length}`)
+  // console.log('==========================================')
 
-  // 進行解析成功案例的邏輯檢查 (Phase 4)
-  parseSuccessCases
-    .examineNotes()
-    // .examineBuildingType()
-    .examineTransferFloor()
+  // // 進行解析成功案例的邏輯檢查 (Phase 4)
+  // parseSuccessCases
+  //   .examineNotes()
+  //   // .examineBuildingType()
+  //   .examineTransferFloor()
 
-  // 進行邏輯檢查結果分類 (Phase 5)
-  const { examineSuccessCases, examineFailCases } = parseSuccessCases.classifyLogicalResult()
-  console.log(`邏輯檢核成功案例數量 : ${examineSuccessCases.length}`)
-  console.log(`邏輯檢核失敗案例數量 : ${examineFailCases.length}`)
-  console.log('==========================================')
+  // // 進行邏輯檢查結果分類 (Phase 5)
+  // const { examineSuccessCases, examineFailCases } = parseSuccessCases.classifyLogicalResult()
+  // console.log(`邏輯檢核成功案例數量 : ${examineSuccessCases.length}`)
+  // console.log(`邏輯檢核失敗案例數量 : ${examineFailCases.length}`)
+  // console.log('==========================================')
 
 
-  // 分類出建物交易紀錄(phase 6)
-  const { dealCases } = examineSuccessCases.classifyTransactionItem()
-  console.log(`建物交易案例數量 : ${dealCases.length}`)
+  // // 分類出建物交易紀錄(phase 6)
+  // const { dealCases } = examineSuccessCases.classifyTransactionItem()
+  // console.log(`建物交易案例數量 : ${dealCases.length}`)
 
   // 進行總價與車位價計算與檢核 (Phase 7)
-  dealCases.examineTotalPrice()
+  deals.examineTotalPrice()
   // const { nonNullCases } = dealCases.classifyNullRecord()
   // console.log(`去除空值案例數量 : ${nonNullCases.length}`)
 
   // 輸出csv檔
-  dealCases.exportCsvFile(
+  deals.exportCsvFile(
     `./apr-output/${county}-deal.csv`,
     ['kinmen', 'lianjiang', 'penghu'].includes(county)
       ? twd97tm2_119

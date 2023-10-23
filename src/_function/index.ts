@@ -340,6 +340,42 @@ Object.defineProperty(Array.prototype, 'exportCsvFile', {
     // console.log(this[0])
     this.forEach((row) => {
       const packedRow: any = { none: '' }
+      packedRow["town_raw"] = row.town                      // 鄉鎮市區(Deprecate)
+      packedRow["transactionTarget_raw"] = row.transactionTarget         // 交易標的(Deprecate)
+      packedRow["address_raw"] = row.address                   // 土地位置/建物門牌(Deprecate)
+      packedRow["landTransferArea_raw"] = row.landTransferArea          // 土地移轉總面積(平方公尺)
+      packedRow["urbanLandUse_raw"] = row.urbanLandUse              // 都市土地使用分區
+      packedRow["nonUrbanLandUse_raw"] = row.nonUrbanLandUse           // 非都市土地使用分區
+      packedRow["nonUrbanLandUsePlanning_raw"] = row.nonUrbanLandUsePlanning   // 非都市土地使用編定
+      packedRow["transactionTime_raw"] = row.transactionTime           // 交易年月日
+      packedRow["transactionAmount_raw"] = row.transactionAmount         // 交易筆棟數
+      packedRow["transferFloor_raw"] = row.transferFloor             // 移轉層次
+      packedRow["floor_raw"] = row.floor                     // 總樓層數
+      packedRow["buildingType_raw"] = row.buildingType              // 建物型態
+      packedRow["usage_raw"] = row.usage                     // 主要用途(Deprecate)
+      packedRow["buildingMaterial_raw"] = row.buildingMaterial          // 主要建材(Deprecate)
+      packedRow["completionTime_raw"] = row.completionTime            // 建築完成年月
+      packedRow["buildingTransferArea_raw"] = row.buildingTransferArea      // 建物移轉總面積(平方公尺)
+      packedRow["roomNumber_raw"] = row.roomNumber                // 建物現況格局-房
+      packedRow["hallNumber_raw"] = row.hallNumber                // 建物現況格局-廳
+      packedRow["bathNumber_raw"] = row.bathNumber                // 建物現況格局-衛
+      packedRow["hasCompartment_raw"] = row.hasCompartment            // 建物現況格局-隔間
+      packedRow["hasCommittee_raw"] = row.hasCommittee              // 有無管理組織
+      packedRow["price_raw"] = row.price                     // 總價(元)
+      packedRow["unitPrice_raw"] = row.unitPrice                 // 單價(元/平方公尺)
+      packedRow["parkingSpaceType_raw"] = row.parkingSpaceType          // 車位類別
+      packedRow["parkingSpaceTransferArea_raw"] = row.parkingSpaceTransferArea  // 車位移轉總面積(平方公尺)
+      packedRow["parkingSpacePrice_raw"] = row.parkingSpacePrice         // 車位總價(元)
+
+      packedRow["hasNotes_raw"] = row.hasNotes                  // 有無備註欄(Y/N) (Deprecate)
+      packedRow["notes_raw"] = row.notes                     // 備註
+      packedRow["id_raw"] = row.id                        // 編號
+      packedRow["buildingArea_raw"] = row.buildingArea              // 主建物面積
+      packedRow["subBuildingArea_raw"] = row.subBuildingArea           // 附屬建物面積
+      packedRow["belconyArea_raw"] = row.belconyArea               // 陽台面積
+      packedRow["hasElevator_raw"] = row.hasElevator               // 電梯
+
+
       mapKeys(row.parsedValue, (value, key) => {
         // console.log(`${value} ${key}`)
         if (value !== undefined) {
