@@ -8,15 +8,23 @@ const parseNonUrbanLandUsePlanning = (row: IDeal) => {
   const value = trimSpace(row.nonUrbanLandUsePlanning)
   if (value === '') {
     row.parsedValue.nonUrbanLandUsePlanning = {
-      value: nonUrbanLandUsePlanning.none,
+      value: undefined,
       status: Status.success
     }
   } else {
     row.parsedValue.nonUrbanLandUsePlanning = {
-      value: undefined,
-      status: Status.semanticError
+      value: value,
+      status: Status.success
     }
+
   }
+
+  // else {
+  //   row.parsedValue.nonUrbanLandUsePlanning = {
+  //     value: undefined,
+  //     status: Status.semanticError
+  //   }
+  // }
 }
 
 export default parseNonUrbanLandUsePlanning

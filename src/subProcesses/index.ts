@@ -52,6 +52,8 @@ export const processDeals = (deals: IDeal[], county: string) => {
     .parseUrbanLandUse()
     .parseNonUrbanLandUse()
     .parseNonUrbanLandUsePlanning()
+    .parseUsage()
+    .parseTransferFloorRaw()
     .parseBuildingType()
     .parseParkingSpaceType()
 

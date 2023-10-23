@@ -43,6 +43,9 @@ import parseTextPark from './park/parsing/parseText'
 import parseNumericalPark from './park/parsing/parseNumerical'
 import parseParkLevel from './park/parsing/parseParkLevel'
 
+import parseUsage from './deal/parsing/parseUsage'
+import parseTransferFloorRaw from './deal/parsing/parseTransferFloorRaw'
+
 declare global {
   interface Array<T> {
     showTop (): Array<T>
@@ -60,6 +63,8 @@ declare global {
     parseUrbanLandUse (): Array<T>
     parseNonUrbanLandUse (): Array<T>
     parseNonUrbanLandUsePlanning (): Array<T>
+    parseUsage (): Array<T>
+    parseTransferFloorRaw (): Array<T>
     parseBuildingType (): Array<T>
     parseParkingSpaceType (): Array<T>
     classifyParsingResult (): { parseSuccessCases: Array<IDeal>, parseFailCases: Array<IDeal> }
@@ -220,6 +225,27 @@ Object.defineProperty(Array.prototype, 'parseNonUrbanLandUsePlanning', {
   }
 })
 
+Object.defineProperty(Array.prototype, 'parseUsage', {
+  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+    this.map((row) => {
+      parseUsage(row)
+    })
+    return this
+  }
+})
+
+Object.defineProperty(Array.prototype, 'parseTransferFloorRaw', {
+  value: function <T> (this: Array<IDeal>): Array<IDeal> {
+    this.map((row) => {
+      parseTransferFloorRaw(row)
+    })
+    return this
+  }
+})
+
+
+
+
 Object.defineProperty(Array.prototype, 'parseBuildingType', {
   value: function <T> (this: Array<IDeal>): Array<IDeal> {
     this.map((row) => {
@@ -344,6 +370,7 @@ Object.defineProperty(Array.prototype, 'exportCsvFile', {
       const [x, y] = proj4(projection).inverse([Number(row.coordinate_y), Number(row.coordinate_x)])
       packedRow.coordinate_x = x
       packedRow.coordinate_y = y
+      // packedRow.transferFloorRaw = row.parsedValue.transferFloorRaw?.value
       delete packedRow.transferFloor
       data.push(packedRow)
     })

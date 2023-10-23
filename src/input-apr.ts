@@ -82,10 +82,18 @@ interface IImportInfo {
     aprs.forEach(async (apr, index) => {
       let insertString = ``
       if (sheetType === 'deal') {
+        // console.log(apr)
         const addressString = isNull(apr.address) ? "NULL" : `'${apr.address}'`
         const transactionString = isNull(apr.transactionTime) ? "NULL" : `'${apr.transactionTime}'`
         const completionString = isNull(apr.completionTime) ? "NULL" : `'${apr.completionTime}'`
-        insertString = `INSERT INTO deal ("aprId", "address", "transactionTime", "completionTime", floor, "hasElevator", "hasCommittee", "hasCompartment", "buildingTransferArea", price, "unitPrice", "parkingSpaceTransferArea", "parkingSpacePrice", "landTransferArea", "roomNumber", "hallNumber", "bathNumber", "buildingArea", "subBuildingArea", "belconyArea", "landAmount", "buildingAmount", "parkAmount", "urbanLandUse", "nonUrbanLandUse", "nonUrbanLandUsePlanning", "buildingType", "parkingSpaceType", "priceWithoutParking", coordinate) VALUES ('${apr.id}', ${addressString} , ${transactionString}, ${completionString}, ${apr.floor}, ${apr.hasElevator}, ${apr.hasCommittee}, ${apr.hasCompartment}, ${apr.buildingTransferArea}, ${apr.price}, ${apr.unitPrice}, ${apr.parkingSpaceTransferArea}, ${apr.parkingSpacePrice}, ${apr.landTransferArea}, ${apr.roomNumber}, ${apr.hallNumber}, ${apr.bathNumber}, ${apr.buildingArea}, ${apr.subBuildingArea}, ${apr.belconyArea}, ${apr.landAmount}, ${apr.buildingAmount}, ${apr.parkAmount}, ${apr.urbanLandUse}, ${apr.nonUrbanLandUse}, ${apr.nonUrbanLandUsePlanning}, ${apr.buildingType}, ${apr.parkingSpaceType}, ${apr.priceWithoutParking}, 'SRID=4326;POINT(${apr.coordinate_x} ${apr.coordinate_y})');`
+
+        const urbanLandUseString = apr.urbanLandUse === 'NULL' ? "NULL" : `'${apr.urbanLandUse}'`
+        const nonUrbanLandUseString = apr.nonUrbanLandUse === 'NULL' ? "NULL" : `'${apr.nonUrbanLandUse}'`
+        const nonUrbanLandUsePlanningString = apr.nonUrbanLandUsePlanning === 'NULL' ? "NULL" : `'${apr.nonUrbanLandUsePlanning}'`
+        const usageString = apr.usage === 'NULL' ? "NULL" : `'${apr.usage}'`
+        const transferFloorRawString = apr.transferFloorRaw === 'NULL' ? "NULL" : `'${apr.transferFloorRaw}'`
+
+        insertString = `INSERT INTO deal ("aprId", "address", "transactionTime", "completionTime", floor, "hasElevator", "hasCommittee", "hasCompartment", "buildingTransferArea", price, "unitPrice", "parkingSpaceTransferArea", "parkingSpacePrice", "landTransferArea", "roomNumber", "hallNumber", "bathNumber", "buildingArea", "subBuildingArea", "belconyArea", "landAmount", "buildingAmount", "parkAmount", "urbanLandUse", "nonUrbanLandUse", "nonUrbanLandUsePlanning", "usage", "transferFloorRaw", "buildingType", "parkingSpaceType", "priceWithoutParking", coordinate) VALUES ('${apr.id}', ${addressString} , ${transactionString}, ${completionString}, ${apr.floor}, ${apr.hasElevator}, ${apr.hasCommittee}, ${apr.hasCompartment}, ${apr.buildingTransferArea}, ${apr.price}, ${apr.unitPrice}, ${apr.parkingSpaceTransferArea}, ${apr.parkingSpacePrice}, ${apr.landTransferArea}, ${apr.roomNumber}, ${apr.hallNumber}, ${apr.bathNumber}, ${apr.buildingArea}, ${apr.subBuildingArea}, ${apr.belconyArea}, ${apr.landAmount}, ${apr.buildingAmount}, ${apr.parkAmount}, ${urbanLandUseString}, ${nonUrbanLandUseString}, ${nonUrbanLandUsePlanningString}, ${usageString}, ${transferFloorRawString}, ${apr.buildingType}, ${apr.parkingSpaceType}, ${apr.priceWithoutParking}, 'SRID=4326;POINT(${apr.coordinate_x} ${apr.coordinate_y})');`
       }
       if (sheetType === 'land') {
         insertString = `INSERT INTO land ("aprId", "landTransferArea", "rightDenumerate", "rightNumerate", address, "landUse", "parcelNumber", "transferStatus") VALUES ('${apr.id}', ${apr.landTransferArea}, ${apr.rightDenumerate}, ${apr.rightNumerate}, '${apr.address}', '${apr.landUse}', '${apr.parcelNumber}', ${apr.transferStatus});`

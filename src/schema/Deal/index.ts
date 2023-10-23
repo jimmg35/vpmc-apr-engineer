@@ -46,7 +46,6 @@ export interface IDeal {
     transactionTime?: IParsedValue<string | undefined>
     completionTime?: IParsedValue<string | undefined>
     floor?: IParsedValue<number | undefined>
-    transferFloor?: IParsedValue<number[] | undefined>
     hasElevator?: IParsedValue<number | undefined>
     hasCommittee?: IParsedValue<number | undefined>
     hasCompartment?: IParsedValue<number | undefined>
@@ -66,9 +65,12 @@ export interface IDeal {
     landAmount?: IParsedValue<number | undefined>
     buildingAmount?: IParsedValue<number | undefined>
     parkAmount?: IParsedValue<number | undefined>
-    urbanLandUse?: IParsedValue<number | undefined>
-    nonUrbanLandUse?: IParsedValue<number | undefined>
-    nonUrbanLandUsePlanning?: IParsedValue<number | undefined>
+    urbanLandUse?: IParsedValue<string | undefined>
+    nonUrbanLandUse?: IParsedValue<string | undefined>
+    nonUrbanLandUsePlanning?: IParsedValue<string | undefined>
+    usage?: IParsedValue<string | undefined>
+    transferFloorRaw?: IParsedValue<string | undefined>
+    transferFloor?: IParsedValue<number[] | undefined>
     buildingType?: IParsedValue<number | undefined>
     parkingSpaceType?: IParsedValue<number | undefined>
   }

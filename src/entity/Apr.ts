@@ -92,21 +92,39 @@ export class Deal {
     parkAmount: number
 
     @Column({
-        type: 'integer',
+        type: 'text',
         default: null,
         nullable: true
     })
-    urbanLandUse: number
+    urbanLandUse: string
 
     @Column({
-        type: 'integer',
+        type: 'text',
         default: null,
         nullable: true
     })
-    nonUrbanLandUse: number
+    nonUrbanLandUse: string
 
-    @Column({ nullable: true })
-    nonUrbanLandUsePlanning: number
+    @Column({
+        type: 'text',
+        default: null,
+        nullable: true
+    })
+    nonUrbanLandUsePlanning: string
+
+    @Column({
+        type: 'text',
+        default: null,
+        nullable: true
+    })
+    usage: string
+
+    @Column({
+        type: 'text',
+        default: null,
+        nullable: true
+    })
+    transferFloorRaw: string
 
     @Column({
         type: 'integer',
@@ -162,9 +180,11 @@ export interface IApr {
     landAmount: number
     buildingAmount: number
     parkAmount: number
-    urbanLandUse: number
-    nonUrbanLandUse: number
-    nonUrbanLandUsePlanning: number
+    urbanLandUse: string
+    nonUrbanLandUse: string
+    nonUrbanLandUsePlanning: string
+    usage: string
+    transferFloorRaw: string
     buildingType: number
     parkingSpaceType: number
     priceWithoutParking: number
