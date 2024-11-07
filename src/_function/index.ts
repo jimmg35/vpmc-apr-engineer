@@ -410,8 +410,8 @@ Object.defineProperty(Array.prototype, 'exportCsvFile', {
       delete packedRow.transferFloor
       data.push(packedRow)
     })
-    exportJsonFile(data, `${filename.split(".csv")[0]}.json`)
-    exportJsonFile(rowTransferFloors, `${filename.split(".csv")[0]}-TF.json`)
+    // exportJsonFile(data, `${filename.split(".csv")[0]}.json`)
+    // exportJsonFile(rowTransferFloors, `${filename.split(".csv")[0]}-TF.json`)
 
     exportCsvFile(data, filename)
     exportCsvFile(rowTransferFloors, `${filename.split(".csv")[0]}-TF.csv`)

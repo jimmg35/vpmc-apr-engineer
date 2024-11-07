@@ -59,7 +59,7 @@
 @REM start yarn inputLands_penghu
 @REM start yarn inputLands_pingtung
 @REM start yarn inputLands_tainan
-@REM start yarn inputLands_taipei
+@REM start yarn inputLands_tai0pei
 @REM start yarn inputLands_taitung
 @REM start yarn inputLands_yilan
 @REM start yarn inputLands_yunlin
@@ -88,7 +88,7 @@
 @REM start yarn inputDeals_yunlin
 @REM start yarn inputDeals_taoyuan
 @REM start yarn inputDeals_newtaipei
-@REM start yarn inputDeals_taichung
+start yarn inputDeals_taichung
 
 @REM start yarn inputTransferFloor_changhua
 @REM start yarn inputTransferFloor_chiayi

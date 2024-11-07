@@ -37,6 +37,7 @@ import { readCsvFileApr } from './io'
     const deals = fs.existsSync(filePath)
       ? await readCsvFileApr<IDeal>(filePath, dealLangMapping)
       : []
+
     processDeals(deals, county)
   }
 

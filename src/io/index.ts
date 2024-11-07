@@ -30,7 +30,14 @@ export const readCsvFileApr = async <T> (filePath: string, langMapping: ILangMap
       results.forEach((result: any) => {
         // console.log(result)
         let resultTranslated: any = mapKeys(result, (value, key) => {
-          return langMapping[key.trim()]
+          try {
+            return langMapping[key.trim()]
+
+          }
+          catch {
+            console.log(key.trim())
+            console.log(langMapping[key.trim()])
+          }
         })
         resultTranslated.parsedValue = {}
         resultTranslated.logicalExamine = {}
